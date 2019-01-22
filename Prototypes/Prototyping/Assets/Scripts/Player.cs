@@ -17,27 +17,27 @@ public class Player : MonoBehaviour {
 	// and set move to true so that the fixedUpdate method will move the player.
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.LeftArrow)){
-			transform.position += Vector3.left;
+			transform.position += Vector3.left/2;
 			prev = 1;
 		}
 		
 		if(Input.GetKeyDown(KeyCode.RightArrow)){
-			transform.position += Vector3.right ;
+			transform.position += Vector3.right/2;
 			prev = 2;
 		}
 		
 		if(Input.GetKeyDown(KeyCode.UpArrow)){
-			transform.position += Vector3.up;
+			transform.position += Vector3.up/2;
 			prev = 3;
 		}
 		
 		if(Input.GetKeyDown(KeyCode.DownArrow)){
-			transform.position += Vector3.down;
+			transform.position += Vector3.down/2;
 			prev = 4;
 		}
 	}
 
-	void OnTriggerEnter2D(Collision2D other){
+	void OnCollisionEnter2D(Collision2D other) {
 		if(other.gameObject.tag == "Path"){
 			if(prev == 1){
 				transform.position += Vector3.right;
