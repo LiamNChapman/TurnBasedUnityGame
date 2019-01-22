@@ -3,51 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
-	public GameObject player;
+	public static GameObject player;
+	
 	public enum TurnStates {
-		PLAYER,
 		PLAYERMOVE,
 		ENEMYMOVE
 
 	}
-	int turnCount = 0;
-	TurnStates currentState;
+	static int turnCount = 0;
+	static TurnStates currentState;
 	// Use this for initialization
 	void Start () {
-		currentState = TurnStates.PLAYER;
+		currentState = TurnStates.PLAYERMOVE;
+		player = GameObject.Find("Character");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(currentState);
-		switch(currentState) {
-			case(TurnStates.PLAYER):
-				break;
-			case(TurnStates.PLAYERMOVE):
-				nextState();
-				break;
-			case(TurnStates.ENEMYMOVE):
-				nextState();
-				break;
+		Debug.Log(currentState + " " + turnCount);
+		if(currentState == TurnStates.ENEMYMOVE) {
+			nextState();
 		}
+		
 	}
-	public void nextState() {
-		if(currentState == TurnStates.PLAYER) {
+	public static void nextState() {
+		if(currentState == TurnStates.PLAYERMOVE) {
+			currentState = TurnStates.ENEMYMOVE;
+			enemyMoveSetup();
+		} else {
 			currentState = TurnStates.PLAYERMOVE;
 			playerMoveSetup();
-		} else if(currentState == TurnStates.PLAYERMOVE) {
-			currentState = TurnStates.ENEMYMOVE;
-		} else {
-			currentState = TurnStates.PLAYER;
-			playerTurnSetup();
 		}
 		turnCount++;
 	}
 
-	void playerTurnSetup() {
+	static void playerMoveSetup() {
 		player.GetComponent<Player>().enabled = true;
 	}
-	void playerMoveSetup() {
+	static void enemyMoveSetup() {
 		player.GetComponent<Player>().enabled = false;
+	}
+
+	public TurnStates getCurrentState() {
+		return currentState;
 	}
 }

@@ -19,21 +19,25 @@ public class Player : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.LeftArrow)){
 			transform.position += Vector3.left;
 			prev = 1;
+			LevelManager.nextState();
 		}
 		
 		if(Input.GetKeyDown(KeyCode.RightArrow)){
 			transform.position += Vector3.right ;
 			prev = 2;
+			LevelManager.nextState();
 		}
 		
 		if(Input.GetKeyDown(KeyCode.UpArrow)){
 			transform.position += Vector3.up;
 			prev = 3;
+			LevelManager.nextState();
 		}
 		
 		if(Input.GetKeyDown(KeyCode.DownArrow)){
 			transform.position += Vector3.down;
 			prev = 4;
+			LevelManager.nextState();
 		}
 	}
 
