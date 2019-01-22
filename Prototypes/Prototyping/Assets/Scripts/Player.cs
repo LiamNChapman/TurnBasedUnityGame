@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collision2D other){
+	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "Path"){
 			if(prev == 1){
 				transform.position += Vector3.right;

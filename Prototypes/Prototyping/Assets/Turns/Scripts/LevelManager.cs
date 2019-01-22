@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
-
+	public GameObject player;
 	public enum TurnStates {
 		PLAYER,
 		PLAYERMOVE,
 		ENEMYMOVE
 
 	}
-	
+	int turnCount = 0;
 	TurnStates currentState;
 	// Use this for initialization
 	void Start () {
@@ -41,12 +41,13 @@ public class LevelManager : MonoBehaviour {
 			currentState = TurnStates.PLAYER;
 			playerTurnSetup();
 		}
+		turnCount++;
 	}
 
 	void playerTurnSetup() {
-		
+		player.GetComponent<Player>().enabled = true;
 	}
 	void playerMoveSetup() {
-		
+		player.GetComponent<Player>().enabled = false;
 	}
 }
