@@ -38,10 +38,10 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	static void playerMoveSetup() {
-		player.GetComponent<Player>().enabled = true;
+		player.GetComponent<PlayerCopy>().enabled = true;
 	}
 	static void enemyMoveSetup() {
-		player.GetComponent<Player>().enabled = false;
+		player.GetComponent<PlayerCopy>().enabled = false;
 	}
 
 	public TurnStates getCurrentState() {
