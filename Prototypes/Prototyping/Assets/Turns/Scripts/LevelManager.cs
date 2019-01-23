@@ -14,8 +14,8 @@ public class LevelManager : MonoBehaviour {
 	static TurnStates currentState;
 	// Use this for initialization
 	void Start () {
-		//currentState = TurnStates.PLAYERMOVE;
-		//player = GameObject.Find("Character");
+		currentState = TurnStates.PLAYERMOVE;
+		player = GameObject.Find("Player");
 	}
 	
 	// Update is called once per frame
@@ -29,20 +29,20 @@ public class LevelManager : MonoBehaviour {
 	public static void nextState() {
 		if(currentState == TurnStates.PLAYERMOVE) {
 			currentState = TurnStates.ENEMYMOVE;
-			//enemyMoveSetup();
+			enemyMoveSetup();
 		} else {
 			currentState = TurnStates.PLAYERMOVE;
-			//playerMoveSetup();
+			playerMoveSetup();
 		}
 		turnCount++;
 	}
 
-	//static void playerMoveSetup() {
-		//player.GetComponent<Player>().enabled = true;
-	//}
-	//static void enemyMoveSetup() {
-		//player.GetComponent<Player>().enabled = false;
-	//}
+	static void playerMoveSetup() {
+		player.GetComponent<Player>().enabled = true;
+	}
+	static void enemyMoveSetup() {
+		player.GetComponent<Player>().enabled = false;
+	}
 
 	public TurnStates getCurrentState() {
 		return currentState;
