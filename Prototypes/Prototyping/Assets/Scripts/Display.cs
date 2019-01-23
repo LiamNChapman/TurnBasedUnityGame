@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelMaster : MonoBehaviour {
+public class Display : MonoBehaviour {
 
 	// HUD
     void OnGUI() {

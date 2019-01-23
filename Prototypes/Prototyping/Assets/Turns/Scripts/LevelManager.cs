@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currentState = TurnStates.PLAYERMOVE;
-		player = GameObject.Find("Character");
+		player = GameObject.Find("Player");
 	}
 	
 	// Update is called once per frame
@@ -38,10 +38,10 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	static void playerMoveSetup() {
-		player.GetComponent<PlayerCopy>().enabled = true;
+		player.GetComponent<Player>().enabled = true;
 	}
 	static void enemyMoveSetup() {
-		player.GetComponent<PlayerCopy>().enabled = false;
+		player.GetComponent<Player>().enabled = false;
 	}
 
 	public TurnStates getCurrentState() {
