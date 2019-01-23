@@ -715,7 +715,7 @@ GameObject:
   - component: {fileID: 1060568502}
   - component: {fileID: 1060568504}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -788,11 +788,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1060568501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9199ced668de4957b4f0d66d774c9ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d7d726b6d87d4d47b85bbaa1eaf740d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitPath: 0
   prev: 0
-  speed: 1
 --- !u!1 &1263021237
 GameObject:
   m_ObjectHideFlags: 0
