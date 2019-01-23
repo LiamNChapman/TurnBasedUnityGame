@@ -5,19 +5,21 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour {
 	public static GameObject player;
 	
+	//Made this public so the enemy scripts could access
 	public enum TurnStates {
 		PLAYERMOVE,
 		ENEMYMOVE
 
 	}
 	static int turnCount = 0;
-	static TurnStates currentState;
+	public static TurnStates currentState;
 	// Use this for initialization
 	void Start () {
 		currentState = TurnStates.PLAYERMOVE;
 		player = GameObject.Find("Player");
 	}
 	
+	//Switch move states if the object in question is in a different space than they were?
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log(currentState + " " + turnCount);

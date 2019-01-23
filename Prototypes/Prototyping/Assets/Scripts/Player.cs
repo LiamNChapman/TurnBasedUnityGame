@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -60,5 +61,14 @@ public class Player : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other){
 		exitPath = false;
 	}
+
+	// When player collides with an object that is not a trigger 
+    void OnCollisionEnter2D(Collision2D other) {
+        // If the player has collided with an enemy
+        if (other.gameObject.tag == "Enemy") {
+            // Reload the prototype
+            SceneManager.LoadScene("GridMovement");
+        }
+    }
 
 }
