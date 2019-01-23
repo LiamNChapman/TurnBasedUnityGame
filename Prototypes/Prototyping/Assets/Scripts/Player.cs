@@ -15,8 +15,7 @@ public class Player : MonoBehaviour {
 	public int prev;
 	
 	//Update is called once per frame
-	//If one of the four directional buttons pushed, determine which one, set the movePosition,
-	// and set move to true so that the fixedUpdate method will move the player.
+	
 	void FixedUpdate () {
 		if(Input.GetKeyDown(KeyCode.A)){
 			transform.position += Vector3.left;
@@ -24,6 +23,7 @@ public class Player : MonoBehaviour {
 
 			//We may want to only change state if we're sure the player is in a different place 
 			//As in it depends on how we handle collsions with the path collider
+
 			LevelManager.nextState();
 		}else if(Input.GetKeyDown(KeyCode.D)){
 			transform.position += Vector3.right;
@@ -39,6 +39,7 @@ public class Player : MonoBehaviour {
 			LevelManager.nextState();
 		}
 
+		//If the player leaves the path, determine where they were and put them back
 		if(exitPath){
 			if(prev == 1){
 				transform.position += Vector3.right;
