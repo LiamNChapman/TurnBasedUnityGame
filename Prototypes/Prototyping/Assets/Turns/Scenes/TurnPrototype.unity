@@ -982,6 +982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1718232832}
   - component: {fileID: 1718232833}
+  - component: {fileID: 1718232834}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1013,3 +1014,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde774dba71e14741b4b1a07c1032ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1718232834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1718232831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b019e40771b40cba3ec835007c899e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 1681781248}
