@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour {
+public class TurnManager : MonoBehaviour {
 	public static GameObject player;
 	public static GameObject enemy;
 	

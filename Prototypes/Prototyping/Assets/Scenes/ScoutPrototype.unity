@@ -929,6 +929,7 @@ GameObject:
   - component: {fileID: 635265281}
   - component: {fileID: 635265284}
   - component: {fileID: 635265283}
+  - component: {fileID: 635265285}
   m_Layer: 0
   m_Name: Scout
   m_TagString: Enemy
@@ -1040,6 +1041,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47771716, y: 0.7095588}
   m_EdgeRadius: 0
+--- !u!114 &635265285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 635265280}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140310e2b86b24c68b4972bea166b916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vertical: 1
+  direction: 1
 --- !u!1 &785445610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1256,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1487464548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dde774dba71e14741b4b1a07c1032ea1, type: 3}
+  m_Script: {fileID: 11500000, guid: 8443e2303515e4c5fb211945ce669f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1487464550

@@ -25,19 +25,19 @@ public class Player : MonoBehaviour {
 			//We may want to only change state if we're sure the player is in a different place 
 			//As in it depends on how we handle collsions with the path collider
 
-			LevelManager.nextState();
+			TurnManager.nextState();
 		}else if(Input.GetKeyDown(KeyCode.D)){
 			transform.position += Vector3.right;
 			prev = 2;
-			LevelManager.nextState();
+			TurnManager.nextState();
 		}else if(Input.GetKeyDown(KeyCode.W)){
 			transform.position += Vector3.up;
 			prev = 3;
-			LevelManager.nextState();
+			TurnManager.nextState();
 		}else if(Input.GetKeyDown(KeyCode.S)){
 			transform.position += Vector3.down;
 			prev = 4;
-			LevelManager.nextState();
+			TurnManager.nextState();
 		}
 
 		//If the player leaves the path, determine where they were and put them back

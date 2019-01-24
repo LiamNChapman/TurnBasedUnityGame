@@ -18,12 +18,13 @@ public class Scout : MonoBehaviour {
 
 	// Only move if it is the enemy turn state
 	void Update () {
-		if(LevelManager.currentState == LevelManager.TurnStates.ENEMYMOVE){
-			this.move();
-		}
+		//if(LevelManager.currentState == LevelManager.TurnStates.ENEMYMOVE){
+		Move();
+		TurnManager.nextState();
+		//}
 	}
 
-	void move(){
+	public void Move(){
 		//Scout movement can be set using the 'vertical' boolean 
 		if(vertical){
 			//If the sprite is moving upwards
@@ -51,11 +52,11 @@ public class Scout : MonoBehaviour {
 				//Set it to move downwards
 				direction = 0;
 				//Move down one space
-				this.move();
+				this.Move();
 			}else{
 				this.transform.position += Vector3.up;
 				direction = 1;
-				this.move();
+				this.Move();
 			}
 		}else{
 			//If the sprite exited on the right of a path
@@ -65,11 +66,11 @@ public class Scout : MonoBehaviour {
 				//Set to move left
 				direction = 0;
 				//Move
-				this.move();
+				this.Move();
 			}else{
 				this.transform.position += Vector3.right;
 				direction = 1;
-				this.move();
+				this.Move();
 			}
 		}
 	}
