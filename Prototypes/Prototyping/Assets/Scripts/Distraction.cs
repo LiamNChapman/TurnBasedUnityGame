@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Disctraction : MonoBehaviour {
+public class Distraction : MonoBehaviour {
 
 	public Grid grid;
 	public Tilemap tilemap;
@@ -16,9 +16,13 @@ public class Disctraction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Space)){
-			Debug.Log("reeee");
+		if(Input.GetKeyDown(KeyCode.D)){
+			Debug.Log("Distraction active");
 			inUse = true;
+		}
+		if(inUse && Input.GetKeyDown(KeyCode.Escape)){
+			Debug.Log("Cancel Distraction");
+			inUse = false;
 		}
 			if(inUse && Input.GetMouseButtonDown(0)) {
 				//get the coordinates from the mouse click.
@@ -27,7 +31,7 @@ public class Disctraction : MonoBehaviour {
 
 				// Check if the tile isn't a path.
 				if(tilemap.GetTile(coordinate).name != "NonPath" ){
-					Debug.Log("weeeee");
+					Debug.Log("Heeeeads!");
 					inUse = false;
 				}
 			}
