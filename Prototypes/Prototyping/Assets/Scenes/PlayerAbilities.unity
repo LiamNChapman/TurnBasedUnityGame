@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 584889405}
   - component: {fileID: 584889404}
+  - component: {fileID: 584889407}
   - component: {fileID: 584889406}
   m_Layer: 0
   m_Name: PlayerBaker
@@ -198,6 +199,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d91eeefcda3e24e4aa174dbc8bb63259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 1143621780}
+  tilemap: {fileID: 729628556}
+--- !u!114 &584889407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 584889403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737ad05b339ec4823a37151a0b70269d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 1143621780}
@@ -2202,7 +2216,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
