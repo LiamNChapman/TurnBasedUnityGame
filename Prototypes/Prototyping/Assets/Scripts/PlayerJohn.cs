@@ -48,7 +48,7 @@ public class PlayerJohn : MonoBehaviour
             prev = 4;
             TurnManagerLOS.nextState();
         }
-
+        /*
         //If the player leaves the path, determine where they were and put them back
         if (exitPath)
         {
@@ -68,7 +68,7 @@ public class PlayerJohn : MonoBehaviour
             {
                 transform.position += Vector3.up;
             }
-        }
+        }*/
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -76,10 +76,6 @@ public class PlayerJohn : MonoBehaviour
         exitPath = true;
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        exitPath = false;
-    }
 
     // When player collides with an object that is not a trigger 
     void OnCollisionEnter2D(Collision2D other)
