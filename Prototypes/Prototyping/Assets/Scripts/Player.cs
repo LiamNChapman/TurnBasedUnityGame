@@ -67,7 +67,7 @@ public class Player : MonoBehaviour {
         // If the player has collided with an enemy
         if (other.gameObject.tag == "Enemy") {
             // Reload the prototype
-            SceneManager.LoadScene("GridMovement");
+            SceneManager.LoadScene("ScoutPrototype");
         }
     }
 
