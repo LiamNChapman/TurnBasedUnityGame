@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/UIScenes/UI.unity
     guid: 5a1053b0d6c7948baa5e82f62fcbb938
   - enabled: 1
-    path: Assets/Scenes/GridMovement.unity
+    path: Assets/Scenes/ScoutPrototype.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Turns/Scenes/TurnPrototype.unity
+    guid: 2879562678c604526ab989aacde0fc64
   m_configObjects: {}
