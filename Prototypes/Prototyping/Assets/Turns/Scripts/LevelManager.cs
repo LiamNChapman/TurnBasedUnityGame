@@ -18,16 +18,16 @@ public class LevelManager : MonoBehaviour {
 	void Start () {
 		currentState = TurnStates.PLAYERMOVE;
 		player = GameObject.Find("Player");
-		enemy = GameObject.Find("Scout");
 	}
 	
 	//Switch move states if the object in question is in a different space than they were?
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(currentState + " " + turnCount);
-		//if(currentState == TurnStates.ENEMYMOVE) {
-			//nextState();
-		//}
+		Debug.Log(currentState + " " + turnCount + "(Enemy moves are being counted but skips on update in this prototype)");
+		if(currentState == TurnStates.ENEMYMOVE) {
+			nextState();
+		}
+	
 		
 	}
 	public static void nextState() {
@@ -37,17 +37,16 @@ public class LevelManager : MonoBehaviour {
 		} else {
 			currentState = TurnStates.PLAYERMOVE;
 			playerMoveSetup();
+			turnCount++;
 		}
-		turnCount++;
+		
 	}
 
 	static void playerMoveSetup() {
-		player.GetComponent<Player>().enabled = true;
-		enemy.GetComponent<Scout>().enabled = false;
+		player.GetComponent<PlayerCopy>().enabled = true;
 	}
 	static void enemyMoveSetup() {
-		player.GetComponent<Player>().enabled = false;
-		enemy.GetComponent<Scout>().enabled = true;
+		player.GetComponent<PlayerCopy>().enabled = false;
 	}
 
 	public TurnStates getCurrentState() {
