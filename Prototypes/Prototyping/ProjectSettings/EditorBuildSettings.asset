@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BezerkerPrototype.unity
     guid: 69175a60f84ad402f97602c05073a5f9
+  - enabled: 1
+    path: Assets/Scenes/PlayerAbilities.unity
+    guid: 788f3ff03bd2f4cbeb67b2a188f7d58e
   m_configObjects: {}
