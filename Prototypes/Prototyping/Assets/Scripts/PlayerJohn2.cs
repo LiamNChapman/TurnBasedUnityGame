@@ -85,6 +85,9 @@ public class PlayerJohn2 : MonoBehaviour
         {
             // Reload the prototype
             SceneManager.LoadScene("EnemyLOS");
+        } else {
+            GameObject bezerker = GameObject.Find("Bezerker");
+            bezerker.GetComponent<Bezerker>.Charging();
         }
     }
 

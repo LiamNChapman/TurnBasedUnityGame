@@ -70,12 +70,12 @@ public class PlayerJohn : MonoBehaviour
             }
         }*/
     }
-
+    /*
     void OnTriggerEnter2D(Collider2D other)
     {
         exitPath = true;
     }
-
+*/
 
     // When player collides with an object that is not a trigger 
     void OnCollisionEnter2D(Collision2D other)
@@ -84,7 +84,7 @@ public class PlayerJohn : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             // Reload the prototype
-            SceneManager.LoadScene("EnemyLOS");
+            SceneManager.LoadScene("RangerPrototype");
         }
     }
 

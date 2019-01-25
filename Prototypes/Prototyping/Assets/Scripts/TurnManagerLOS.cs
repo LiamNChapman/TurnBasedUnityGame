@@ -7,6 +7,8 @@ public class TurnManagerLOS : MonoBehaviour
     public static GameObject player;
     public static GameObject enemy;
 
+    public bool enemySeen;
+
     //Made this public so the enemy scripts could access
     public enum TurnStates
     {
