@@ -1,27 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bezerker : MonoBehaviour
-{
-    public bool angry = true;
-    public bool charging = true;
+public class Bezerker : MonoBehaviour {
+    public bool charging = false;
+    public bool ready= false;
 
+    void Update() {
+        if (TurnManagerBez.currentState == TurnManagerBez.TurnStates.ENEMYMOVE) {
 
-    void Update()
-    {
-        if (TurnManagerBez.currentState == TurnManagerBez.TurnStates.ENEMYMOVE)
-        {
-
-            /*if(angry){
-                charging = true;
-                angry = false;
-            } else*/ if(charging){
+            if(charging){
+                ready = true;
+                charging = false;
+            }else if(ready){
                 this.transform.Translate(new Vector3(-4, 0, 0));
                 this.transform.Rotate(0, 0, 180);
-                charging = false;
+                ready = false;
             }
             TurnManagerBez.nextState();
         }
 
+    }
+
+    public void Charging(){
+        charging = true;
+        
     }
 }

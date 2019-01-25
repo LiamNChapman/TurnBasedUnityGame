@@ -9,14 +9,18 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 
-public class PlayerJohn2 : MonoBehaviour
-{
+public class PlayerJohn2 : MonoBehaviour {
+
+    public static GameObject enemy;
 
     public bool exitPath = false;
 
     public int prev;
 
     //Update is called once per frame
+    void Start(){
+        enemy = GameObject.Find("Bezerker");
+    }
 
     void FixedUpdate()
     {
@@ -80,12 +84,13 @@ public class PlayerJohn2 : MonoBehaviour
     // When player collides with an object that is not a trigger 
     void OnCollisionEnter2D(Collision2D other)
     {
-        // If the player has collided with an enemy
-        if (other.gameObject.tag == "Enemy")
-        {
-            // Reload the prototype
-            SceneManager.LoadScene("EnemyLOS");
-        }
+        // Reload the prototype
+        SceneManager.LoadScene("BezerkerPrototype");
+      
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+        enemy.GetComponent<Bezerker>().Charging();
     }
 
 }
