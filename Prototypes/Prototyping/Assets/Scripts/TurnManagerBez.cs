@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnManagerLOS : MonoBehaviour
+public class TurnManagerBez : MonoBehaviour
 {
     public static GameObject player;
     public static GameObject enemy;
-
-    public bool enemySeen;
 
     //Made this public so the enemy scripts could access
     public enum TurnStates
@@ -23,7 +21,7 @@ public class TurnManagerLOS : MonoBehaviour
     {
         currentState = TurnStates.PLAYERMOVE;
         player = GameObject.Find("Player");
-        enemy = GameObject.Find("Ranger");
+        enemy = GameObject.Find("Bezerker");
     }
 
     //Switch move states if the object in question is in a different space than they were?
@@ -53,13 +51,13 @@ public class TurnManagerLOS : MonoBehaviour
 
     static void playerMoveSetup()
     {
-        player.GetComponent<PlayerJohn>().enabled = true;
-        enemy.GetComponent<Ranger>().enabled = false;
+        player.GetComponent<PlayerJohn2>().enabled = true;
+        enemy.GetComponent<Bezerker>().enabled = false;
     }
     static void enemyMoveSetup()
     {
-        player.GetComponent<PlayerJohn>().enabled = false;
-        enemy.GetComponent<Ranger>().enabled = true;
+        player.GetComponent<PlayerJohn2>().enabled = false;
+        enemy.GetComponent<Bezerker>().enabled = true;
     }
 
     public TurnStates getCurrentState()

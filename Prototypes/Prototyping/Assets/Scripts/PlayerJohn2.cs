@@ -9,14 +9,18 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 
-public class PlayerJohn : MonoBehaviour
-{
+public class PlayerJohn2 : MonoBehaviour {
+
+    public static GameObject enemy;
 
     public bool exitPath = false;
 
     public int prev;
 
     //Update is called once per frame
+    void Start(){
+        enemy = GameObject.Find("Bezerker");
+    }
 
     void FixedUpdate()
     {
@@ -28,25 +32,25 @@ public class PlayerJohn : MonoBehaviour
             //We may want to only change state if we're sure the player is in a different place 
             //As in it depends on how we handle collsions with the path collider
 
-            TurnManagerLOS.nextState();
+            TurnManagerBez.nextState();
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
             transform.position += Vector3.right;
             prev = 2;
-            TurnManagerLOS.nextState();
+            TurnManagerBez.nextState();
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
             transform.position += Vector3.up;
             prev = 3;
-            TurnManagerLOS.nextState();
+            TurnManagerBez.nextState();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             transform.position += Vector3.down;
             prev = 4;
-            TurnManagerLOS.nextState();
+            TurnManagerBez.nextState();
         }
         /*
         //If the player leaves the path, determine where they were and put them back
@@ -80,12 +84,13 @@ public class PlayerJohn : MonoBehaviour
     // When player collides with an object that is not a trigger 
     void OnCollisionEnter2D(Collision2D other)
     {
-        // If the player has collided with an enemy
-        if (other.gameObject.tag == "Enemy")
-        {
-            // Reload the prototype
-            SceneManager.LoadScene("RangerPrototype");
-        }
+        // Reload the prototype
+        SceneManager.LoadScene("BezerkerPrototype");
+      
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+        enemy.GetComponent<Bezerker>().Charging();
     }
 
 }
