@@ -1,14 +1,16 @@
 ﻿<Properties StartupConfiguration="{B537D81D-F4AA-CC77-54A8-8B757A7991DC}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../home/cshome/j/jmcwatters/Documents/:scratch:jmcwatters:Desserted:Prototypes:Prototyping:Assets:Scripts:LineOfSight.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerJohn2.cs">
     <Files>
-      <File FileName="Assets/Scripts/Ranger.cs" Line="21" Column="14" />
+      <File FileName="Assets/Scripts/Ranger.cs" Line="18" Column="13" />
       <File FileName="Assets/Scripts/Scout.cs" Line="48" Column="34" />
-      <File FileName="Assets/Scripts/TurnManagerLOS.cs" Line="68" Column="1" />
+      <File FileName="Assets/Scripts/TurnManagerLOS.cs" Line="59" Column="1" />
       <File FileName="Assets/Scripts/ClickToMove.cs" Line="34" Column="87" />
-      <File FileName="Assets/Scripts/PlayerJohn.cs" Line="10" Column="1" />
-      <File FileName="Assets/Scripts/Bezerker.cs" Line="15" Column="30" />
-      <File FileName="../../../../../home/cshome/j/jmcwatters/Documents/:scratch:jmcwatters:Desserted:Prototypes:Prototyping:Assets:Scripts:LineOfSight.cs" Line="13" Column="6" />
+      <File FileName="Assets/Scripts/PlayerJohn.cs" Line="92" Column="1" />
+      <File FileName="Assets/Scripts/Bezerker.cs" Line="15" Column="25" />
+      <File FileName="Assets/Scripts/LineOfSight.cs" Line="9" Column="5" />
+      <File FileName="Assets/Scripts/TurnManagerBez.cs" Line="7" Column="26" />
+      <File FileName="Assets/Scripts/PlayerJohn2.cs" Line="43" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

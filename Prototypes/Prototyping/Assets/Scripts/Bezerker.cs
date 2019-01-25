@@ -3,15 +3,25 @@ using System.Collections;
 
 public class Bezerker : MonoBehaviour
 {
+    public bool angry = true;
+    public bool charging = true;
 
-    public bool angry = false;
-    // Update is called once per frame
+
     void Update()
     {
-        if (TurnManagerLOS.currentState == TurnManagerLOS.TurnStates.ENEMYMOVE)
+        if (TurnManagerBez.currentState == TurnManagerBez.TurnStates.ENEMYMOVE)
         {
 
-            TurnManagerLOS.nextState();
+            /*if(angry){
+                charging = true;
+                angry = false;
+            } else*/ if(charging){
+                this.transform.Translate(new Vector3(-4, 0, 0));
+                this.transform.Rotate(0, 0, 180);
+                charging = false;
+            }
+            TurnManagerBez.nextState();
         }
+
     }
 }
