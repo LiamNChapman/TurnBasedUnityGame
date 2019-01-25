@@ -123,7 +123,6 @@ GameObject:
   - component: {fileID: 69176031}
   - component: {fileID: 69176035}
   - component: {fileID: 69176034}
-  - component: {fileID: 69176033}
   m_Layer: 0
   m_Name: LOS
   m_TagString: LOS
@@ -144,26 +143,6 @@ Transform:
   m_Father: {fileID: 681374422}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &69176033
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 69176030}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &69176034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -366,8 +345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fbdc6492dbe4437b0bdc9b4924761b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angry: 0
   charging: 0
+  ready: 0
 --- !u!212 &681374421
 SpriteRenderer:
   m_ObjectHideFlags: 0
