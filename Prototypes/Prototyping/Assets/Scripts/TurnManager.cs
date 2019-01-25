@@ -42,11 +42,21 @@ public class TurnManager : MonoBehaviour {
 	}
 
 	static void playerMoveSetup() {
+		if(player.GetComponent<ClickToMove>() != null){
+			player.GetComponent<ClickToMove>().enabled = true;
+		}
+		else{
 		player.GetComponent<Player>().enabled = true;
+		}
 		enemy.GetComponent<Scout>().enabled = false;
 	}
 	static void enemyMoveSetup() {
+		if(player.GetComponent<ClickToMove>() != null){
+			player.GetComponent<ClickToMove>().enabled = false;
+		}
+		else{
 		player.GetComponent<Player>().enabled = false;
+		}
 		enemy.GetComponent<Scout>().enabled = true;
 	}
 

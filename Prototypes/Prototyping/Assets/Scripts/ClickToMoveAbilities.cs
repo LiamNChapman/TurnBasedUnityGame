@@ -11,7 +11,7 @@ using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using System;
 
-public class ClickToMove : MonoBehaviour {
+public class ClickToMoveAbilities : MonoBehaviour {
 
 	public Grid grid;
 	public Tilemap tilemap;
@@ -48,8 +48,33 @@ public class ClickToMove : MonoBehaviour {
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
 					this.transform.position = newPosition;
+					TurnManagerAbilities.nextState();
 				}
 			}
 		}
 	}
+
+	// When player collides with an object that is not a trigger 
+    void OnCollisionEnter2D(Collision2D other) {
+        // If the player has collided with an enemy
+        if (other.gameObject.tag == "Enemy") {
+			if(gameObject.GetComponent<Stun>().inUse){
+				Debug.Log("Going to stun");
+				other.gameObject.GetComponent<ScoutStunned>().isStunned = true;
+				if(other.gameObject.GetComponent<ScoutStunned>().isStunned){
+					Debug.Log("True");
+				}
+				other.gameObject.GetComponent<ScoutStunned>().stunLeft = 3;
+				if(other.gameObject.GetComponent<ScoutStunned>().stunLeft == 2){
+					Debug.Log("stunLeft = 1");
+				}
+				other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+			}else{
+
+			
+            // Reload the prototype
+            SceneManager.LoadScene("PlayerAbilities");
+			}
+        }
+    }
 }

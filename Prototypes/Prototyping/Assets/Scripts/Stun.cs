@@ -8,7 +8,7 @@ public class Stun : MonoBehaviour {
 
 	public Grid grid;
 	public Tilemap tilemap;
-	bool inUse = false;
+	public bool inUse = false;
 
 	// Use this for initialization
 	void Start () {
