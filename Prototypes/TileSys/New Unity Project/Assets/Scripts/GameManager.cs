@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         player = GameObject.Find("Player");
         playerTurn = true;
-        //Turn();
+        Turn();
     }
 
     void Update()
@@ -31,12 +31,19 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    /*
+
     void Turn () {
         if (playerTurn){
-
+            player.GetComponent<ClickToMove>().Movement(playerTurn);
+            playerTurn = false;
+        } else {
+            playerTurn = true;
+            foreach (GameObject go in enemies)
+            {
+                go.GetComponent<ClickToMove>().Movement(playerTurn);
+            }
         }
-    }*/
+    }
 }
 
 
