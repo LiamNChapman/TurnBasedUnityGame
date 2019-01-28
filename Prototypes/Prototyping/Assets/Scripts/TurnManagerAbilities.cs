@@ -24,7 +24,7 @@ public class TurnManagerAbilities : MonoBehaviour {
 	//Switch move states if the object in question is in a different space than they were?
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(currentState + " " + turnCount);
+		//Debug.Log(currentState + " " + turnCount);
 		//if(currentState == TurnStates.ENEMYMOVE) {
 			//nextState();
 		//}

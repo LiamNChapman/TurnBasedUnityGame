@@ -7,7 +7,7 @@ public class Distraction : MonoBehaviour {
 
 	public Grid grid;
 	public Tilemap tilemap;
-	bool inUse = false;
+	public bool inUse = false;
 
 	// Use this for initialization
 	void Start () {
@@ -16,10 +16,7 @@ public class Distraction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.D)){
-			Debug.Log("Distraction active");
-			inUse = true;
-		}
+
 		if(inUse && Input.GetKeyDown(KeyCode.Escape)){
 			Debug.Log("Cancel Distraction");
 			inUse = false;
@@ -33,7 +30,11 @@ public class Distraction : MonoBehaviour {
 				if(tilemap.GetTile(coordinate).name != "NonPath" ){
 					Debug.Log("Heeeeads!");
 					inUse = false;
+					TurnManagerAbilities.nextState();
+					gameObject.GetComponent<ClickToMoveAbilities>().canMove = true;
 				}
 			}
 	}
+
+	
 }

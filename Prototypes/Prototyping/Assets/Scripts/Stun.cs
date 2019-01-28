@@ -17,10 +17,7 @@ public class Stun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.S)){
-			Debug.Log("Stun active");
-			inUse = true;
-		}
+		
 		if(inUse && Input.GetKeyDown(KeyCode.Escape)){
 			Debug.Log("Cancel Stun");
 			inUse = false;
@@ -50,10 +47,24 @@ public class Stun : MonoBehaviour {
 						this.transform.position = newPosition;
 
 						Debug.Log("Booooom stunned");
+						//inUse = false;
+						TurnManagerAbilities.nextState();
+						gameObject.GetComponent<ClickToMoveAbilities>().canMove = true;
 						inUse = false;
 					}
 					
 				}
 			}
 	}
+/*
+		// When player collides with an object that is not a trigger 
+    void OnCollisionEnter2D(Collision2D other) {
+        // If the player has collided with an enemy
+        if (other.gameObject.tag == "Enemy") {
+			other.gameObject.GetComponent<ScoutStunned>().isStunned = true;
+			other.gameObject.GetComponent<ScoutStunned>().stunLeft = 3;
+			other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+		}
+	}
+	*/
 }
