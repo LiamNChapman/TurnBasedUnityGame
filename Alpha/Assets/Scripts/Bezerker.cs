@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class Bezerker : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class Bezerker : MonoBehaviour {
 	int tillCharge = 0;
 	float speed = 10.0f;
 	Vector3 destination;
+	int chargeDelay = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -40,19 +42,24 @@ public class Bezerker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!enraged){
-			checkLOS();
-		}
-		if(enraged && tillCharge == 0){
-			attack();
-		}
-		if(transform.position == destination){
-			Debug.Log("weeeeeeeee");
-			endTurn();
-		}
-		if(!enraged || tillCharge == 1){
-			Debug.Log("jsdhdjzlngg");
-			tillCharge = 0;
+		if(chargeDelay != 1){
+			if(!enraged){
+				checkLOS();
+			}
+			if(enraged && tillCharge == 0){
+				attack();
+			}
+			if(transform.position == destination){
+				Debug.Log("weeeeeeeee");
+				endTurn();
+			}
+		
+			if(!enraged || tillCharge == 1){
+				tillCharge = 0;
+				TurnManager.enemyMoves--;
+			}
+		} else {
+			chargeDelay = 0;
 			TurnManager.enemyMoves--;
 		}
 	}
@@ -71,13 +78,18 @@ public class Bezerker : MonoBehaviour {
 	}
 
 	void attack(){
-			Debug.Log("HERE I COOOME!");
 			float step = speed * Time.deltaTime;
 			Vector3 end = list[list.Count-1];
 			end.x += 0.5f;
 			end.y += 0.5f;
 			
 			this.transform.position = Vector3.MoveTowards(transform.position, end, step);
+			if(transform.position.x <= (TurnManager.player.transform.position.x+0.5f)&& transform.position.x >= (TurnManager.player.transform.position.x-0.5f)){
+				if(transform.position.y <= (TurnManager.player.transform.position.y+0.5f)&& transform.position.y >= (TurnManager.player.transform.position.y-0.5f)){
+					Debug.Log("Ded");
+					SceneManager.LoadScene("LiamsTest");
+				}
+			}
 			if(transform.position == destination){
 				facing = (facing + 2)%4;
 				if(facing == 0){
@@ -108,6 +120,7 @@ public class Bezerker : MonoBehaviour {
 			destination = (list[list.Count-1]);
 			destination.x += 0.5f;
 			destination.y += 0.5f;
+			chargeDelay = 1;
 		TurnManager.enemyMoves--;
 	}
 }

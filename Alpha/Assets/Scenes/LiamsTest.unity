@@ -290,7 +290,7 @@ Prefab:
     - target: {fileID: 114723549882033492, guid: 255cc3be7a24947e9875f75dfa89afd1,
         type: 2}
       propertyPath: facing
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114723549882033492, guid: 255cc3be7a24947e9875f75dfa89afd1,
         type: 2}
