@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114723549882033492}
   m_Layer: 0
   m_Name: Bezerker
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,6 +52,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b979d7d6359d24c1bb2571a9e20358a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  grid: {fileID: 0}
+  facing: 0
 --- !u!212 &212468232199926960
 SpriteRenderer:
   m_ObjectHideFlags: 1
