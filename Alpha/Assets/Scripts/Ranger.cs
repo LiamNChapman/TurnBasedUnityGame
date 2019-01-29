@@ -8,6 +8,7 @@ public class Ranger : MonoBehaviour {
 	public Tilemap tilemap;
 	public Grid grid;
 	int facing = 1;
+	public Transform cross;
 
 	void Start() {
 		Vector3 initialPos = this.transform.position;
@@ -15,6 +16,7 @@ public class Ranger : MonoBehaviour {
 		Tile tile = (Tile)tilemap.GetTile(pos);
 		while(tile.name != "NonPath") {
 			list.Add(pos);
+			//Instantiate(cross, pos, transform.rotation);
 			initialPos += Vector3.left;
 			pos = grid.WorldToCell(initialPos);
 			tile = (Tile)tilemap.GetTile(pos);
@@ -32,7 +34,7 @@ public class Ranger : MonoBehaviour {
 			hit.x += 0.5f;
 			hit.y += 0.5f;
 			if(TurnManager.player.transform.position == hit) {
-				Debug.Log("Ded");
+				TurnManager.killed();
 			}
 		}
 		facing++;
@@ -40,8 +42,13 @@ public class Ranger : MonoBehaviour {
 		Vector3 initialPos = this.transform.position;
 		Vector3Int pos = grid.WorldToCell(initialPos);
 		Tile tile = (Tile)tilemap.GetTile(pos);
+		foreach (Transform child in transform) {
+             Destroy(child.gameObject);
+        }
 		while(tile.name != "NonPath") {
 			list.Add(pos);
+			Transform x = Instantiate(cross, pos, transform.rotation);
+			x.parent = transform;
 			if(facing == 1){
 				initialPos += Vector3.left;
 			} else if(facing == 2){
