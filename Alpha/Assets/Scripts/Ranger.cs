@@ -35,6 +35,7 @@ public class Ranger : MonoBehaviour {
 			hit.y += 0.5f;
 			if(TurnManager.player.transform.position == hit) {
 				TurnManager.killed();
+				return;
 			}
 		}
 		facing++;
