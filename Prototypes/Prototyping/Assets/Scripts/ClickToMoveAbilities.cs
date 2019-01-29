@@ -15,6 +15,7 @@ public class ClickToMoveAbilities : MonoBehaviour {
 
 	public Grid grid;
 	public Tilemap tilemap;
+	public bool canMove = true;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +26,7 @@ public class ClickToMoveAbilities : MonoBehaviour {
 	void FixedUpdate () {
 		
 		
-		if(Input.GetMouseButtonDown(0)) {
+		if(canMove && Input.GetMouseButtonDown(0)) {
 			//get the coordinates from the mouse click.
 			Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         	Vector3Int coordinate = grid.WorldToCell(mouseWorldPos);
@@ -38,7 +39,7 @@ public class ClickToMoveAbilities : MonoBehaviour {
 			bool upAndDown2 = Math.Abs((this.transform.position.y-0.5f) - coordinate.y) == 0;
 
 			// Check if the tile isn't a path.
-			if(tilemap.GetTile(coordinate).name != "NonPath" ){
+			if(tilemap.GetTile(coordinate).name != "NonPath" && canMove){
 
 				//Check to make sure the player doesnt move diagonal.
 				if((upAndDown && leftAndRight2) || (leftAndRight && upAndDown2)){
@@ -48,8 +49,19 @@ public class ClickToMoveAbilities : MonoBehaviour {
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
 					this.transform.position = newPosition;
-					TurnManagerAbilities.nextState();
+					canMove = false;
 				}
+			}
+		}
+		if(!canMove){
+			if(Input.GetKeyDown(KeyCode.S)){
+				gameObject.GetComponent<Stun>().inUse = true;
+				Debug.Log("Stun Active");
+			} else if(Input.GetKeyDown(KeyCode.D)){
+				gameObject.GetComponent<Distraction>().inUse = true;
+			}else if(Input.GetKeyDown(KeyCode.Return)){
+				TurnManagerAbilities.nextState();
+				canMove = true;
 			}
 		}
 	}
@@ -59,21 +71,13 @@ public class ClickToMoveAbilities : MonoBehaviour {
         // If the player has collided with an enemy
         if (other.gameObject.tag == "Enemy") {
 			if(gameObject.GetComponent<Stun>().inUse){
-				Debug.Log("Going to stun");
-				other.gameObject.GetComponent<ScoutStunned>().isStunned = true;
-				if(other.gameObject.GetComponent<ScoutStunned>().isStunned){
-					Debug.Log("True");
-				}
-				other.gameObject.GetComponent<ScoutStunned>().stunLeft = 3;
-				if(other.gameObject.GetComponent<ScoutStunned>().stunLeft == 2){
-					Debug.Log("stunLeft = 1");
-				}
-				other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+				gameObject.GetComponent<ScoutStunned>().isStunned = true;
+				gameObject.GetComponent<ScoutStunned>().stunLeft = 3;
+				gameObject.GetComponent<BoxCollider2D>().enabled = false;
+				gameObject.GetComponent<Stun>().inUse = false;
 			}else{
-
-			
             // Reload the prototype
-            SceneManager.LoadScene("PlayerAbilities");
+            	SceneManager.LoadScene("PlayerAbilities");
 			}
         }
     }

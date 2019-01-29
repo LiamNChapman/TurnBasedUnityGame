@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ClickToMove.cs">
+    <Files>
+      <File FileName="Assets/Tilemap/GridInformation/Scripts/GridInformation.cs" Line="40" Column="10" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="38" Column="10" />
+      <File FileName="Assets/Scripts/Character.cs" Line="11" Column="12" />
+      <File FileName="../../Prototyping/Assets/Scripts/Bezerker.cs" Line="25" Column="25" />
+      <File FileName="../../Prototyping/Assets/Scripts/PlayerJohn2.cs" Line="88" Column="9" />
+      <File FileName="../../../Alpha/Assets/Scripts/TurnManager.cs" Line="34" Column="3" />
+      <File FileName="Assets/Scripts/ClickToMove.cs" Line="60" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
