@@ -74,11 +74,11 @@ public class Player : MonoBehaviour {
 								if(!enemies.GetComponent<Bezerker>().isStunned){
 									TurnManager.killed();
 								}
-							} //else if(enemies.GetComponent<Warrior>() != null) {
-								//if(!enemies.GetComponent<Warrior>().isStunned){
-								//	TurnManager.killed();
-								//}
-							//}
+							} else if(enemies.GetComponent<Warrior>() != null) {
+								if(!enemies.GetComponent<Warrior>().isStunned){
+									TurnManager.killed();
+								}
+							}
 						}
 					}
 					abilityButtons.SetActive(true);
@@ -130,10 +130,10 @@ public class Player : MonoBehaviour {
 					} else if(enemies.GetComponent<Bezerker>() != null) {
 						enemies.GetComponent<Bezerker>().isStunned = true;
 						enemies.GetComponent<Bezerker>().stunLeft = 3;
-					} //else if(enemies.GetComponent<Warrior>() != null) {
-					//	enemies.GetComponent<Warrior>().isStunned = true;
-					//	enemies.GetComponent<Warrior>().stunLeft = 3;
-					//}
+					} else if(enemies.GetComponent<Warrior>() != null) {
+						enemies.GetComponent<Warrior>().isStunned = true;
+						enemies.GetComponent<Warrior>().stunLeft = 3;
+					}
 				}
 			}
 

@@ -11,6 +11,9 @@ public class Warrior : MonoBehaviour {
 	public Tilemap tilemap;
 	public bool turn = false;
 	public Transform cross;
+
+	public bool isStunned = false;
+	public int stunLeft = 0;
 	// Use this for initialization
 	void Start () {
 		Vector3 initialPos = this.transform.position;
@@ -25,22 +28,34 @@ public class Warrior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3Int playerPos = grid.WorldToCell(TurnManager.player.transform.position);
-		if(playerPos == hitBoxes[facing-1]) {
-			Debug.Log("ded");
-			TurnManager.killed();
-		}
-		if(!turn) {
-			TurnManager.enemyMoves--;
-			turn = true;
-		}
-		if(facing != initialLOS) {
-			foreach (Transform child in transform) {
-             		Destroy(child.gameObject);
-        	}
-			Transform x = Instantiate(cross, (Vector3)hitBoxes[facing-1], transform.rotation);
-			x.parent = transform;
-			initialLOS = facing;
+		if(!isStunned){
+			Vector3Int playerPos = grid.WorldToCell(TurnManager.player.transform.position);
+			if(playerPos == hitBoxes[facing-1]) {
+				Debug.Log("ded");
+				TurnManager.killed();
+			}
+			if(!turn) {
+				TurnManager.enemyMoves--;
+				turn = true;
+			}
+			if(facing != initialLOS) {
+				foreach (Transform child in transform) {
+    	         		Destroy(child.gameObject);
+    	    	}
+				Transform x = Instantiate(cross, (Vector3)hitBoxes[facing-1], transform.rotation);
+				x.parent = transform;
+				initialLOS = facing;
+			}
+		} else {
+			
+			if(!turn) {
+				stunLeft--;
+				if(stunLeft < 1){
+					isStunned = false;
+				}
+				TurnManager.enemyMoves--;
+				turn = true;
+			}
 		}
 	}
 }
