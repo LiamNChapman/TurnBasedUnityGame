@@ -42,8 +42,6 @@ public class Player : MonoBehaviour {
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
 					this.transform.position = newPosition;
-					TurnManager.nextState();
-					//Call next state or wait for abilty to be used
 				}
 			}
 		}
