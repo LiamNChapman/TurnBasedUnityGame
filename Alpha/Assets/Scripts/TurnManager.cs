@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TurnManager : MonoBehaviour {
 
@@ -26,7 +27,7 @@ public class TurnManager : MonoBehaviour {
 	//Switch move states if the object in question is in a different space than they were?
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(currentState + " " + turnCount + " " + enemyMoves);
+		//Debug.Log(currentState + " " + turnCount + " " + enemyMoves);
 		if(enemyMoves <= 0) {
 			enemyMoves = enemies.Length;
 			nextState();
@@ -75,5 +76,8 @@ public class TurnManager : MonoBehaviour {
 
 	public TurnStates getCurrentState() {
 		return currentState;
+	}
+	public static void killed() {
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }
