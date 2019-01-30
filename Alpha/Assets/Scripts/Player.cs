@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 	public Grid grid;
 	public Tilemap tilemap;
 	public GameObject abilityButtons;
-
+	public GameObject cancelButton;
 	public bool moved = false;
 	bool stunActive = false;
 	// Use this for initialization
@@ -54,17 +54,14 @@ public class Player : MonoBehaviour {
 					this.transform.position = newPosition;
 
 					//check if the player is moving onto an enenmy
-					bool enemyThere = false;
 					foreach(GameObject enemies in TurnManager.enemies){
 						Vector3 checkPos = (Vector3)coordinate;
 						checkPos.x += 0.5f;
 						checkPos.y += 0.5f;
 						if(enemies.transform.position == checkPos){
-							enemyThere = true;
 							if(enemies.GetComponent<Scout>() != null) {
 								if(!enemies.GetComponent<Scout>().isStunned){
 									TurnManager.killed();
-									Debug.Log("fgdfgdg");
 								}
 							} else if(enemies.GetComponent<Ranger>() != null) {
 								if(!enemies.GetComponent<Ranger>().isStunned){
@@ -89,12 +86,13 @@ public class Player : MonoBehaviour {
 	}
 
 	public void distract() {
-
+		cancelButton.SetActive(true);
 		abilityButtons.SetActive(false);
 		TurnManager.nextState();
 	}
 
 	public void stun() {
+		cancelButton.SetActive(true);
 		stunActive = true;
 		abilityButtons.SetActive(false);
 		//TurnManager.nextState();
@@ -159,5 +157,10 @@ public class Player : MonoBehaviour {
 
 		abilityButtons.SetActive(false);
 		TurnManager.nextState();
+	}
+	public void cancel() {
+		stunActive = false;
+		abilityButtons.SetActive(true);
+		cancelButton.SetActive(false);
 	}
 }
