@@ -8,10 +8,13 @@ public class Bezerker : MonoBehaviour {
 	List<Vector3Int> list = new List<Vector3Int>();
 	public Tilemap tilemap;
 	public Grid grid;
-	public int facing;
+	public int facing; //1 = left, 2 = down, 3 = right, 4 = up
+
 	bool enraged = false;
 	int tillCharge = 0;
+
 	float speed = 10.0f;
+
 	Vector3 destination;
 	int chargeDelay = 0;
 
@@ -77,12 +80,14 @@ public class Bezerker : MonoBehaviour {
 	}
 
 	void attack(){
-			float step = speed * Time.deltaTime;
 			Vector3 end = list[list.Count-1];
 			end.x += 0.5f;
 			end.y += 0.5f;
 			
+			
+			float step = speed * Time.deltaTime;
 			this.transform.position = Vector3.MoveTowards(transform.position, end, step);
+			
 			if(transform.position.x <= (TurnManager.player.transform.position.x+0.5f)&& transform.position.x >= (TurnManager.player.transform.position.x-0.5f)){
 				if(transform.position.y <= (TurnManager.player.transform.position.y+0.5f)&& transform.position.y >= (TurnManager.player.transform.position.y-0.5f)){
 					Debug.Log("Ded");

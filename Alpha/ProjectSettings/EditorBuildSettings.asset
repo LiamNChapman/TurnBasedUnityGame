@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test.unity
     guid: 4ef5035fc680e41c0b8d1fbee9e7badc
+  - enabled: 1
+    path: Assets/Scenes/LiamsTest.unity
+    guid: 6f7cd8ffef93d4a75abab45c29551e90
   m_configObjects: {}
