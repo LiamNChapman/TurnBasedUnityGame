@@ -17,12 +17,14 @@ public class Ranger : MonoBehaviour {
 		Tile tile = (Tile)tilemap.GetTile(pos);
 		while(tile.name != "NonPath") {
 			list.Add(pos);
-			//Instantiate(cross, pos, transform.rotation);
+			Transform x = Instantiate(cross, pos, transform.rotation);
+			x.parent = transform;
 			initialPos += Vector3.left;
 			pos = grid.WorldToCell(initialPos);
 			tile = (Tile)tilemap.GetTile(pos);
 			Debug.Log(pos);
 		}
+		this.enabled = false;;
 	}
 
 	void Update(){
