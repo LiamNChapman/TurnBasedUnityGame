@@ -66,7 +66,6 @@ public class Ranger : MonoBehaviour {
 			}
 			pos = grid.WorldToCell(initialPos);
 			tile = (Tile)tilemap.GetTile(pos);
-			Debug.Log(pos);
 		}
 		if(facing == 4){
 			facing = 0;
