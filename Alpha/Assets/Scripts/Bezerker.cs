@@ -9,10 +9,11 @@ public class Bezerker : MonoBehaviour {
 	public Tilemap tilemap;
 	public Grid grid;
 	public int facing; //1 = left, 2 = down, 3 = right, 4 = up
+	public Transform cross;
 
 	bool enraged = false;
 	int tillCharge = 0;
-
+	bool charging = false;
 	float speed = 10.0f;
 
 	Vector3 destination;
@@ -48,7 +49,8 @@ public class Bezerker : MonoBehaviour {
 			if(!enraged){
 				checkLOS();
 			}
-			if(enraged && tillCharge == 0){
+			
+			if(enraged && tillCharge == 0){	
 				attack();
 			}
 			if(transform.position == destination){
@@ -64,6 +66,7 @@ public class Bezerker : MonoBehaviour {
 		} else {
 			chargeDelay = 0;
 			TurnManager.enemyMoves--;
+			charging = false;
 			this.enabled = false;
 		}
 	}
@@ -77,11 +80,21 @@ public class Bezerker : MonoBehaviour {
 				Debug.Log("IM GONNA CHAAARGE!!");
 				enraged = true;
 				tillCharge = 1;
+				for(int i = 0; i < list.Count; i++) {
+					Transform x = Instantiate(cross, (Vector3)list[i], transform.rotation);
+					x.parent = transform;
+				}
 			}
 		}
 	}
 
 	void attack(){
+			if(!charging) {
+				charging = true;
+				foreach (Transform child in transform) {
+             		Destroy(child.gameObject);
+        		}			
+			}
 			Vector3 end = list[list.Count-1];
 			end.x += 0.5f;
 			end.y += 0.5f;
