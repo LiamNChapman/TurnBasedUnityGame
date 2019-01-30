@@ -9,6 +9,7 @@ public class Ranger : MonoBehaviour {
 	public Grid grid;
 	public int facing = 1;
 	public Transform cross;
+	public Sprite[] spriteList;
 
 	void Start() {
 		Vector3 initialPos = this.transform.position;
@@ -43,6 +44,7 @@ public class Ranger : MonoBehaviour {
 		Vector3 initialPos = this.transform.position;
 		Vector3Int pos = grid.WorldToCell(initialPos);
 		Tile tile = (Tile)tilemap.GetTile(pos);
+		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		foreach (Transform child in transform) {
              Destroy(child.gameObject);
         }
