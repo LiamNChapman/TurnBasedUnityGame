@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         Turn();
     }
 
-    void Update()
+    /*void Update()
     {
         player.GetComponent<Character>().LocalUpdate();
         foreach (GameObject go in enemies)
@@ -30,19 +30,33 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("SampleScene");
             }
         }
-    }
+    }*/
 
     void Turn () {
         if (playerTurn){
-            player.GetComponent<ClickToMove>().Movement(playerTurn);
-            playerTurn = false;
-        } else {
+        player.GetComponent<ClickToMove>().canMove = true;
+        player.GetComponent<ClickToMove>().Movement();
+
+       } else {
             playerTurn = true;
             foreach (GameObject go in enemies)
             {
-                go.GetComponent<ClickToMove>().Movement(playerTurn);
+                go.GetComponent<ClickToMove>().Movement();
             }
         }
+        player.GetComponent<Character>().LocalUpdate();
+
+        foreach (GameObject go in enemies)
+        {
+            go.GetComponent<Character>().LocalUpdate();
+            if (go.GetComponent<Character>().xLoc == player.GetComponent<Character>().xLoc && go.GetComponent<Character>().yLoc == player.GetComponent<Character>().yLoc)
+            {
+                Debug.Log("death");
+                SceneManager.LoadScene("SampleScene");
+            }
+        }
+        Turn();
+
     }
 }
 
