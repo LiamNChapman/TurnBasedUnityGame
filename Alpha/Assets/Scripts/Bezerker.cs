@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class Bezerker : MonoBehaviour {
 
@@ -86,7 +87,7 @@ public class Bezerker : MonoBehaviour {
 			if(transform.position.x <= (TurnManager.player.transform.position.x+0.5f)&& transform.position.x >= (TurnManager.player.transform.position.x-0.5f)){
 				if(transform.position.y <= (TurnManager.player.transform.position.y+0.5f)&& transform.position.y >= (TurnManager.player.transform.position.y-0.5f)){
 					Debug.Log("Ded");
-					TurnManager.killed();
+					SceneManager.LoadScene("LiamsTest");
 				}
 			}
 			if(transform.position == destination){
