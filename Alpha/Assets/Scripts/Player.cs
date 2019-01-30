@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
 
 	public Grid grid;
 	public Tilemap tilemap;
-
+	public GameObject abilityButtons;
 	// Use this for initialization
 	void Start () {
 		
@@ -42,10 +42,28 @@ public class Player : MonoBehaviour {
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
 					this.transform.position = newPosition;
-					TurnManager.nextState();
-					//Call next state or wait for abilty to be used
+					abilityButtons.SetActive(true);
+
 				}
 			}
 		}
+	}
+
+	public void distract() {
+
+		abilityButtons.SetActive(false);
+		TurnManager.nextState();
+	}
+
+	public void stun() {
+
+		abilityButtons.SetActive(false);
+		TurnManager.nextState();
+	}
+
+	public void skip() {
+
+		abilityButtons.SetActive(false);
+		TurnManager.nextState();
 	}
 }

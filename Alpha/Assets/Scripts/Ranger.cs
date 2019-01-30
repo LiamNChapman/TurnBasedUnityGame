@@ -7,7 +7,7 @@ public class Ranger : MonoBehaviour {
 	List<Vector3Int> list = new List<Vector3Int>();
 	public Tilemap tilemap;
 	public Grid grid;
-	int facing = 1;
+	public int facing = 1;
 	public Transform cross;
 
 	void Start() {
