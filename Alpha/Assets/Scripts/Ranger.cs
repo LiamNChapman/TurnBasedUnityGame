@@ -7,8 +7,9 @@ public class Ranger : MonoBehaviour {
 	List<Vector3Int> list = new List<Vector3Int>();
 	public Tilemap tilemap;
 	public Grid grid;
-	int facing = 1;
+	public int facing = 1;
 	public Transform cross;
+	public Sprite[] spriteList;
 
 	void Start() {
 		Vector3 initialPos = this.transform.position;
@@ -16,12 +17,14 @@ public class Ranger : MonoBehaviour {
 		Tile tile = (Tile)tilemap.GetTile(pos);
 		while(tile.name != "NonPath") {
 			list.Add(pos);
-			//Instantiate(cross, pos, transform.rotation);
+			Transform x = Instantiate(cross, pos, transform.rotation);
+			x.parent = transform;
 			initialPos += Vector3.left;
 			pos = grid.WorldToCell(initialPos);
 			tile = (Tile)tilemap.GetTile(pos);
 			Debug.Log(pos);
 		}
+		this.enabled = false;
 	}
 
 	void Update(){
@@ -43,6 +46,7 @@ public class Ranger : MonoBehaviour {
 		Vector3 initialPos = this.transform.position;
 		Vector3Int pos = grid.WorldToCell(initialPos);
 		Tile tile = (Tile)tilemap.GetTile(pos);
+		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		foreach (Transform child in transform) {
              Destroy(child.gameObject);
         }
