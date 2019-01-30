@@ -30,6 +30,7 @@ public class Ranger : MonoBehaviour {
 	void Update(){
 		rotate();
 		TurnManager.enemyMoves--;
+		this.enabled = false;
 	}
 	void rotate() {
 		foreach(Vector3 los in list) {

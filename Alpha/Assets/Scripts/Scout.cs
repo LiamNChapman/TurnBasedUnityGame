@@ -35,6 +35,7 @@ public class Scout : MonoBehaviour {
 			}
 			moving = false;
 			TurnManager.enemyMoves--;
+			this.enabled = false;
 		}
 	}
 

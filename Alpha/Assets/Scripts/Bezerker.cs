@@ -59,10 +59,12 @@ public class Bezerker : MonoBehaviour {
 			if(!enraged || tillCharge == 1){
 				tillCharge = 0;
 				TurnManager.enemyMoves--;
+				this.enabled = false;
 			}
 		} else {
 			chargeDelay = 0;
 			TurnManager.enemyMoves--;
+			this.enabled = false;
 		}
 	}
 

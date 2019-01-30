@@ -46,17 +46,7 @@ public class TurnManager : MonoBehaviour {
 	}
 
 	static void playerMoveSetup() {
-		for(int i = 0; i < enemies.Length;i++){
-			if(enemies[i].GetComponent<Scout>() != null) {
-				enemies[i].GetComponent<Scout>().enabled = false;
-			} else if(enemies[i].GetComponent<Ranger>() != null) {
-				enemies[i].GetComponent<Ranger>().enabled = false;
-			} else if(enemies[i].GetComponent<Bezerker>() != null) {
-				enemies[i].GetComponent<Bezerker>().enabled = false;
-			} else if(enemies[i].GetComponent<Warrior>() != null) {
-				enemies[i].GetComponent<Warrior>().enabled = false;
-			}
-		}
+		
 		player.GetComponent<Player>().enabled = true;
 	}
 	static void enemyMoveSetup() {
