@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4499190175701242, guid: 534070560edc94084ac06918cb705810, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534070560edc94084ac06918cb705810, type: 2}
@@ -1054,7 +1054,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4118861339262788, guid: 2caaa407303b244d28c65139f8194ffd, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114215508550982286, guid: 2caaa407303b244d28c65139f8194ffd,
         type: 2}
@@ -1234,7 +1234,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4827638091642740, guid: fca1eb403556746ddba7057531152549, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114211935794503800, guid: fca1eb403556746ddba7057531152549,
         type: 2}
@@ -1852,7 +1852,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 100, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1340601233 stripped
 MonoBehaviour:
@@ -1902,7 +1902,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4316165339189456, guid: 92a549ad1aea84386ae61623d3cbabc1, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 212436891517899028, guid: 92a549ad1aea84386ae61623d3cbabc1,
         type: 2}

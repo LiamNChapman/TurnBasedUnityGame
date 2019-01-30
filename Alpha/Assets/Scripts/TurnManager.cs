@@ -46,7 +46,7 @@ public class TurnManager : MonoBehaviour {
 	}
 
 	static void playerMoveSetup() {
-		
+		player.GetComponent<Player>().moved = false;
 		player.GetComponent<Player>().enabled = true;
 	}
 	static void enemyMoveSetup() {
