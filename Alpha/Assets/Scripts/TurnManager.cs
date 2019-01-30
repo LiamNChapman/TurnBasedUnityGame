@@ -58,7 +58,7 @@ public class TurnManager : MonoBehaviour {
 			} else if(enemies[i].GetComponent<Bezerker>() != null) {
 				enemies[i].GetComponent<Bezerker>().enabled = true;
 			} else if(enemies[i].GetComponent<Warrior>() != null) {
-				enemies[i].GetComponent<Warrior>().enabled = true;
+				enemies[i].GetComponent<Warrior>().turn = false;
 			}
 		}
 		player.GetComponent<Player>().enabled = false;
