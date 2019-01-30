@@ -33,16 +33,14 @@ public class GameManager : MonoBehaviour
     }
 
     void Turn () {
-        if (playerTurn){
-            player.GetComponent<ClickToMove>().Movement(playerTurn);
-            playerTurn = false;
-        } else {
-            playerTurn = true;
+        
+            player.GetComponent<Character>().Movement(playerTurn);
+            
             foreach (GameObject go in enemies)
             {
-                go.GetComponent<ClickToMove>().Movement(playerTurn);
+                go.GetComponent<Character>().Movement(playerTurn);
             }
-        }
+        
     }
 }
 
