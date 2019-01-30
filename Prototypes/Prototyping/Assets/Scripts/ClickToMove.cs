@@ -22,8 +22,10 @@ public class ClickToMove : MonoBehaviour {
 	}
 	
 	
-	public void Update {
+	public void Move (bool wait) {
 
+        while (wait)
+        {
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -53,8 +55,8 @@ public class ClickToMove : MonoBehaviour {
                         this.transform.position = newPosition;
                     }
                 }
-
+                wait = false;
             }
-
+        }
 	}
 }
