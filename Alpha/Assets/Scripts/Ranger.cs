@@ -24,7 +24,7 @@ public class Ranger : MonoBehaviour {
 			tile = (Tile)tilemap.GetTile(pos);
 			Debug.Log(pos);
 		}
-		this.enabled = false;;
+		this.enabled = false;
 	}
 
 	void Update(){
