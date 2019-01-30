@@ -44,6 +44,19 @@ public class Player : MonoBehaviour {
 				checkPos.y += 0.5f;
 				if(enemies.transform.position == checkPos){
 					enemyThere = true;
+					if(enemies.GetComponent<Scout>() != null) {
+						enemies.GetComponent<Scout>().isStunned = true;
+						enemies.GetComponent<Scout>().stunLeft = 2;
+					} else if(enemies.GetComponent<Ranger>() != null) {
+						enemies.GetComponent<Ranger>().isStunned = true;
+						enemies.GetComponent<Ranger>().stunLeft = 2;
+					} else if(enemies.GetComponent<Bezerker>() != null) {
+						enemies.GetComponent<Bezerker>().isStunned = true;
+						enemies.GetComponent<Bezerker>().stunLeft = 2;
+					} //else if(enemies.GetComponent<Warrior>() != null) {
+					//	enemies.GetComponent<Warrior>().isStunned = true;
+					//	enemies.GetComponent<Warrior>().stunLeft = 2;
+					//}
 				}
 			}
 

@@ -11,6 +11,9 @@ public class Bezerker : MonoBehaviour {
 	public int facing; //1 = left, 2 = down, 3 = right, 4 = up
 	public Transform cross;
 
+	public bool isStunned = false;
+	public int stunLeft = 0;
+
 	bool enraged = false;
 	int tillCharge = 0;
 	bool charging = false;
@@ -25,7 +28,7 @@ public class Bezerker : MonoBehaviour {
 		Vector3Int pos = grid.WorldToCell(initialPos);
 		Tile tile = (Tile)tilemap.GetTile(pos);
 		while(tile.name != "NonPath"){
-			list.Add(pos);
+			
 			if(facing == 1){
 				initialPos += Vector3.left;
 			} else if(facing == 2){
@@ -37,6 +40,9 @@ public class Bezerker : MonoBehaviour {
 			}
 			pos = grid.WorldToCell(initialPos);
 			tile = (Tile)tilemap.GetTile(pos);
+			if(tile.name != "NonPath"){
+				list.Add(pos);
+			}
 		}
 		destination = (Vector3)list[list.Count-1];
 		destination.x += 0.5f;
@@ -45,28 +51,37 @@ public class Bezerker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(chargeDelay != 1){
-			if(!enraged){
-				checkLOS();
-			}
-			
-			if(enraged && tillCharge == 0){	
+		if(!isStunned){
+			if(chargeDelay != 1){
+				if(!enraged){
+					checkLOS();
+				}
+
+				if(enraged && tillCharge == 0){	
 				attack();
-			}
-			if(transform.position == destination){
-				Debug.Log("weeeeeeeee");
-				endTurn();
-			}
+				}
+				if(transform.position == destination){
+					Debug.Log("weeeeeeeee");
+					endTurn();
+				}
 		
-			if(!enraged || tillCharge == 1){
-				tillCharge = 0;
+				if(!enraged || tillCharge == 1){
+					tillCharge = 0;
+					TurnManager.enemyMoves--;
+					this.enabled = false;
+				}
+			} else {
+				chargeDelay = 0;
 				TurnManager.enemyMoves--;
+				charging = false;
 				this.enabled = false;
 			}
 		} else {
-			chargeDelay = 0;
+			stunLeft--;
+			if(stunLeft < 1){
+				isStunned = false;
+			}
 			TurnManager.enemyMoves--;
-			charging = false;
 			this.enabled = false;
 		}
 	}
@@ -123,7 +138,6 @@ public class Bezerker : MonoBehaviour {
 			Vector3Int pos = grid.WorldToCell(initialPos);
 			Tile tile = (Tile)tilemap.GetTile(pos);
 			while(tile.name != "NonPath"){
-				list.Add(pos);
 				if(facing == 1){
 					initialPos += Vector3.left;
 				} else if(facing == 2){
@@ -135,6 +149,9 @@ public class Bezerker : MonoBehaviour {
 				}
 				pos = grid.WorldToCell(initialPos);
 				tile = (Tile)tilemap.GetTile(pos);
+				if(tile.name != "NonPath"){
+					list.Add(pos);
+				}
 			}
 			destination = (list[list.Count-1]);
 			destination.x += 0.5f;

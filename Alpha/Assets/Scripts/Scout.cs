@@ -9,6 +9,9 @@ public class Scout : MonoBehaviour {
 	public int facing; //1 = left, 2 = down, 3 = right, 4 = up
 	bool moving = false;
 
+	public bool isStunned = false;
+	public int stunLeft = 0;
+
 	float speed = 2.0f;
 	
 	Vector3 nextPos;
@@ -22,18 +25,27 @@ public class Scout : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!moving){
-			foward();
-		}
-
-		float step = speed * Time.deltaTime;
-		this.transform.position = Vector3.MoveTowards(transform.position, nextPos, step);
-		
-		if(this.transform.position == destination){
-			if(destination == TurnManager.player.transform.position){
-				TurnManager.killed();
+		if(!isStunned){
+			if(!moving){
+				foward();
 			}
-			moving = false;
+
+			float step = speed * Time.deltaTime;
+			this.transform.position = Vector3.MoveTowards(transform.position, nextPos, step);
+		
+			if(this.transform.position == destination){
+				if(destination == TurnManager.player.transform.position){
+					TurnManager.killed();
+				}
+				moving = false;
+				TurnManager.enemyMoves--;
+				this.enabled = false;
+			}
+		} else {
+			stunLeft--;
+			if(stunLeft < 1){
+				isStunned = false;
+			}
 			TurnManager.enemyMoves--;
 			this.enabled = false;
 		}

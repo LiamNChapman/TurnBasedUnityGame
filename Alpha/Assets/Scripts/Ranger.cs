@@ -11,26 +11,41 @@ public class Ranger : MonoBehaviour {
 	public Transform cross;
 	public Sprite[] spriteList;
 
+	public bool isStunned = false;
+	public int stunLeft = 0;
+
 	void Start() {
 		Vector3 initialPos = this.transform.position;
 		Vector3Int pos = grid.WorldToCell(initialPos);
 		Tile tile = (Tile)tilemap.GetTile(pos);
 		while(tile.name != "NonPath") {
-			list.Add(pos);
-			Transform x = Instantiate(cross, pos, transform.rotation);
-			x.parent = transform;
+			
+			
 			initialPos += Vector3.left;
 			pos = grid.WorldToCell(initialPos);
 			tile = (Tile)tilemap.GetTile(pos);
-			Debug.Log(pos);
+			if(tile.name != "NonPath"){
+				list.Add(pos);
+				Transform x = Instantiate(cross, pos, transform.rotation);
+				x.parent = transform;
+			}
 		}
 		this.enabled = false;
 	}
 
 	void Update(){
-		rotate();
-		TurnManager.enemyMoves--;
-		this.enabled = false;
+		if(!isStunned){
+			rotate();
+			TurnManager.enemyMoves--;
+			this.enabled = false;
+		} else {
+			stunLeft--;
+			if(stunLeft < 1){
+				isStunned = false;
+			}
+			TurnManager.enemyMoves--;
+			this.enabled = false;
+		}
 	}
 	void rotate() {
 		foreach(Vector3 los in list) {
@@ -52,9 +67,7 @@ public class Ranger : MonoBehaviour {
              Destroy(child.gameObject);
         }
 		while(tile.name != "NonPath") {
-			list.Add(pos);
-			Transform x = Instantiate(cross, pos, transform.rotation);
-			x.parent = transform;
+			
 			if(facing == 1){
 				initialPos += Vector3.left;
 			} else if(facing == 2){
@@ -66,6 +79,11 @@ public class Ranger : MonoBehaviour {
 			}
 			pos = grid.WorldToCell(initialPos);
 			tile = (Tile)tilemap.GetTile(pos);
+			if(tile.name != "NonPath"){
+				list.Add(pos);
+				Transform x = Instantiate(cross, pos, transform.rotation);
+				x.parent = transform;
+			}
 		}
 		if(facing == 4){
 			facing = 0;
