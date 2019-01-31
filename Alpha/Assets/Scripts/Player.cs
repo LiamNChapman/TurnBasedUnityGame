@@ -12,7 +12,10 @@ public class Player : MonoBehaviour {
 	public GameObject abilityButtons;
 	public GameObject cancelButton;
 	public bool moved = false;
+
 	bool stunActive = false;
+	bool distractActive = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -25,6 +28,8 @@ public class Player : MonoBehaviour {
 		}
 		if(stunActive){
 			stunMovement();
+		} else if(distractActive){
+			throwDistraction();
 		}
 	}
 
@@ -86,15 +91,107 @@ public class Player : MonoBehaviour {
 	}
 
 	public void distract() {
-		cancelButton.SetActive(true);
+		distractActive = true;
 		abilityButtons.SetActive(false);
-		TurnManager.nextState();
+		cancelButton.SetActive(true);
+	}
+
+	void throwDistraction(){
+		if(Input.GetMouseButtonDown(0)) {
+			//get the coordinates from the mouse click.
+			Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        	Vector3Int coordinate = grid.WorldToCell(mouseWorldPos);
+
+			// bool values to check if the distance the player has clicked to move to
+			// is only 1 tile either up or down, or left or right.
+			bool leftAndRight = Math.Abs((this.transform.position.x-0.5f) - coordinate.x) == 1;
+			bool upAndDown = Math.Abs((this.transform.position.y-0.5f) - coordinate.y) == 1;
+			bool leftAndRight2 = Math.Abs((this.transform.position.x-0.5f) - coordinate.x) == 0;
+			bool upAndDown2 = Math.Abs((this.transform.position.y-0.5f) - coordinate.y) == 0;
+
+			bool enemyThere = false;
+
+			// Check if the tile isn't a path.
+			if(tilemap.GetTile(coordinate).name != "NonPath"){
+			foreach(GameObject enemies in TurnManager.enemies){
+				Vector3 checkPos = (Vector3)coordinate;
+				checkPos += Vector3.left;
+				checkPos.x += 0.5f;
+				checkPos.y += 0.5f;
+				if(enemies.transform.position == checkPos){
+					enemyThere = true;
+					if(enemies.GetComponent<Scout>() != null) {
+						enemies.GetComponent<Scout>().facing = 3;
+					} else if(enemies.GetComponent<Ranger>() != null) {
+						enemies.GetComponent<Ranger>().facing = 3;
+					} else if(enemies.GetComponent<Bezerker>() != null) {
+						enemies.GetComponent<Bezerker>().facing = 3;
+					} else if(enemies.GetComponent<Warrior>() != null) {
+						enemies.GetComponent<Warrior>().facing = 3;
+					}
+				}
+				checkPos = (Vector3)coordinate;
+				checkPos += Vector3.down;
+				checkPos.x += 0.5f;
+				checkPos.y += 0.5f;
+				if(enemies.transform.position == checkPos){
+					enemyThere = true;
+					if(enemies.GetComponent<Scout>() != null) {
+						enemies.GetComponent<Scout>().facing = 4;
+					} else if(enemies.GetComponent<Ranger>() != null) {
+						enemies.GetComponent<Ranger>().facing = 4;
+					} else if(enemies.GetComponent<Bezerker>() != null) {
+						enemies.GetComponent<Bezerker>().facing = 4;
+					} else if(enemies.GetComponent<Warrior>() != null) {
+						enemies.GetComponent<Warrior>().facing = 4;
+					}
+				}
+				checkPos = (Vector3)coordinate;
+				checkPos += Vector3.right;
+				checkPos.x += 0.5f;
+				checkPos.y += 0.5f;
+				if(enemies.transform.position == checkPos){
+					enemyThere = true;
+					if(enemies.GetComponent<Scout>() != null) {
+						enemies.GetComponent<Scout>().facing = 1;
+					} else if(enemies.GetComponent<Ranger>() != null) {
+						enemies.GetComponent<Ranger>().facing = 1;
+					} else if(enemies.GetComponent<Bezerker>() != null) {
+						enemies.GetComponent<Bezerker>().facing = 1;
+					} else if(enemies.GetComponent<Warrior>() != null) {
+						enemies.GetComponent<Warrior>().facing = 1;
+					}
+				}
+				checkPos = (Vector3)coordinate;
+				checkPos += Vector3.up;
+				checkPos.x += 0.5f;
+				checkPos.y += 0.5f;
+				if(enemies.transform.position == checkPos){
+					enemyThere = true;
+					if(enemies.GetComponent<Scout>() != null) {
+						enemies.GetComponent<Scout>().facing = 2;
+					} else if(enemies.GetComponent<Ranger>() != null) {
+						enemies.GetComponent<Ranger>().facing = 2;
+					} else if(enemies.GetComponent<Bezerker>() != null) {
+						enemies.GetComponent<Bezerker>().facing = 2;
+					} else if(enemies.GetComponent<Warrior>() != null) {
+						enemies.GetComponent<Warrior>().facing = 2;
+					}
+				}
+			}
+			}
+			if(tilemap.GetTile(coordinate).name != "NonPath" && enemyThere){
+					distractActive = false;
+					cancelButton.SetActive(false);
+					TurnManager.nextState();
+			}
+		}
 	}
 
 	public void stun() {
-		cancelButton.SetActive(true);
 		stunActive = true;
 		abilityButtons.SetActive(false);
+		cancelButton.SetActive(true);
 		//TurnManager.nextState();
 	}
 
@@ -147,6 +244,7 @@ public class Player : MonoBehaviour {
 					newPosition.y += 0.5f;
 					this.transform.position = newPosition;
 					stunActive = false;
+					cancelButton.SetActive(false);
 					TurnManager.nextState();
 				}
 			}
@@ -160,6 +258,7 @@ public class Player : MonoBehaviour {
 	}
 	public void cancel() {
 		stunActive = false;
+		distractActive = false;
 		abilityButtons.SetActive(true);
 		cancelButton.SetActive(false);
 	}
