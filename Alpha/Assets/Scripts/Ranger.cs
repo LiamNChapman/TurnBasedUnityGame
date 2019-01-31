@@ -10,6 +10,7 @@ public class Ranger : MonoBehaviour {
 	public int facing = 1;
 	public Transform cross;
 	public Sprite[] spriteList;
+	Vector3Int[] hitBoxes = new Vector3Int[4];
 
 	public bool isStunned = false;
 	public int stunLeft = 0;
@@ -18,10 +19,20 @@ public class Ranger : MonoBehaviour {
 		Vector3 initialPos = this.transform.position;
 		Vector3Int pos = grid.WorldToCell(initialPos);
 		Tile tile = (Tile)tilemap.GetTile(pos);
-		while(tile.name != "NonPath") {
-			
-			
-			initialPos += Vector3.left;
+		hitBoxes[0] = grid.WorldToCell(initialPos + Vector3.left);
+		hitBoxes[1] = grid.WorldToCell(initialPos + Vector3.down);
+		hitBoxes[2] = grid.WorldToCell(initialPos + Vector3.right);
+		hitBoxes[3] = grid.WorldToCell(initialPos + Vector3.up);
+		while(tile.name != "NonPath") {			
+			if(facing == 1){
+				initialPos += Vector3.left;
+			} else if(facing == 2){
+				initialPos += Vector3.down;
+			} else if(facing == 3){
+				initialPos += Vector3.right;
+			} else if(facing == 4){
+				initialPos += Vector3.up;
+			}
 			pos = grid.WorldToCell(initialPos);
 			tile = (Tile)tilemap.GetTile(pos);
 			if(tile.name != "NonPath"){
@@ -30,6 +41,7 @@ public class Ranger : MonoBehaviour {
 				x.parent = transform;
 			}
 		}
+		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		this.enabled = false;
 	}
 
@@ -65,12 +77,19 @@ public class Ranger : MonoBehaviour {
 		Vector3 initialPos = this.transform.position;
 		Vector3Int pos = grid.WorldToCell(initialPos);
 		Tile tile = (Tile)tilemap.GetTile(pos);
-		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		foreach (Transform child in transform) {
              Destroy(child.gameObject);
         }
-		while(tile.name != "NonPath") {
-			
+		while(((Tile)tilemap.GetTile(hitBoxes[facing-1])).name == "NonPath") {
+			facing++;
+			if(facing == 5){
+				facing = 1;
+			}
+		}
+
+		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
+
+		while(tile.name != "NonPath") {			
 			if(facing == 1){
 				initialPos += Vector3.left;
 			} else if(facing == 2){

@@ -8,6 +8,7 @@ public class Scout : MonoBehaviour {
 	public Grid grid;
 	public int facing; //1 = left, 2 = down, 3 = right, 4 = up
 	bool moving = false;
+	//public GameObject cross;
 
 	public bool isStunned = false;
 	public int stunLeft = 0;
@@ -41,6 +42,9 @@ public class Scout : MonoBehaviour {
 	}
 
 	void foward(){
+		foreach (Transform child in transform) {
+    		Destroy(child.gameObject);
+    	}
 		Vector3Int pos;
 		Tile tile;
 
@@ -76,6 +80,8 @@ public class Scout : MonoBehaviour {
 			}
 		}
 		destination = nextPos;
+//		Transform x = Instantiate(cross, destination, transform.rotation);
+//		x.parent = transform;
 		moving = true;
 	}
 
