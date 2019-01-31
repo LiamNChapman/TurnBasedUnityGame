@@ -29,18 +29,7 @@ public class Scout : MonoBehaviour {
 			if(!moving){
 				foward();
 			}
-
-			float step = speed * Time.deltaTime;
-			this.transform.position = Vector3.MoveTowards(transform.position, nextPos, step);
-		
-			if(this.transform.position == destination){
-				if(destination == TurnManager.player.transform.position){
-					TurnManager.killed();
-				}
-				moving = false;
-				TurnManager.enemyMoves--;
-				this.enabled = false;
-			}
+			move();
 		} else {
 			stunLeft--;
 			if(stunLeft < 1){
@@ -87,9 +76,20 @@ public class Scout : MonoBehaviour {
 			}
 		}
 		destination = nextPos;
-		//destination.x += 0.5f;
-		//destination.y += 0.5f;
-		Debug.Log(destination);
 		moving = true;
+	}
+
+	void move() {
+		float step = speed * Time.deltaTime;
+		this.transform.position = Vector3.MoveTowards(transform.position, nextPos, step);
+		
+		if(this.transform.position == destination){
+			if(destination == TurnManager.player.transform.position){
+				TurnManager.killed();
+			}
+			moving = false;
+			TurnManager.enemyMoves--;
+			this.enabled = false;
+		}
 	}
 }
