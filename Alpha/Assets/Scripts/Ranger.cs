@@ -57,6 +57,9 @@ public class Ranger : MonoBehaviour {
 				return;
 			}
 		}
+		if(facing == 4){
+			facing = 0;
+		}
 		facing++;
 		list = new List<Vector3Int>();
 		Vector3 initialPos = this.transform.position;
@@ -84,9 +87,6 @@ public class Ranger : MonoBehaviour {
 				Transform x = Instantiate(cross, pos, transform.rotation);
 				x.parent = transform;
 			}
-		}
-		if(facing == 4){
-			facing = 0;
 		}
 	}
 }
