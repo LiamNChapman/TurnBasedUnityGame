@@ -21,7 +21,23 @@ public class Scout : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		nextPos = this.transform.position;
-		destination = this.transform.position;
+		destination = nextPos;
+		Transform x;
+		if(facing == 1){
+			destination += Vector3.left;
+			x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+		} else if(facing == 2){
+			destination += Vector3.down;
+			x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+		} else if(facing == 3){
+			destination += Vector3.right;
+			x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+		} else {
+			destination += Vector3.up;
+			x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+		}
+		x.parent = transform;
+		this.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -80,8 +96,7 @@ public class Scout : MonoBehaviour {
 			}
 		}
 		destination = nextPos;
-		Transform x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
-		x.parent = transform;
+		
 		moving = true;
 	}
 
@@ -93,6 +108,37 @@ public class Scout : MonoBehaviour {
 			if(destination == TurnManager.player.transform.position){
 				TurnManager.killed();
 			}
+			Transform x;
+			if(facing == 1){				
+				destination += Vector3.left;
+				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.right), transform.rotation);
+				} else {
+					x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+				}			
+			} else if(facing == 2){					
+				destination += Vector3.down;
+				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.up), transform.rotation);
+				} else {
+					x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+				}
+			} else if(facing == 3){
+				destination += Vector3.right;
+				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.left), transform.rotation);
+				} else {
+					x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+				}
+			} else {
+				destination += Vector3.up;
+				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.down), transform.rotation);
+				} else {
+					x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+				}	
+			}
+			x.parent = transform;
 			moving = false;
 			TurnManager.enemyMoves--;
 			this.enabled = false;
