@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
 	bool stunActive = false;
 	bool distractActive = false;
 
+	public int abilityCharges = 1;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -83,8 +85,13 @@ public class Player : MonoBehaviour {
 							}
 						}
 					}
-					abilityButtons.SetActive(true);
-					moved = true;
+					if(abilityCharges > 0){
+						abilityButtons.SetActive(true);
+						moved = true;
+					} else {
+						moved = true;
+						TurnManager.nextState();
+					}
 				}
 			}
 		}
@@ -101,13 +108,6 @@ public class Player : MonoBehaviour {
 			//get the coordinates from the mouse click.
 			Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         	Vector3Int coordinate = grid.WorldToCell(mouseWorldPos);
-
-			// bool values to check if the distance the player has clicked to move to
-			// is only 1 tile either up or down, or left or right.
-			bool leftAndRight = Math.Abs((this.transform.position.x-0.5f) - coordinate.x) == 1;
-			bool upAndDown = Math.Abs((this.transform.position.y-0.5f) - coordinate.y) == 1;
-			bool leftAndRight2 = Math.Abs((this.transform.position.x-0.5f) - coordinate.x) == 0;
-			bool upAndDown2 = Math.Abs((this.transform.position.y-0.5f) - coordinate.y) == 0;
 
 			bool enemyThere = false;
 
@@ -181,9 +181,10 @@ public class Player : MonoBehaviour {
 			}
 			}
 			if(tilemap.GetTile(coordinate).name != "NonPath" && enemyThere){
-					distractActive = false;
-					cancelButton.SetActive(false);
-					TurnManager.nextState();
+				abilityCharges--;
+				distractActive = false;
+				cancelButton.SetActive(false);
+				TurnManager.nextState();
 			}
 		}
 	}
@@ -243,6 +244,7 @@ public class Player : MonoBehaviour {
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
 					this.transform.position = newPosition;
+					abilityCharges--;
 					stunActive = false;
 					cancelButton.SetActive(false);
 					TurnManager.nextState();

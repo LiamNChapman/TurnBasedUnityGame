@@ -87,6 +87,29 @@ public class Bezerker : MonoBehaviour {
 	}
 
 	void checkLOS(){
+		list = new List<Vector3Int>();
+		Vector3 initialPos = this.transform.position;
+		Vector3Int pos = grid.WorldToCell(initialPos);
+		Tile tile = (Tile)tilemap.GetTile(pos);
+		while(tile.name != "NonPath"){
+			if(facing == 1){
+				initialPos += Vector3.left;
+			} else if(facing == 2){
+				initialPos += Vector3.down;
+			} else if(facing == 3){
+				initialPos += Vector3.right;
+			} else if(facing == 4){
+				initialPos += Vector3.up;
+			}
+			pos = grid.WorldToCell(initialPos);
+			tile = (Tile)tilemap.GetTile(pos);
+			if(tile.name != "NonPath"){
+				list.Add(pos);
+			}
+			destination = (list[list.Count-1]);
+			destination.x += 0.5f;
+			destination.y += 0.5f;
+		}
 		foreach(Vector3 los in list){
 			Vector3 charge = los;
 			charge.x += 0.5f;
