@@ -60,6 +60,15 @@ public class Player : MonoBehaviour {
 					newPosition.y += 0.5f;
 					this.transform.position = newPosition;
 
+					GameObject flour;
+					if(GameObject.Find("FlourItem") != null){
+						flour = GameObject.Find("FlourItem");
+						if(transform.position == flour.transform.position){
+							Destroy(flour);
+							abilityCharges++;
+						}
+					}
+
 					//check if the player is moving onto an enenmy
 					foreach(GameObject enemies in TurnManager.enemies){
 						Vector3 checkPos = (Vector3)coordinate;
