@@ -8,7 +8,7 @@ public class Scout : MonoBehaviour {
 	public Grid grid;
 	public int facing; //1 = left, 2 = down, 3 = right, 4 = up
 	bool moving = false;
-	//public GameObject cross;
+	public Transform cross;
 
 	public bool isStunned = false;
 	public int stunLeft = 0;
@@ -80,8 +80,8 @@ public class Scout : MonoBehaviour {
 			}
 		}
 		destination = nextPos;
-//		Transform x = Instantiate(cross, destination, transform.rotation);
-//		x.parent = transform;
+		Transform x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+		x.parent = transform;
 		moving = true;
 	}
 
