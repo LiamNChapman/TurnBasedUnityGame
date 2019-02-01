@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 	public GameObject abilityButtons;
 	public GameObject cancelButton;
 	public bool moved = false;
-
+	public RectTransform abilityButtonsTransform;
 	bool stunActive = false;
 	bool distractActive = false;
 
@@ -20,7 +20,6 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -104,6 +103,7 @@ public class Player : MonoBehaviour {
 				}
 			}
 		}
+		abilityButtonsTransform.position = this.transform.position + Vector3.up;
 	}
 
 	public void distract() {
