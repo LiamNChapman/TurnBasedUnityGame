@@ -8,6 +8,7 @@ public class TurnManager : MonoBehaviour {
 	public static GameObject player;
 	public static GameObject[] enemies;
 	public static int enemyMoves;
+	public static PressurePad pressurePad;
 	//Made this public so the enemy scripts could access
 	public enum TurnStates {
 		PLAYERMOVE,
@@ -21,6 +22,7 @@ public class TurnManager : MonoBehaviour {
 		currentState = TurnStates.PLAYERMOVE;
 		player = GameObject.Find("Player");
 		enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		pressurePad = GameObject.Find("PressurePad").GetComponent<PressurePad>();
 		enemyMoves = enemies.Length;
 	}
 	
@@ -34,6 +36,7 @@ public class TurnManager : MonoBehaviour {
 	}
 	public static void nextState() {
 		if(currentState == TurnStates.PLAYERMOVE) {
+			pressurePad.checkPad();
 			currentState = TurnStates.ENEMYMOVE;
 			enemyMoveSetup();
 		} else {

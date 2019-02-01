@@ -17,24 +17,27 @@ public class PressurePad : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+	}
+	public void checkPad(){
+		
 		Vector3 player = GameObject.Find("Player").transform.position;
-		if(check == 0){
 			foreach(GameObject enemy in TurnManager.enemies){
 				if(enemy.transform.position == thisPosistion){
-					activated = true;
+					Debug.Log("dfgdsdgdsg");
 					check = 1;
 				}
 			}
 			if(player == thisPosistion){
-				activated = true;
 				check = 1;
 			}
-		}
 		if(check == 1){
 			gate.open = true;
+			gate.gameObject.SetActive(false);
 		} else {
 			gate.open = false;
+			gate.gameObject.SetActive(true);
 		}
-		//check = 0;
+		check = 0;
 	}
 }

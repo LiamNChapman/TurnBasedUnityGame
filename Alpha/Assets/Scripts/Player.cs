@@ -137,6 +137,8 @@ public class Player : MonoBehaviour {
 						enemies.GetComponent<Scout>().facing = 3;
 					} else if(enemies.GetComponent<Ranger>() != null) {
 						enemies.GetComponent<Ranger>().facing = 3;
+						enemies.GetComponent<Ranger>().isStunned = true;
+						enemies.GetComponent<Ranger>().stunLeft = 1;
 					} else if(enemies.GetComponent<Bezerker>() != null) {
 						enemies.GetComponent<Bezerker>().facing = 3;
 					} else if(enemies.GetComponent<Warrior>() != null) {
@@ -153,6 +155,8 @@ public class Player : MonoBehaviour {
 						enemies.GetComponent<Scout>().facing = 4;
 					} else if(enemies.GetComponent<Ranger>() != null) {
 						enemies.GetComponent<Ranger>().facing = 4;
+						enemies.GetComponent<Ranger>().isStunned = true;
+						enemies.GetComponent<Ranger>().stunLeft = 1;
 					} else if(enemies.GetComponent<Bezerker>() != null) {
 						enemies.GetComponent<Bezerker>().facing = 4;
 					} else if(enemies.GetComponent<Warrior>() != null) {
@@ -169,6 +173,8 @@ public class Player : MonoBehaviour {
 						enemies.GetComponent<Scout>().facing = 1;
 					} else if(enemies.GetComponent<Ranger>() != null) {
 						enemies.GetComponent<Ranger>().facing = 1;
+						enemies.GetComponent<Ranger>().isStunned = true;
+						enemies.GetComponent<Ranger>().stunLeft = 1;
 					} else if(enemies.GetComponent<Bezerker>() != null) {
 						enemies.GetComponent<Bezerker>().facing = 1;
 					} else if(enemies.GetComponent<Warrior>() != null) {
@@ -185,6 +191,8 @@ public class Player : MonoBehaviour {
 						enemies.GetComponent<Scout>().facing = 2;
 					} else if(enemies.GetComponent<Ranger>() != null) {
 						enemies.GetComponent<Ranger>().facing = 2;
+						enemies.GetComponent<Ranger>().isStunned = true;
+						enemies.GetComponent<Ranger>().stunLeft = 1;
 					} else if(enemies.GetComponent<Bezerker>() != null) {
 						enemies.GetComponent<Bezerker>().facing = 2;
 					} else if(enemies.GetComponent<Warrior>() != null) {

@@ -14,7 +14,8 @@ public class Gate : MonoBehaviour {
 	void Update () {
 		if(open){
 			gameObject.SetActive(false);
-		} else if(!open){
+		}
+		if (!open){
 			gameObject.SetActive(true);
 		}
 	}
