@@ -450,7 +450,7 @@ RectTransform:
   - {fileID: 273158908}
   - {fileID: 1382520213}
   m_Father: {fileID: 1949210397}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1619,7 +1619,7 @@ RectTransform:
   - {fileID: 863848653}
   - {fileID: 1854859789}
   m_Father: {fileID: 1949210397}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4032,13 +4032,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2020608928}
   - {fileID: 1501134317}
+  - {fileID: 2020608928}
   - {fileID: 944530338}
   - {fileID: 29625754}
   - {fileID: 627982444}
   m_Father: {fileID: 1949210397}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4243,7 +4243,7 @@ GameObject:
   - component: {fileID: 1501134319}
   - component: {fileID: 1501134318}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: turns_No
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4261,11 +4261,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1258147006}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 130}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1501134318
@@ -4799,7 +4799,7 @@ RectTransform:
   m_Children:
   - {fileID: 366508132}
   m_Father: {fileID: 1949210397}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4924,6 +4924,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 654331990}
   winMenu: {fileID: 1258147003}
+  levelName: {fileID: 2020608929}
+  turns: {fileID: 1501134318}
 --- !u!114 &1949210394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4993,10 +4995,10 @@ RectTransform:
   m_Children:
   - {fileID: 1800745007}
   - {fileID: 1557528427}
-  - {fileID: 654331994}
-  - {fileID: 1258147006}
   - {fileID: 112229215}
   - {fileID: 1890141354}
+  - {fileID: 654331994}
+  - {fileID: 1258147006}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5017,7 +5019,7 @@ GameObject:
   - component: {fileID: 2020608930}
   - component: {fileID: 2020608929}
   m_Layer: 5
-  m_Name: Text
+  m_Name: level_name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5035,11 +5037,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1258147006}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 100.8}
+  m_AnchoredPosition: {x: 0, y: 130}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2020608929

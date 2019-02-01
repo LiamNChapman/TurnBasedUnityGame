@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
 	public RectTransform abilityButtonsTransform;
 	bool stunActive = false;
 	bool distractActive = false;
-
+	public GameObject UIManager;
 	public int abilityCharges = 1;
 
 	// Use this for initialization
@@ -93,6 +93,10 @@ public class Player : MonoBehaviour {
 							}
 						}
 					}
+					if(tilemap.GetTile(coordinate).name == "WinTile"){
+						UIManager = GameObject.Find("Canvas");
+						UIManager.GetComponent<UIManager>().winLevel();					
+						}
 					if(abilityCharges > 0){
 						abilityButtons.SetActive(true);
 						moved = true;
