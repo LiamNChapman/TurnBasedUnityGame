@@ -14,7 +14,7 @@ public class TurnManager : MonoBehaviour {
 		ENEMYMOVE
 
 	}
-	static int turnCount = 0;
+	public static int turnCount = 0;
 	public static TurnStates currentState;
 	// Use this for initialization
 	void Start () {
@@ -27,7 +27,6 @@ public class TurnManager : MonoBehaviour {
 	//Switch move states if the object in question is in a different space than they were?
 	// Update is called once per frame
 	void Update () {
-		//Debug.Log(currentState + " " + turnCount + " " + enemyMoves);
 		if(enemyMoves <= 0) {
 			enemyMoves = enemies.Length;
 			nextState();
