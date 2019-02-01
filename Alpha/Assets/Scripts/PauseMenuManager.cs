@@ -9,7 +9,10 @@ public class PauseMenuManager : MonoBehaviour {
 
 	public void resume() {
 		pauseMenu.SetActive(false);
-		//This is where I will reenable all scripts disabled when pausing and set the time scale to 1
+		foreach(GameObject enemy in TurnManager.enemies) {
+			enemy.SetActive(true);
+		}
+		TurnManager.player.SetActive(true);	
 	}
 	public void quit() {
 		SceneManager.LoadScene(0);
