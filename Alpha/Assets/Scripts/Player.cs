@@ -47,8 +47,16 @@ public class Player : MonoBehaviour {
 			bool leftAndRight2 = Math.Abs((this.transform.position.x-0.5f) - coordinate.x) == 0;
 			bool upAndDown2 = Math.Abs((this.transform.position.y-0.5f) - coordinate.y) == 0;
 
+			GameObject gate;
+			bool blocked = false;
+
+			if(GameObject.Find("Gate") != null){
+				gate = GameObject.Find("Gate");
+				blocked = coordinate == gate.transform.position;
+			}
+
 			// Check if the tile isn't a path.
-			if(tilemap.GetTile(coordinate).name != "NonPath" ){
+			if(tilemap.GetTile(coordinate).name != "NonPath" && !blocked){
 
 				//Check to make sure the player doesnt move diagonal.
 				if((upAndDown && leftAndRight2) || (leftAndRight && upAndDown2)){
@@ -137,6 +145,9 @@ public class Player : MonoBehaviour {
 						enemies.GetComponent<Scout>().facing = 3;
 					} else if(enemies.GetComponent<Ranger>() != null) {
 						enemies.GetComponent<Ranger>().facing = 3;
+						enemies.GetComponent<Ranger>().isStunned = true;
+						enemies.GetComponent<Ranger>().stunLeft = 1;
+						enemies.GetComponent<Ranger>().gotDistracted= true;
 					} else if(enemies.GetComponent<Bezerker>() != null) {
 						enemies.GetComponent<Bezerker>().facing = 3;
 					} else if(enemies.GetComponent<Warrior>() != null) {
@@ -153,6 +164,9 @@ public class Player : MonoBehaviour {
 						enemies.GetComponent<Scout>().facing = 4;
 					} else if(enemies.GetComponent<Ranger>() != null) {
 						enemies.GetComponent<Ranger>().facing = 4;
+						enemies.GetComponent<Ranger>().isStunned = true;
+						enemies.GetComponent<Ranger>().stunLeft = 1;
+						enemies.GetComponent<Ranger>().gotDistracted= true;
 					} else if(enemies.GetComponent<Bezerker>() != null) {
 						enemies.GetComponent<Bezerker>().facing = 4;
 					} else if(enemies.GetComponent<Warrior>() != null) {
@@ -169,6 +183,9 @@ public class Player : MonoBehaviour {
 						enemies.GetComponent<Scout>().facing = 1;
 					} else if(enemies.GetComponent<Ranger>() != null) {
 						enemies.GetComponent<Ranger>().facing = 1;
+						enemies.GetComponent<Ranger>().isStunned = true;
+						enemies.GetComponent<Ranger>().stunLeft = 1;
+						enemies.GetComponent<Ranger>().gotDistracted= true;
 					} else if(enemies.GetComponent<Bezerker>() != null) {
 						enemies.GetComponent<Bezerker>().facing = 1;
 					} else if(enemies.GetComponent<Warrior>() != null) {
@@ -185,6 +202,9 @@ public class Player : MonoBehaviour {
 						enemies.GetComponent<Scout>().facing = 2;
 					} else if(enemies.GetComponent<Ranger>() != null) {
 						enemies.GetComponent<Ranger>().facing = 2;
+						enemies.GetComponent<Ranger>().isStunned = true;
+						enemies.GetComponent<Ranger>().stunLeft = 1;
+						enemies.GetComponent<Ranger>().gotDistracted= true;
 					} else if(enemies.GetComponent<Bezerker>() != null) {
 						enemies.GetComponent<Bezerker>().facing = 2;
 					} else if(enemies.GetComponent<Warrior>() != null) {

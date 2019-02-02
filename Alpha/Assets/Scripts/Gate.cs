@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Gate : MonoBehaviour {
+	public bool open = false;
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +12,11 @@ public class Gate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(open){
+			gameObject.SetActive(false);
+		}
+		if (!open){
+			gameObject.SetActive(true);
+		}
 	}
 }
