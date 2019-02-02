@@ -8,8 +8,11 @@ public class UIManager : MonoBehaviour {
 	
 	public GameObject pauseMenu;
 	public GameObject winMenu;
+	public GameObject flour;
 	public Text levelName;
 	public Text turns;
+	public Text chargeNum;
+	
 	public void reset() {
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
@@ -29,6 +32,15 @@ public class UIManager : MonoBehaviour {
 		winMenu.SetActive(true);
 		levelName.text = SceneManager.GetActiveScene().name;
 		turns.text = "Turns: " + TurnManager.turnCount;
+	}
+
+	void Update() {
+		chargeNum.text = "x " + TurnManager.player.GetComponent<Player>().abilityCharges;
+		if(TurnManager.player.GetComponent<Player>().abilityCharges <= 0) {
+			flour.GetComponent<Image>().color = Color.grey;
+		} else {
+			flour.GetComponent<Image>().color = Color.white;
+		}
 	}
 
 }
