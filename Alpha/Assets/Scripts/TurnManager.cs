@@ -22,7 +22,9 @@ public class TurnManager : MonoBehaviour {
 		currentState = TurnStates.PLAYERMOVE;
 		player = GameObject.Find("Player");
 		enemies = GameObject.FindGameObjectsWithTag("Enemy");
-		pressurePad = GameObject.Find("PressurePad").GetComponent<PressurePad>();
+		if(GameObject.Find("PressurePad") != null) {
+			pressurePad = GameObject.Find("PressurePad").GetComponent<PressurePad>();
+		}
 		enemyMoves = enemies.Length;
 	}
 	
@@ -33,7 +35,9 @@ public class TurnManager : MonoBehaviour {
 			enemyMoves = enemies.Length;
 			nextState();
 		}
-		pressurePad.checkPad();
+		if(pressurePad != null){
+			pressurePad.checkPad();
+		}
 	}
 	public static void nextState() {
 		if(currentState == TurnStates.PLAYERMOVE) {
