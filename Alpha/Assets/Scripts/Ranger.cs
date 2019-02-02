@@ -12,6 +12,7 @@ public class Ranger : MonoBehaviour {
 	public Sprite[] spriteList;
 	Vector3Int[] hitBoxes = new Vector3Int[4];
 
+	public bool gotDistracted = false;
 	public bool isStunned = false;
 	public int stunLeft = 0;
 
@@ -51,6 +52,10 @@ public class Ranger : MonoBehaviour {
 			TurnManager.enemyMoves--;
 			this.enabled = false;
 		} else {
+			if(gotDistracted){
+				rotate();
+				gotDistracted = false;
+			}
 			stunLeft--;
 			if(stunLeft < 1){
 				isStunned = false;
@@ -60,19 +65,21 @@ public class Ranger : MonoBehaviour {
 		}
 	}
 	void rotate() {
-		foreach(Vector3 los in list) {
-			Vector3 hit = los;
-			hit.x += 0.5f;
-			hit.y += 0.5f;
-			if(TurnManager.player.transform.position == hit) {
-				TurnManager.killed();
-				return;
+		if(!gotDistracted){
+			foreach(Vector3 los in list) {
+				Vector3 hit = los;
+				hit.x += 0.5f;
+				hit.y += 0.5f;
+				if(TurnManager.player.transform.position == hit) {
+					TurnManager.killed();
+					return;
+				}
 			}
+			if(facing == 4){
+				facing = 0;
+			}
+			facing++;
 		}
-		if(facing == 4){
-			facing = 0;
-		}
-		facing++;
 		list = new List<Vector3Int>();
 		Vector3 initialPos = this.transform.position;
 		Vector3Int pos = grid.WorldToCell(initialPos);

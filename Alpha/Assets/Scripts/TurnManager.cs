@@ -33,10 +33,11 @@ public class TurnManager : MonoBehaviour {
 			enemyMoves = enemies.Length;
 			nextState();
 		}
+		pressurePad.checkPad();
 	}
 	public static void nextState() {
 		if(currentState == TurnStates.PLAYERMOVE) {
-			pressurePad.checkPad();
+			
 			currentState = TurnStates.ENEMYMOVE;
 			enemyMoveSetup();
 		} else {
