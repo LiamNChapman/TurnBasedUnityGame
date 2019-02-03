@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour {
 	public GameObject pauseMenu;
 	public GameObject winMenu;
 	public GameObject flour;
+	public GameObject turnManager;
 	public Text levelName;
 	public Text turns;
 	public Text chargeNum;
@@ -21,17 +22,25 @@ public class UIManager : MonoBehaviour {
 		pauseMenu.SetActive(true);
 		foreach(GameObject enemy in TurnManager.enemies) {
 			enemy.SetActive(false);
-		}
-		TurnManager.player.SetActive(false);		
+		}		
+		if(GameObject.Find("PressurePad") != null) {
+			GameObject.Find("PressurePad").SetActive(false);
+		}		
+		TurnManager.player.SetActive(false);
+		turnManager.SetActive(false);
 	}
 	public void winLevel() {
 		foreach(GameObject enemy in TurnManager.enemies) {
 			enemy.SetActive(false);
 		}
-		TurnManager.player.SetActive(false);	
+		TurnManager.player.SetActive(false);
+		turnManager.SetActive(true);
 		winMenu.SetActive(true);
 		levelName.text = SceneManager.GetActiveScene().name;
 		turns.text = "Turns: " + TurnManager.turnCount;
+		if(GameObject.Find("PressurePad") != null) {
+			GameObject.Find("PressurePad").SetActive(false);
+		}
 	}
 
 	void Update() {

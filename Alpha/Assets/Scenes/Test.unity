@@ -1365,6 +1365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 654331990}
+  turnManager: {fileID: 1247186131}
 --- !u!114 &654331992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4412,6 +4413,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1119142398}
   m_CullTransparentMesh: 0
+--- !u!1 &1247186131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1866510238514736, guid: 534070560edc94084ac06918cb705810,
+    type: 2}
+  m_PrefabInternal: {fileID: 512431192}
 --- !u!1 &1258147003
 GameObject:
   m_ObjectHideFlags: 0
@@ -5440,6 +5446,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 654331990}
   winMenu: {fileID: 1258147003}
   flour: {fileID: 2005424049}
+  turnManager: {fileID: 1247186131}
   levelName: {fileID: 2020608929}
   turns: {fileID: 1501134318}
   chargeNum: {fileID: 1318031130}
