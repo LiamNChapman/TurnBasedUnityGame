@@ -23,7 +23,6 @@ public class PressurePad : MonoBehaviour {
 		Vector3 player = GameObject.Find("Player").transform.position;
 			foreach(GameObject enemy in TurnManager.enemies){
 				if(enemy.transform.position == thisPosistion){
-					Debug.Log("dfgdsdgdsg");
 					check = 1;
 				}
 			}

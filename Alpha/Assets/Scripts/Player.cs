@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
 	bool distractActive = false;
 	public GameObject UIManager;
 	public int abilityCharges = 1;
+	public bool haveKey = false;
 
 	// Use this for initialization
 	void Start () {
@@ -53,6 +54,11 @@ public class Player : MonoBehaviour {
 			if(GameObject.Find("Gate") != null){
 				gate = GameObject.Find("Gate");
 				blocked = coordinate == gate.transform.position;
+				if(blocked && haveKey){
+					blocked = false;
+					gate.SetActive(false);
+					haveKey = false;
+				}
 			}
 
 			// Check if the tile isn't a path.
@@ -73,6 +79,15 @@ public class Player : MonoBehaviour {
 						if(transform.position == flour.transform.position){
 							Destroy(flour);
 							abilityCharges++;
+						}
+					}
+
+					GameObject key;
+					if(GameObject.Find("Key") != null){
+						key = GameObject.Find("Key");
+						if(transform.position == key.transform.position){
+							Destroy(key);
+							haveKey = true;
 						}
 					}
 
