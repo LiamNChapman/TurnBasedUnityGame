@@ -54,9 +54,10 @@ public class Player : MonoBehaviour {
 			if(GameObject.Find("Gate") != null){
 				gate = GameObject.Find("Gate");
 				blocked = coordinate == gate.transform.position;
-				if(!blocked && haveKey){
+				if(blocked && haveKey){
 					blocked = false;
 					gate.SetActive(false);
+					haveKey = false;
 				}
 			}
 
