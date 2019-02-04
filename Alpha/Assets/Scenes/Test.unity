@@ -1410,6 +1410,75 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 637044105}
   m_CullTransparentMesh: 0
+--- !u!1001 &638201250
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4467359101564392, guid: 057f149513c494e0f833438403a887b2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467359101564392, guid: 057f149513c494e0f833438403a887b2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467359101564392, guid: 057f149513c494e0f833438403a887b2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467359101564392, guid: 057f149513c494e0f833438403a887b2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467359101564392, guid: 057f149513c494e0f833438403a887b2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467359101564392, guid: 057f149513c494e0f833438403a887b2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467359101564392, guid: 057f149513c494e0f833438403a887b2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467359101564392, guid: 057f149513c494e0f833438403a887b2, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 212326482922056820, guid: 057f149513c494e0f833438403a887b2,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea4242cc5ea8c479ebeafde163ff340d,
+        type: 3}
+    - target: {fileID: 212326482922056820, guid: 057f149513c494e0f833438403a887b2,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114001510589361664, guid: 057f149513c494e0f833438403a887b2,
+        type: 2}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 815859560}
+    - target: {fileID: 114001510589361664, guid: 057f149513c494e0f833438403a887b2,
+        type: 2}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 853592678}
+    - target: {fileID: 114001510589361664, guid: 057f149513c494e0f833438403a887b2,
+        type: 2}
+      propertyPath: cross
+      value: 
+      objectReference: {fileID: 4414698077321394, guid: e5e7a2e6fee5647c5ae3310e7bef655a,
+        type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 057f149513c494e0f833438403a887b2, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &654331990
 GameObject:
   m_ObjectHideFlags: 0
