@@ -75,6 +75,7 @@ public class TurnManager : MonoBehaviour {
 		return currentState;
 	}
 	public static void killed() {
+		turnCount = 0;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }
