@@ -47,7 +47,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1988529030282640}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dce37dc71d4c14c4fbdb81a4880ff541, type: 3}
   m_Name: 
@@ -55,6 +55,12 @@ MonoBehaviour:
   tilemap: {fileID: 0}
   grid: {fileID: 0}
   facing: 2
+  cross: {fileID: 0}
+  spriteList:
+  - {fileID: 21300000, guid: 6e1a541b0dd11493a9861b116770d471, type: 3}
+  - {fileID: 21300000, guid: 2610ceaa6692749b6afa664f41d21c1b, type: 3}
+  - {fileID: 21300000, guid: 88d7c75c544244f44af5edb63526613c, type: 3}
+  - {fileID: 21300000, guid: fc8c979b7e3894f918772b351330192f, type: 3}
   isStunned: 0
   stunLeft: 0
 --- !u!212 &212452843462805952
