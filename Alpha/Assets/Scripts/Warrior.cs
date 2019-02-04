@@ -11,7 +11,7 @@ public class Warrior : MonoBehaviour {
 	public Tilemap tilemap;
 	public bool turn = false;
 	public Transform cross;
-
+	public Sprite[] spriteList;
 	public bool isStunned = false;
 	public int stunLeft = 0;
 	// Use this for initialization
@@ -24,10 +24,12 @@ public class Warrior : MonoBehaviour {
 		Transform x = Instantiate(cross, (Vector3)hitBoxes[facing-1], transform.rotation);
 		x.parent = transform;
 		initialLOS = facing;
+		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		if(!isStunned){
 			Vector3Int playerPos = grid.WorldToCell(TurnManager.player.transform.position);
 			if(playerPos == hitBoxes[facing-1]) {
