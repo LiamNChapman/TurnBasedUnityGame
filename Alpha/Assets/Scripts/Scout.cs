@@ -78,6 +78,29 @@ public class Scout : MonoBehaviour {
 		pos = grid.WorldToCell(nextPos);
 		tile = (Tile)tilemap.GetTile(pos);
 
+		GameObject gate;
+		if(GameObject.Find("Gate") != null){
+			gate = GameObject.Find("Gate");
+			if(pos == gate.transform.position){
+				facing = (facing + 2)%4;
+				if(facing == 0){
+					facing = 4;
+				}
+			}
+
+			nextPos = this.transform.position;
+
+			if(facing == 1){
+				nextPos += Vector3.left;
+			} else if(facing == 2){
+				nextPos += Vector3.down;
+			} else if(facing == 3){
+				nextPos += Vector3.right;
+			} else if(facing == 4){
+				nextPos += Vector3.up;
+			}
+		}
+
 		if(tile.name == "NonPath"){
 			facing = (facing + 2)%4;
 			if(facing == 0){

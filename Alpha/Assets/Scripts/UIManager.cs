@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour {
 			enemy.SetActive(false);
 		}
 		TurnManager.player.SetActive(false);
-		turnManager.SetActive(true);
+		turnManager.SetActive(false);
 		winMenu.SetActive(true);
 		levelName.text = SceneManager.GetActiveScene().name;
 		turns.text = "Turns: " + TurnManager.turnCount;
