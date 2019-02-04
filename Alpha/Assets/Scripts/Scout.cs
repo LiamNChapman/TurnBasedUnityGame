@@ -9,7 +9,7 @@ public class Scout : MonoBehaviour {
 	public int facing; //1 = left, 2 = down, 3 = right, 4 = up
 	bool moving = false;
 	public Transform cross;
-
+	public Sprite[] spriteList;
 	public bool isStunned = false;
 	public int stunLeft = 0;
 
@@ -37,6 +37,7 @@ public class Scout : MonoBehaviour {
 			x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
 		}
 		x.parent = transform;
+		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		this.enabled = false;
 	}
 	
@@ -96,7 +97,7 @@ public class Scout : MonoBehaviour {
 			}
 		}
 		destination = nextPos;
-		
+		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		moving = true;
 	}
 
