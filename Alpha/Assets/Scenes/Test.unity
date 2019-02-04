@@ -2945,8 +2945,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: -1, y: 1, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 2
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -3845,15 +3845,19 @@ Tilemap:
       m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 95
+  - m_RefCount: 94
     m_Data: {fileID: 11400000, guid: cea0c626135c94405a1c2eaa77e1f5c2, type: 2}
   - m_RefCount: 157
     m_Data: {fileID: 11400000, guid: 67bdc8ba37dd14499b773db1b970e850, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 044436f95d2754dceb9b9ac3cfa502dd, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 95
+  - m_RefCount: 94
     m_Data: {fileID: 21300000, guid: fffdd488c234f4e978b22f41a45909e4, type: 3}
   - m_RefCount: 157
     m_Data: {fileID: 21300000, guid: 7c30bad46f9444dd99ece6cc2c369ecb, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: e44456add4e634595940477eb6cc21d4, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 252
     m_Data:
@@ -5948,6 +5952,11 @@ Prefab:
       propertyPath: abilityButtonsTransform
       value: 
       objectReference: {fileID: 112229215}
+    - target: {fileID: 114215508550982286, guid: 2caaa407303b244d28c65139f8194ffd,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 1949210392}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2caaa407303b244d28c65139f8194ffd, type: 2}
   m_IsPrefabAsset: 0
