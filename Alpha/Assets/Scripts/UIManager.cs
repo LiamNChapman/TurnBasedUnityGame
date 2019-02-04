@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour {
 	public GameObject pauseMenu;
 	public GameObject winMenu;
 	public GameObject flour;
+	public GameObject keyIcon;
 	public GameObject turnManager;
 	public Text levelName;
 	public Text turns;
@@ -34,7 +35,7 @@ public class UIManager : MonoBehaviour {
 			enemy.SetActive(false);
 		}
 		TurnManager.player.SetActive(false);
-		turnManager.SetActive(true);
+		turnManager.SetActive(false);
 		winMenu.SetActive(true);
 		levelName.text = SceneManager.GetActiveScene().name;
 		turns.text = "Turns: " + TurnManager.turnCount;
@@ -44,6 +45,10 @@ public class UIManager : MonoBehaviour {
 	}
 
 	void Update() {
+		checkCharges();
+		checkKeys();
+	}
+	void checkCharges() {
 		chargeNum.text = "x " + TurnManager.player.GetComponent<Player>().abilityCharges;
 		if(TurnManager.player.GetComponent<Player>().abilityCharges <= 0) {
 			flour.GetComponent<Image>().color = Color.grey;
@@ -51,5 +56,11 @@ public class UIManager : MonoBehaviour {
 			flour.GetComponent<Image>().color = Color.white;
 		}
 	}
-
+	void checkKeys() {
+		if(!TurnManager.player.GetComponent<Player>().haveKey) {
+			keyIcon.GetComponent<Image>().color = Color.grey;
+		} else {
+			keyIcon.GetComponent<Image>().color = Color.white;
+		}
+	}
 }

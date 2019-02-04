@@ -10,7 +10,7 @@ public class Bezerker : MonoBehaviour {
 	public Grid grid;
 	public int facing; //1 = left, 2 = down, 3 = right, 4 = up
 	public Transform cross;
-
+	public Sprite[] spriteList;
 	public bool isStunned = false;
 	public int stunLeft = 0;
 
@@ -24,6 +24,7 @@ public class Bezerker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		Vector3 initialPos = this.transform.position;
 		Vector3Int pos = grid.WorldToCell(initialPos);
 		Tile tile = (Tile)tilemap.GetTile(pos);
@@ -52,6 +53,7 @@ public class Bezerker : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(!isStunned){
+			this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 			if(chargeDelay != 1){
 				if(!enraged){
 					checkLOS();
