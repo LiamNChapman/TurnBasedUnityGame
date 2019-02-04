@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour {
 	public Text chargeNum;
 	
 	public void reset() {
+		TurnManager.turnCount = 0;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
