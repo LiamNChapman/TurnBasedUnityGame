@@ -148,6 +148,7 @@ public class Player : MonoBehaviour {
 
 			// Check if the tile isn't a path.
 			if(tilemap.GetTile(coordinate).name != "NonPath"){
+			ParticleClass.emitHere((Vector3)coordinate);
 			foreach(GameObject enemies in TurnManager.enemies){
 				Vector3 checkPos = (Vector3)coordinate;
 				checkPos += Vector3.left;
