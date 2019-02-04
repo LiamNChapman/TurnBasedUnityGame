@@ -119,14 +119,12 @@ public class Player : MonoBehaviour {
 					if(tilemap.GetTile(coordinate).name == "WinTile"){
 						UIManager = GameObject.Find("Canvas");
 						UIManager.GetComponent<UIManager>().winLevel();					
-						}
+					}
 					if(abilityCharges > 0){
 						abilityButtons.SetActive(true);
-						moved = true;
-					} else {
-						moved = true;
-						TurnManager.nextState();
 					}
+					moved = true;
+					TurnManager.nextState();
 				}
 			}
 		}
@@ -135,6 +133,7 @@ public class Player : MonoBehaviour {
 
 	public void distract() {
 		distractActive = true;
+		moved = true;
 		abilityButtons.SetActive(false);
 		cancelButton.SetActive(true);
 	}
@@ -239,6 +238,7 @@ public class Player : MonoBehaviour {
 
 	public void stun() {
 		stunActive = true;
+		moved = true;
 		abilityButtons.SetActive(false);
 		cancelButton.SetActive(true);
 		//TurnManager.nextState();
@@ -301,11 +301,7 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	public void skip() {
-
-		abilityButtons.SetActive(false);
-		TurnManager.nextState();
-	}
+	
 	public void cancel() {
 		stunActive = false;
 		distractActive = false;

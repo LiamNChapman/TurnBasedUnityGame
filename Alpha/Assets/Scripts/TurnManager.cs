@@ -9,7 +9,7 @@ public class TurnManager : MonoBehaviour {
 	public static GameObject[] enemies;
 	public static int enemyMoves;
 	public static PressurePad pressurePad;
-	//Made this public so the enemy scripts could access
+	
 	public enum TurnStates {
 		PLAYERMOVE,
 		ENEMYMOVE
@@ -75,6 +75,7 @@ public class TurnManager : MonoBehaviour {
 		return currentState;
 	}
 	public static void killed() {
+		turnCount = 0;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }
