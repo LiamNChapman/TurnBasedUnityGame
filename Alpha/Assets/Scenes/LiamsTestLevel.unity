@@ -3226,6 +3226,12 @@ Prefab:
       propertyPath: UIManager
       value: 
       objectReference: {fileID: 828523040}
+    - target: {fileID: 114215508550982286, guid: 2caaa407303b244d28c65139f8194ffd,
+        type: 2}
+      propertyPath: FlourPoof
+      value: 
+      objectReference: {fileID: 198498497743338388, guid: 9b3745958408d41f394ec08a2f77fef3,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2caaa407303b244d28c65139f8194ffd, type: 2}
   m_IsPrefabAsset: 0
