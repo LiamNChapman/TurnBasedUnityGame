@@ -64,4 +64,17 @@ public class UIManager : MonoBehaviour {
 			keyIcon.GetComponent<Image>().color = Color.white;
 		}
 	}
+
+	public void nextLevel() {
+		if(SceneManager.GetActiveScene().buildIndex == 7) {
+			SceneManager.LoadScene(0);
+		}
+		TurnManager.turnCount = 0;
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	}
+
+	public void mainMenu() {
+		TurnManager.turnCount = 0;
+		SceneManager.LoadScene(0);
+	}
 }
