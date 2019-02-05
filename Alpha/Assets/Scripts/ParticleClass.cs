@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleClass : MonoBehaviour {
+public class Particle : MonoBehaviour {
 
-	public static ParticleSystem FlourPoof;
-
-	public static void emitHere(Vector3 pos){
-		FlourPoof.transform.Translate(pos);
-		FlourPoof.Emit(1);
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
 	}
 }
