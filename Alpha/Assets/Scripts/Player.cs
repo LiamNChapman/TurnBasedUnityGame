@@ -126,7 +126,7 @@ public class Player : MonoBehaviour {
 					moved = true;
 					TurnManager.nextState();
 				}
-			}
+			} 
 		}
 		abilityButtonsTransform.position = this.transform.position + Vector3.up;
 	}
@@ -305,6 +305,7 @@ public class Player : MonoBehaviour {
 	public void cancel() {
 		stunActive = false;
 		distractActive = false;
+		moved = false;
 		abilityButtons.SetActive(true);
 		cancelButton.SetActive(false);
 	}
