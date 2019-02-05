@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
 	public GameObject UIManager;
 	public int abilityCharges = 1;
 	public bool haveKey = false;
+	public ParticleSystem FlourPoof;
 
 	// Use this for initialization
 	void Start () {
@@ -228,6 +229,10 @@ public class Player : MonoBehaviour {
 			}
 			}
 			if(tilemap.GetTile(coordinate).name != "NonPath" && enemyThere){
+				Vector3 distract = (Vector3) coordinate;
+				distract.x += 0.5f;
+				distract.y += 0.5f;
+				Instantiate(FlourPoof, distract, Quaternion.identity);
 				abilityCharges--;
 				distractActive = false;
 				cancelButton.SetActive(false);
@@ -291,6 +296,7 @@ public class Player : MonoBehaviour {
 					// Shift the players character to the center of the tile.
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
+					Instantiate(FlourPoof, newPosition, Quaternion.identity);
 					this.transform.position = newPosition;
 					abilityCharges--;
 					stunActive = false;
