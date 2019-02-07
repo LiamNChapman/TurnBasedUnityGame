@@ -31,10 +31,6 @@ public class testingTileHighlights : MonoBehaviour {
              Destroy(child.gameObject);
         	}
 			currentTile = coordinate;
-			if(tilemap.GetTile(currentTile).name != "NonPath") {
-				Transform x = Instantiate(highlight, currentTile, transform.rotation);
-				x.parent = transform;
-			}
 			playerMoveTiles();		
 		}
 		
@@ -80,6 +76,25 @@ public class testingTileHighlights : MonoBehaviour {
 			}
 			if(leftHighLight!=null && enemy == leftTile) {
 				leftHighLight.GetComponent<SpriteRenderer>().color = Color.red;
+			}
+		}
+		foreach(Vector3Int killTile in TurnManager.killTiles) {
+			if(upHighLight!=null && killTile == upTile) {
+				upHighLight.GetComponent<SpriteRenderer>().color = Color.red;
+			}
+			if(rightHighLight!=null && killTile == rightTile) {
+				rightHighLight.GetComponent<SpriteRenderer>().color = Color.red;
+			}
+			if(downHighLight!=null && killTile == downTile) {
+				downHighLight.GetComponent<SpriteRenderer>().color = Color.red;
+			}
+			if(leftHighLight!=null && killTile == leftTile) {
+				leftHighLight.GetComponent<SpriteRenderer>().color = Color.red;
+			}
+			if(currentTile == killTile) {
+				Transform x = Instantiate(highlight, currentTile, transform.rotation);
+				x.parent = transform;
+				x.GetComponent<SpriteRenderer>().color = Color.red;
 			}
 		}
 		

@@ -9,6 +9,7 @@ public class TurnManager : MonoBehaviour {
 	public static GameObject[] enemies;
 	public static int enemyMoves;
 	public static PressurePad pressurePad;
+	public static List<Vector3Int> killTiles = new List<Vector3Int>();
 	
 	public enum TurnStates {
 		PLAYERMOVE,
@@ -42,6 +43,7 @@ public class TurnManager : MonoBehaviour {
 	public static void nextState() {
 		if(currentState == TurnStates.PLAYERMOVE) {
 			enemyMoves = enemies.Length;
+			killTiles = new List<Vector3Int>();
 			currentState = TurnStates.ENEMYMOVE;
 			enemyMoveSetup();
 		} else {

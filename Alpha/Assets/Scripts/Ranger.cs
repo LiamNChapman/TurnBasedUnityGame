@@ -44,6 +44,7 @@ public class Ranger : MonoBehaviour {
 			tile = (Tile)tilemap.GetTile(pos);
 			if(tile.name != "NonPath"){
 				list.Add(pos);
+				TurnManager.killTiles.Add(pos);
 				Transform x = Instantiate(cross, pos, transform.rotation);
 				x.parent = transform;
 			}
@@ -146,6 +147,7 @@ public class Ranger : MonoBehaviour {
 			tile = (Tile)tilemap.GetTile(pos);
 			if(tile.name != "NonPath"){
 				list.Add(pos);
+				TurnManager.killTiles.Add(pos);
 				Transform x = Instantiate(cross, pos, transform.rotation);
 				x.parent = transform;
 			}
