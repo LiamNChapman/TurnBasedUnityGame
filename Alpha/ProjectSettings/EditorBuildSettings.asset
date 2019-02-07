@@ -8,10 +8,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: d4fca5be52af74bdeaea976a5afe05a1
+  - enabled: 1
+    path: Assets/Scenes/Tutorial1.unity
+    guid: 6d1f4a616c7d3494b8d3d76520ba2ba1
+  - enabled: 1
+    path: Assets/Scenes/Tutorial2.unity
+    guid: 8f3a31e2b43e0454291756c1c0376f4c
+  - enabled: 1
+    path: Assets/Scenes/Tutorial3.unity
+    guid: bafe266f707734d4cbbcc7d6b4287b81
+  - enabled: 1
+    path: Assets/Scenes/Tutorial4.unity
+    guid: c83156dd9363a471f9f94fe7fdcfee00
+  - enabled: 1
+    path: Assets/Scenes/EasyLevel2.unity
+    guid: 9fb1548fb250240fe95721558ee52c80
+  - enabled: 1
+    path: Assets/Scenes/Alpha1.unity
+    guid: 82b1255396acd44c9a1f1e2e659190eb
+  - enabled: 1
+    path: Assets/Scenes/LiamsTestLevel.unity
+    guid: 509079a36243845e281226184010393b
   - enabled: 0
     path: Assets/Scenes/Test.unity
     guid: 4ef5035fc680e41c0b8d1fbee9e7badc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LiamsTest.unity
     guid: 6f7cd8ffef93d4a75abab45c29551e90
   m_configObjects: {}
