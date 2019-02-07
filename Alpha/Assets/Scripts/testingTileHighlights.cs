@@ -29,11 +29,12 @@ public class testingTileHighlights : MonoBehaviour {
 		if(currentTile != coordinate) {
 			foreach (Transform child in transform) {
              Destroy(child.gameObject);
-        	}	
+        	}
 			currentTile = coordinate;
-			Transform x = Instantiate(highlight, currentTile, transform.rotation);
-			x.parent = transform;
-			Debug.Log("" + currentTile);
+			if(tilemap.GetTile(currentTile).name != "NonPath") {
+				Transform x = Instantiate(highlight, currentTile, transform.rotation);
+				x.parent = transform;
+			}		
 		}
 		
 	}

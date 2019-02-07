@@ -79,13 +79,17 @@ public class Ranger : MonoBehaviour {
 			if(attacking){
 				if(needArrow){
 						if(facing == 1){
-							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,270,0));
+							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,0));
+							Debug.Log("left");
 						} else if(facing == 2){
-							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,180,0));
+							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,270));
+							Debug.Log("down");
 						} else if(facing == 3){
-							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,90,0));
+							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,180));
+							Debug.Log("right");
 						} else if(facing == 4){
-							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,0,0));
+							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,90));
+							Debug.Log("up");
 						}
 						needArrow = false;
 					}
