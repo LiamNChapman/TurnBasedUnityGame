@@ -81,7 +81,7 @@ public class Bezerker : MonoBehaviour {
 			stunLeft--;
 			if(stunLeft < 1){
 				isStunned = false;
-			}
+			}		
 			TurnManager.enemyMoves--;
 			this.enabled = false;
 		}
@@ -179,6 +179,7 @@ public class Bezerker : MonoBehaviour {
 			destination.x += 0.5f;
 			destination.y += 0.5f;
 			chargeDelay = 1;
+			Debug.Log("Berserker");
 		TurnManager.enemyMoves--;
 	}
 }

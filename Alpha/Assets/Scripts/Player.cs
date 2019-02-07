@@ -66,17 +66,19 @@ public class Player : MonoBehaviour {
 			bool leftAndRight2 = Math.Abs((this.transform.position.x-0.5f) - coordinate.x) == 0;
 			bool upAndDown2 = Math.Abs((this.transform.position.y-0.5f) - coordinate.y) == 0;
 			if((upAndDown && leftAndRight2) || (leftAndRight && upAndDown2)){
-				validTile = true;
-				clicked = true;
+				
+
+				// Check if the tile isn't a path.
+				if(tilemap.GetTile(coordinate).name != "NonPath"){
+					clicked = true;
+					validTile = true;
+				}
 			}
 			
 
 		}
-			// Check if the tile isn't a path.
-			if(tilemap.GetTile(coordinate).name != "NonPath" && !blocked && clicked){
-
 			
-
+			if(!blocked && clicked){
 				//Check to make sure the player doesnt move diagonal.
 				if(validTile){
 					Vector3 newPosition = (Vector3)coordinate;
