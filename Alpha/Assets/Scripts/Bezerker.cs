@@ -63,7 +63,6 @@ public class Bezerker : MonoBehaviour {
 				attack();
 				}
 				if(transform.position == destination){
-					Debug.Log("weeeeeeeee");
 					endTurn();
 				}
 		
@@ -82,7 +81,7 @@ public class Bezerker : MonoBehaviour {
 			stunLeft--;
 			if(stunLeft < 1){
 				isStunned = false;
-			}
+			}		
 			TurnManager.enemyMoves--;
 			this.enabled = false;
 		}
@@ -117,7 +116,6 @@ public class Bezerker : MonoBehaviour {
 			charge.x += 0.5f;
 			charge.y += 0.5f;
 			if(TurnManager.player.transform.position == charge){
-				Debug.Log("IM GONNA CHAAARGE!!");
 				enraged = true;
 				tillCharge = 1;
 				for(int i = 0; i < list.Count; i++) {
@@ -145,7 +143,6 @@ public class Bezerker : MonoBehaviour {
 			
 			if(transform.position.x <= (TurnManager.player.transform.position.x+0.5f)&& transform.position.x >= (TurnManager.player.transform.position.x-0.5f)){
 				if(transform.position.y <= (TurnManager.player.transform.position.y+0.5f)&& transform.position.y >= (TurnManager.player.transform.position.y-0.5f)){
-					Debug.Log("Ded");
 					TurnManager.killed();
 				}
 			}
@@ -182,6 +179,7 @@ public class Bezerker : MonoBehaviour {
 			destination.x += 0.5f;
 			destination.y += 0.5f;
 			chargeDelay = 1;
+			Debug.Log("Berserker");
 		TurnManager.enemyMoves--;
 	}
 }
