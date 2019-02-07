@@ -18,7 +18,6 @@ public class testingTileHighlights : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(enemies == null) {
-			Debug.Log("Cunt");
 			enemies = new Vector3Int[TurnManager.enemies.Length];
 			for(int i = 0; i < TurnManager.enemies.Length - 1; i++) {
 				enemies[i] = grid.WorldToCell(TurnManager.enemies[i].transform.position);
