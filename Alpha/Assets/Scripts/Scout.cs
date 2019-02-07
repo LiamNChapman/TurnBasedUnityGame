@@ -37,6 +37,7 @@ public class Scout : MonoBehaviour {
 			x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
 		}
 		x.parent = transform;
+		TurnManager.killTiles.Add(grid.WorldToCell(destination));
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		this.enabled = false;
 	}
@@ -137,29 +138,37 @@ public class Scout : MonoBehaviour {
 				destination += Vector3.left;
 				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.right), transform.rotation);
+					TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.right));
 				} else {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+					TurnManager.killTiles.Add(grid.WorldToCell(destination));
 				}			
 			} else if(facing == 2){					
 				destination += Vector3.down;
 				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.up), transform.rotation);
+					TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.up));
 				} else {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+					TurnManager.killTiles.Add(grid.WorldToCell(destination));
 				}
 			} else if(facing == 3){
 				destination += Vector3.right;
 				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.left), transform.rotation);
+					TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.left));
 				} else {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+					TurnManager.killTiles.Add(grid.WorldToCell(destination));
 				}
 			} else {
 				destination += Vector3.up;
 				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.down), transform.rotation);
+					TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.down));
 				} else {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+					TurnManager.killTiles.Add(grid.WorldToCell(destination));
 				}	
 			}
 			x.parent = transform;
