@@ -102,7 +102,7 @@ public class Player : MonoBehaviour {
 						GameObject key;
 						if(GameObject.Find("Key") != null){
 							key = GameObject.Find("Key");
-							if(transform.position == key.transform.position){
+							if(transform.position.x == key.transform.position.x && key.transform.position.y - transform.position.y < 1){
 								Destroy(key);
 								haveKey = true;
 							}
