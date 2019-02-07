@@ -67,8 +67,9 @@ public class Player : MonoBehaviour {
 			bool upAndDown2 = Math.Abs((this.transform.position.y-0.5f) - coordinate.y) == 0;
 			if((upAndDown && leftAndRight2) || (leftAndRight && upAndDown2)){
 				validTile = true;
+				clicked = true;
 			}
-			clicked = true;
+			
 
 		}
 			// Check if the tile isn't a path.
@@ -152,6 +153,7 @@ public class Player : MonoBehaviour {
 	public void distract() {
 		distractActive = true;
 		moved = true;
+		clicked = false;
 		abilityButtons.SetActive(false);
 		cancelButton.SetActive(true);
 	}
@@ -261,6 +263,7 @@ public class Player : MonoBehaviour {
 	public void stun() {
 		stunActive = true;
 		moved = true;
+		clicked = false;
 		abilityButtons.SetActive(false);
 		cancelButton.SetActive(true);
 		//TurnManager.nextState();
@@ -329,6 +332,7 @@ public class Player : MonoBehaviour {
 		stunActive = false;
 		distractActive = false;
 		moved = false;
+		clicked = false;
 		abilityButtons.SetActive(true);
 		cancelButton.SetActive(false);
 	}
