@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		if(!moved){
 			move();
 		}
@@ -127,7 +127,7 @@ public class Player : MonoBehaviour {
 					moved = true;
 					TurnManager.nextState();
 				}
-			}
+			} 
 		}
 		abilityButtonsTransform.position = this.transform.position + Vector3.up;
 	}
