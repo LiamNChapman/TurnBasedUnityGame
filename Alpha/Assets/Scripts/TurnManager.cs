@@ -41,7 +41,7 @@ public class TurnManager : MonoBehaviour {
 	}
 	public static void nextState() {
 		if(currentState == TurnStates.PLAYERMOVE) {
-			
+			enemyMoves = enemies.Length;
 			currentState = TurnStates.ENEMYMOVE;
 			enemyMoveSetup();
 		} else {

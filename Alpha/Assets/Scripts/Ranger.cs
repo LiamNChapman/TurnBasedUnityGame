@@ -9,12 +9,18 @@ public class Ranger : MonoBehaviour {
 	public Grid grid;
 	public int facing = 1;
 	public Transform cross;
+	public Transform arrow;
 	public Sprite[] spriteList;
+	Transform instanceArrow;
 	Vector3Int[] hitBoxes = new Vector3Int[4];
 
 	public bool gotDistracted = false;
 	public bool isStunned = false;
 	public int stunLeft = 0;
+
+	bool needArrow = true;
+	bool attacking = false;
+	float speed = 20.0f;
 
 	void Start() {
 		Vector3 initialPos = this.transform.position;
@@ -42,15 +48,19 @@ public class Ranger : MonoBehaviour {
 				x.parent = transform;
 			}
 		}
+		
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		this.enabled = false;
+
 	}
 
 	void Update(){
 		if(!isStunned){
 			rotate();
-			TurnManager.enemyMoves--;
-			this.enabled = false;
+			if(!attacking){
+				TurnManager.enemyMoves--;
+				this.enabled = false;
+			}
 		} else {
 			if(gotDistracted){
 				rotate();
@@ -66,12 +76,36 @@ public class Ranger : MonoBehaviour {
 	}
 	void rotate() {
 		if(!gotDistracted){
+			if(attacking){
+				if(needArrow){
+						if(facing == 1){
+							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,270,0));
+						} else if(facing == 2){
+							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,180,0));
+						} else if(facing == 3){
+							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,90,0));
+						} else if(facing == 4){
+							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,0,0));
+						}
+						needArrow = false;
+					}
+				float step = speed * Time.deltaTime;
+				instanceArrow.transform.position = Vector3.MoveTowards(instanceArrow.transform.position, TurnManager.player.transform.position, step);
+				if(instanceArrow.transform.position == TurnManager.player.transform.position){
+					attacking = false;
+					TurnManager.killed();
+				}
+				return;
+			}
 			foreach(Vector3 los in list) {
 				Vector3 hit = los;
 				hit.x += 0.5f;
 				hit.y += 0.5f;
 				if(TurnManager.player.transform.position == hit) {
-					TurnManager.killed();
+					attacking = true;
+					foreach (Transform child in transform) {
+         		   		Destroy(child.gameObject);
+        			}
 					return;
 				}
 			}
@@ -95,6 +129,8 @@ public class Ranger : MonoBehaviour {
 		}
 
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
+		
+		
 
 		while(tile.name != "NonPath") {			
 			if(facing == 1){

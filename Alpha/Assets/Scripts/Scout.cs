@@ -13,7 +13,7 @@ public class Scout : MonoBehaviour {
 	public bool isStunned = false;
 	public int stunLeft = 0;
 
-	float speed = 2.0f;
+	float speed = 4.0f;
 	
 	Vector3 nextPos;
 	Vector3 destination;
@@ -163,9 +163,11 @@ public class Scout : MonoBehaviour {
 				}	
 			}
 			x.parent = transform;
+
 			moving = false;
 			TurnManager.enemyMoves--;
 			this.enabled = false;
+			
 		}
 	}
 }

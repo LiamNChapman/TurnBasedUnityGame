@@ -56,11 +56,15 @@ MonoBehaviour:
   grid: {fileID: 0}
   facing: 1
   cross: {fileID: 4414698077321394, guid: e5e7a2e6fee5647c5ae3310e7bef655a, type: 2}
+  arrow: {fileID: 4485592782268366, guid: 53110199683dd421ebb9ec6cf953a9bf, type: 2}
   spriteList:
   - {fileID: 21300000, guid: d74aabcef1894457294e8f484a459091, type: 3}
   - {fileID: 21300000, guid: 2c7b02b6a2ccc47e8b6e67389d036238, type: 3}
   - {fileID: 21300000, guid: 76bb8fcd33a444646a0c6ae8b41fad56, type: 3}
   - {fileID: 21300000, guid: 079692e831a74430bb207e97c7a50b0e, type: 3}
+  gotDistracted: 0
+  isStunned: 0
+  stunLeft: 0
 --- !u!212 &212436891517899028
 SpriteRenderer:
   m_ObjectHideFlags: 1
