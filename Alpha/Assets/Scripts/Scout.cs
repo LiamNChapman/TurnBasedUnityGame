@@ -163,9 +163,11 @@ public class Scout : MonoBehaviour {
 				}	
 			}
 			x.parent = transform;
+
 			moving = false;
 			TurnManager.enemyMoves--;
 			this.enabled = false;
+			
 		}
 	}
 }
