@@ -34,13 +34,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1200163417123182}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.03, y: -2.8, z: -0.35}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &198498497743338388
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -48,7 +48,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1200163417123182}
   serializedVersion: 5
-  lengthInSec: 0.1
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
   looping: 0
@@ -120,7 +120,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -173,7 +173,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -289,7 +289,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -611,7 +611,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -665,14 +665,14 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 0
-    angle: 25
+    angle: 45
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 0.5, y: 0.5, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -695,7 +695,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.52068967
+      value: 0.3
       mode: 0
       spread: 0
       speed:
@@ -752,7 +752,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
+      value: 89.99987
       mode: 0
       spread: 0
       speed:
@@ -4591,7 +4591,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4610,7 +4610,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
