@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class tut1mono : MonoBehaviour {
 
-	public GameObject Player;
 	public GameObject Ranger;
+	public GameObject TurnManager;
 
 	public void GameStart(){
-		Player.GetComponent<Player>().enabled = true;
+		TurnManager.GetComponent<TurnManager>().enabled = true;
 		Ranger.GetComponent<Ranger>().enabled = true;
 	}
 }
