@@ -264,6 +264,9 @@ public class Player : MonoBehaviour {
 				distract.y += 0.5f;
 				Instantiate(FlourPoof, distract, Quaternion.identity);
 				abilityCharges--;
+				foreach (Transform child in dad) {
+         			Destroy(child.gameObject);
+        		}				
 				distractActive = false;
 				cancelButton.SetActive(false);
 				TurnManager.nextState();
