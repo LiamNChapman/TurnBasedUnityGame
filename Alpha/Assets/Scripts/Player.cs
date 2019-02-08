@@ -24,7 +24,8 @@ public class Player : MonoBehaviour {
 	bool blocked = false;
 	bool validTile = false;
 	bool kidDead = false;
-	public GameObject dad;
+	public Transform dad;
+	public Transform highLight;
 
 	// Use this for initialization
 	void Start () {
@@ -163,8 +164,57 @@ public class Player : MonoBehaviour {
 		moved = true;
 		clicked = false;
 		abilityButtons.SetActive(false);
-		dad.SetActive(false);
 		cancelButton.SetActive(true);
+		foreach (Transform child in dad.transform) {
+			if(child.GetComponent<SpriteRenderer>().color != Color.red) {
+				Destroy(child.gameObject);
+			}        	
+        }
+		foreach(GameObject enemy in TurnManager.enemies) {
+			if(enemy.GetComponent<Bezerker>() != null && enemy.GetComponent<Bezerker>().enraged == false) { 
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.up).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.up, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.down).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.down, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.left).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.left, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.right).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.right, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+			} else if(enemy.GetComponent<Bezerker>() == null) {
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.up).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.up, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.down).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.down, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.left).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.left, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.right).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.right, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+			}
+		}
 	}
 
 	void throwDistraction(){
@@ -346,7 +396,11 @@ public class Player : MonoBehaviour {
 		moved = false;
 		clicked = false;
 		abilityButtons.SetActive(true);
-		dad.SetActive(true);
+		foreach (Transform child in dad.transform) {
+        	Destroy(child.gameObject);
+        }
+		GetComponent<testingTileHighlights>().playerMoveTiles();
+		GetComponent<testingTileHighlights>().colorTiles();
 		cancelButton.SetActive(false);
 	}
 }
