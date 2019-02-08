@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4118861339262788}
   - component: {fileID: 212348282140991524}
   - component: {fileID: 114215508550982286}
+  - component: {fileID: 114491383657589972}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1599064180205316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: 2.5, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,6 +64,22 @@ MonoBehaviour:
   haveKey: 0
   FlourPoof: {fileID: 198498497743338388, guid: 9b3745958408d41f394ec08a2f77fef3,
     type: 2}
+  dad: {fileID: 0}
+--- !u!114 &114491383657589972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1599064180205316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e682f9f2425374c00a8dcd064d84465c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 0}
+  tilemap: {fileID: 0}
+  highlight: {fileID: 4414698077321394, guid: e5e7a2e6fee5647c5ae3310e7bef655a, type: 2}
+  dad: {fileID: 0}
 --- !u!212 &212348282140991524
 SpriteRenderer:
   m_ObjectHideFlags: 1
