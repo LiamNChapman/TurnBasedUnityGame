@@ -111,15 +111,22 @@ public class Bezerker : MonoBehaviour {
 			destination.x += 0.5f;
 			destination.y += 0.5f;
 		}
-		foreach(Vector3 los in list){
-			Vector3 charge = los;
+		for(int i = 0; i < list.Count; i++){
+			Vector3 charge = list[i];
 			charge.x += 0.5f;
 			charge.y += 0.5f;
 			if(TurnManager.player.transform.position == charge){
+				TurnManager.killTiles.Add(grid.WorldToCell(list[i]));
+				if(i - 1 >= 0 && tilemap.GetTile(grid.WorldToCell(list[i-1])).name != "NonPath") {
+					TurnManager.killTiles.Add(grid.WorldToCell(list[i-1]));
+				}
+				if(i + 1 <= list.Count - 1 && tilemap.GetTile(grid.WorldToCell(list[i+1])).name != "NonPath") {
+					TurnManager.killTiles.Add(grid.WorldToCell(list[i+1]));
+				}
 				enraged = true;
 				tillCharge = 1;
-				for(int i = 0; i < list.Count; i++) {
-					Transform x = Instantiate(cross, (Vector3)list[i], transform.rotation);
+				for(int j = 0; j < list.Count; j++) {
+					Transform x = Instantiate(cross, (Vector3)list[j], transform.rotation);
 					x.parent = transform;
 				}
 			}
@@ -179,7 +186,6 @@ public class Bezerker : MonoBehaviour {
 			destination.x += 0.5f;
 			destination.y += 0.5f;
 			chargeDelay = 1;
-			Debug.Log("Berserker");
 		TurnManager.enemyMoves--;
 	}
 }
