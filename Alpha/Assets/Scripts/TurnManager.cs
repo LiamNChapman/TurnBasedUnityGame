@@ -10,6 +10,7 @@ public class TurnManager : MonoBehaviour {
 	public static int enemyMoves;
 	public static PressurePad pressurePad;
 	public static List<Vector3Int> killTiles = new List<Vector3Int>();
+	bool started = false;
 	
 	public enum TurnStates {
 		PLAYERMOVE,
@@ -27,12 +28,16 @@ public class TurnManager : MonoBehaviour {
 			pressurePad = GameObject.Find("PressurePad").GetComponent<PressurePad>();
 		}
 		enemyMoves = enemies.Length;
-		player.GetComponent<testingTileHighlights>().playerMoveTiles();
+		started = false;
 	}
 	
 	//Switch move states if the object in question is in a different space than they were?
 	// Update is called once per frame
 	void Update () {
+		if(!started){
+			player.GetComponent<testingTileHighlights>().playerMoveTiles();
+			started=true;
+		}
 		if(enemyMoves <= 0) {
 			enemyMoves = enemies.Length;
 			nextState();
