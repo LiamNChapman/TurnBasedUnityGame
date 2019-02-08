@@ -2698,8 +2698,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You: "Hmm.. looks like that Goblin only looks straight ahead. There must
-    be a way I can distract him.."'
+  m_Text: 'You: "Hmm.. looks like that Goblin only looks straight ahead. If I can
+    get beside him I should be able to stun him long enough to get past."'
 --- !u!222 &859447579
 CanvasRenderer:
   m_ObjectHideFlags: 0
