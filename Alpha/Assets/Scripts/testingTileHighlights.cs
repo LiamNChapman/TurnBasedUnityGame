@@ -20,7 +20,6 @@ public class testingTileHighlights : MonoBehaviour {
 	void Start () {
 		coordinate = grid.WorldToCell(transform.position);
 		currentTile = coordinate;
-		Debug.Log("cunt"+ currentTile);
 	}
 	
 	// Update is called once per frame
@@ -40,7 +39,6 @@ public class testingTileHighlights : MonoBehaviour {
 	}
 
 	public void playerMoveTiles() {
-		Debug.Log("cunt2"+ currentTile);
 		Vector3Int upTile = currentTile + Vector3Int.up;
 		Vector3Int rightTile = currentTile + Vector3Int.right;
 		Vector3Int downTile = currentTile + Vector3Int.down;
