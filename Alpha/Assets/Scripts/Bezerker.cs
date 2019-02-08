@@ -17,7 +17,7 @@ public class Bezerker : MonoBehaviour {
 	bool enraged = false;
 	int tillCharge = 0;
 	bool charging = false;
-	float speed = 10.0f;
+	public float speed = 10.0f;
 
 	Vector3 destination;
 	int chargeDelay = 0;
