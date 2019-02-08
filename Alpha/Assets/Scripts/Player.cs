@@ -24,6 +24,8 @@ public class Player : MonoBehaviour {
 	bool clicked = false;
 	bool blocked = false;
 	bool validTile = false;
+	bool kidDead = false;
+	public Transform dad;
 
 	// Use this for initialization
 	void Start () {
@@ -81,6 +83,12 @@ public class Player : MonoBehaviour {
 			if(!blocked && clicked){
 				//Check to make sure the player doesnt move diagonal.
 				if(validTile){
+					if(kidDead == false) {
+						foreach (Transform child in dad) {
+             				Destroy(child.gameObject);
+        				}
+						kidDead = true;
+					}
 					Vector3 newPosition = (Vector3)coordinate;
 
 					// Shift the players character to the center of the tile.
@@ -144,6 +152,7 @@ public class Player : MonoBehaviour {
 						moved = true;
 						clicked = false;
 						validTile = false;
+						kidDead = false;
 						TurnManager.nextState();
 					}
 				}

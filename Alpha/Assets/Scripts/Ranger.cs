@@ -44,6 +44,7 @@ public class Ranger : MonoBehaviour {
 			tile = (Tile)tilemap.GetTile(pos);
 			if(tile.name != "NonPath"){
 				list.Add(pos);
+				TurnManager.killTiles.Add(pos);
 				Transform x = Instantiate(cross, pos, transform.rotation);
 				x.parent = transform;
 			}
@@ -79,13 +80,13 @@ public class Ranger : MonoBehaviour {
 			if(attacking){
 				if(needArrow){
 						if(facing == 1){
-							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,270,0));
+							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,0));
 						} else if(facing == 2){
-							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,180,0));
+							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,270));
 						} else if(facing == 3){
-							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,90,0));
+							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,180));
 						} else if(facing == 4){
-							instanceArrow = Instantiate(arrow, transform.position, new Quaternion(0,0,0,0));
+							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,90));
 						}
 						needArrow = false;
 					}
@@ -146,6 +147,7 @@ public class Ranger : MonoBehaviour {
 			tile = (Tile)tilemap.GetTile(pos);
 			if(tile.name != "NonPath"){
 				list.Add(pos);
+				TurnManager.killTiles.Add(pos);
 				Transform x = Instantiate(cross, pos, transform.rotation);
 				x.parent = transform;
 			}

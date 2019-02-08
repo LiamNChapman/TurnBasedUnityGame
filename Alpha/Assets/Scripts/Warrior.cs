@@ -23,6 +23,7 @@ public class Warrior : MonoBehaviour {
 		hitBoxes[3] = grid.WorldToCell(initialPos + Vector3.up);
 		Transform x = Instantiate(cross, (Vector3)hitBoxes[facing-1], transform.rotation);
 		x.parent = transform;
+		TurnManager.killTiles.Add(hitBoxes[facing-1]);
 		initialLOS = facing;
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 	}
@@ -31,12 +32,14 @@ public class Warrior : MonoBehaviour {
 	void Update () {
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		if(!isStunned){
+
 			Vector3Int playerPos = grid.WorldToCell(TurnManager.player.transform.position);
 			if(playerPos == hitBoxes[facing-1]) {
 				Debug.Log("ded");
 				TurnManager.killed();
 			}
 			if(!turn) {
+				TurnManager.killTiles.Add(hitBoxes[facing-1]);
 				TurnManager.enemyMoves--;
 				turn = true;
 			}
@@ -46,6 +49,7 @@ public class Warrior : MonoBehaviour {
     	    	}
 				Transform x = Instantiate(cross, (Vector3)hitBoxes[facing-1], transform.rotation);
 				x.parent = transform;
+				TurnManager.killTiles.Add(hitBoxes[facing-1]);
 				initialLOS = facing;
 			}
 		} else {
