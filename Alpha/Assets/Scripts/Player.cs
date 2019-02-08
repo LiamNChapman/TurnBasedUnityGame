@@ -12,7 +12,6 @@ public class Player : MonoBehaviour {
 	public GameObject abilityButtons;
 	public GameObject cancelButton;
 	public bool moved = false;
-	public RectTransform abilityButtonsTransform;
 	bool stunActive = false;
 	bool distractActive = false;
 	public GameObject UIManager;
@@ -25,7 +24,7 @@ public class Player : MonoBehaviour {
 	bool blocked = false;
 	bool validTile = false;
 	bool kidDead = false;
-	public Transform dad;
+	public GameObject dad;
 
 	// Use this for initialization
 	void Start () {
@@ -84,7 +83,7 @@ public class Player : MonoBehaviour {
 				//Check to make sure the player doesnt move diagonal.
 				if(validTile){
 					if(kidDead == false) {
-						foreach (Transform child in dad) {
+						foreach (Transform child in dad.transform) {
              				Destroy(child.gameObject);
         				}
 						kidDead = true;
@@ -156,9 +155,7 @@ public class Player : MonoBehaviour {
 						TurnManager.nextState();
 					}
 				}
-			} 
-		
-		abilityButtonsTransform.position = this.transform.position + Vector3.up;
+			}
 	}
 
 	public void distract() {
@@ -166,6 +163,7 @@ public class Player : MonoBehaviour {
 		moved = true;
 		clicked = false;
 		abilityButtons.SetActive(false);
+		dad.SetActive(false);
 		cancelButton.SetActive(true);
 	}
 
@@ -264,7 +262,7 @@ public class Player : MonoBehaviour {
 				distract.y += 0.5f;
 				Instantiate(FlourPoof, distract, Quaternion.identity);
 				abilityCharges--;
-				foreach (Transform child in dad) {
+				foreach (Transform child in dad.transform) {
          			Destroy(child.gameObject);
         		}				
 				distractActive = false;
@@ -348,6 +346,7 @@ public class Player : MonoBehaviour {
 		moved = false;
 		clicked = false;
 		abilityButtons.SetActive(true);
+		dad.SetActive(true);
 		cancelButton.SetActive(false);
 	}
 }
