@@ -32,12 +32,14 @@ public class Warrior : MonoBehaviour {
 	void Update () {
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		if(!isStunned){
+
 			Vector3Int playerPos = grid.WorldToCell(TurnManager.player.transform.position);
 			if(playerPos == hitBoxes[facing-1]) {
 				Debug.Log("ded");
 				TurnManager.killed();
 			}
 			if(!turn) {
+				TurnManager.killTiles.Add(hitBoxes[facing-1]);
 				TurnManager.enemyMoves--;
 				turn = true;
 			}
