@@ -8,11 +8,18 @@ public class testingTileHighlights : MonoBehaviour {
 	public Grid grid;
 	public Tilemap tilemap;
 	public Transform highlight;
+	public Transform dad;
 	Vector3Int currentTile;
 	Vector3Int[] enemies;
+	Vector3Int coordinate;
+	Transform upHighLight = null;
+	Transform rightHighLight = null;
+	Transform downHighLight = null;
+	Transform leftHighLight = null;
 	// Use this for initialization
 	void Start () {
-		
+		coordinate = grid.WorldToCell(transform.position);
+		currentTile = coordinate;
 	}
 	
 	// Update is called once per frame
@@ -24,43 +31,40 @@ public class testingTileHighlights : MonoBehaviour {
 			}
 		}
 	
-		Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3Int coordinate = grid.WorldToCell(mouseWorldPos);
-		if(currentTile != coordinate) {
-			foreach (Transform child in transform) {
-             Destroy(child.gameObject);
-        	}
+		//Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        coordinate = grid.WorldToCell(transform.position);
+		if(currentTile != coordinate) {		
 			currentTile = coordinate;
-			playerMoveTiles();		
-		}
-		
+		}		
 	}
 
-	void playerMoveTiles() {
+	public void playerMoveTiles() {
 		Vector3Int upTile = currentTile + Vector3Int.up;
 		Vector3Int rightTile = currentTile + Vector3Int.right;
 		Vector3Int downTile = currentTile + Vector3Int.down;
 		Vector3Int leftTile = currentTile + Vector3Int.left;
-		Transform upHighLight = null;
-		Transform rightHighLight = null;
-		Transform downHighLight = null;
-		Transform leftHighLight = null;
 		if(tilemap.GetTile(upTile).name != "NonPath") {
 			upHighLight = Instantiate(highlight, upTile, transform.rotation);
-			upHighLight.parent = transform;
+			upHighLight.parent = dad;
 		}
 		if(tilemap.GetTile(rightTile).name != "NonPath") {
 			rightHighLight = Instantiate(highlight, rightTile, transform.rotation);
-			rightHighLight.parent = transform;
+			rightHighLight.parent = dad;
 		}
 		if(tilemap.GetTile(downTile).name != "NonPath") {
 			downHighLight = Instantiate(highlight, downTile, transform.rotation);
-			downHighLight.parent = transform;
+			downHighLight.parent = dad;
 		}
 		if(tilemap.GetTile(leftTile).name != "NonPath") {
 			leftHighLight = Instantiate(highlight, leftTile, transform.rotation);
-			leftHighLight.parent = transform;
+			leftHighLight.parent = dad;
 		}
+	}
+	public void colorTiles() {
+		Vector3Int upTile = currentTile + Vector3Int.up;
+		Vector3Int rightTile = currentTile + Vector3Int.right;
+		Vector3Int downTile = currentTile + Vector3Int.down;
+		Vector3Int leftTile = currentTile + Vector3Int.left;
 		for(int i = 0; i < TurnManager.enemies.Length; i++) {			
 			enemies[i] = grid.WorldToCell(TurnManager.enemies[i].transform.position);
 		}
@@ -93,11 +97,10 @@ public class testingTileHighlights : MonoBehaviour {
 			}
 			if(currentTile == killTile) {
 				Transform x = Instantiate(highlight, currentTile, transform.rotation);
-				x.parent = transform;
+				x.parent = dad;
 				x.GetComponent<SpriteRenderer>().color = Color.red;
 			}
 		}
 		
 	}
-
 }

@@ -27,6 +27,7 @@ public class TurnManager : MonoBehaviour {
 			pressurePad = GameObject.Find("PressurePad").GetComponent<PressurePad>();
 		}
 		enemyMoves = enemies.Length;
+		player.GetComponent<testingTileHighlights>().playerMoveTiles();
 	}
 	
 	//Switch move states if the object in question is in a different space than they were?
@@ -57,6 +58,9 @@ public class TurnManager : MonoBehaviour {
 	static void playerMoveSetup() {
 		player.GetComponent<Player>().moved = false;
 		player.GetComponent<Player>().enabled = true;
+		player.GetComponent<testingTileHighlights>().enabled = true;
+		player.GetComponent<testingTileHighlights>().playerMoveTiles();
+		player.GetComponent<testingTileHighlights>().colorTiles();
 	}
 	static void enemyMoveSetup() {
 		for(int i = 0; i < enemies.Length;i++){
@@ -71,6 +75,7 @@ public class TurnManager : MonoBehaviour {
 			}
 		}
 		player.GetComponent<Player>().enabled = false;
+		player.GetComponent<testingTileHighlights>().enabled = false;
 	}
 
 	public TurnStates getCurrentState() {
