@@ -171,7 +171,7 @@ public class Player : MonoBehaviour {
 			}        	
         }
 		foreach(GameObject enemy in TurnManager.enemies) {
-			if(enemy.GetComponent<Bezerker>() != null && enemy.GetComponent<Bezerker>().enraged == false) { 
+			if(enemy.GetComponent<Bezerker>() == null || enemy.GetComponent<Bezerker>().enraged == false) { 
 				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.up).name != "NonPath") {
 					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.up, transform.rotation);
 					x.GetComponent<SpriteRenderer>().color = Color.cyan;
@@ -192,30 +192,10 @@ public class Player : MonoBehaviour {
 					x.GetComponent<SpriteRenderer>().color = Color.cyan;
 					x.parent = dad;
 				}
-			} else if(enemy.GetComponent<Bezerker>() == null) {
-				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.up).name != "NonPath") {
-					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.up, transform.rotation);
-					x.GetComponent<SpriteRenderer>().color = Color.cyan;
-					x.parent = dad;
-				}
-				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.down).name != "NonPath") {
-					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.down, transform.rotation);
-					x.GetComponent<SpriteRenderer>().color = Color.cyan;
-					x.parent = dad;
-				}
-				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.left).name != "NonPath") {
-					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.left, transform.rotation);
-					x.GetComponent<SpriteRenderer>().color = Color.cyan;
-					x.parent = dad;
-				}
-				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.right).name != "NonPath") {
-					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.right, transform.rotation);
-					x.GetComponent<SpriteRenderer>().color = Color.cyan;
-					x.parent = dad;
-				}
-			}
+			} 
 		}
 	}
+	
 
 	void throwDistraction(){
 		if(Input.GetMouseButtonDown(0)) {
@@ -326,9 +306,30 @@ public class Player : MonoBehaviour {
 		stunActive = true;
 		moved = true;
 		clicked = false;
+		foreach (Transform child in dad.transform) {
+        	Destroy(child.gameObject);
+        }
+		foreach(GameObject enemy in TurnManager.enemies) {
+			if(grid.WorldToCell(enemy.transform.position) + Vector3Int.up == grid.WorldToCell(transform.position)) {
+				Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position), transform.rotation);
+				x.GetComponent<SpriteRenderer>().color = Color.cyan;
+				x.parent = dad;
+			}else if(grid.WorldToCell(enemy.transform.position) + Vector3Int.down == grid.WorldToCell(transform.position)) {
+				Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position), transform.rotation);
+				x.GetComponent<SpriteRenderer>().color = Color.cyan;
+				x.parent = dad;
+			} else if(grid.WorldToCell(enemy.transform.position) + Vector3Int.left == grid.WorldToCell(transform.position)) {
+				Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position), transform.rotation);
+				x.GetComponent<SpriteRenderer>().color = Color.cyan;
+				x.parent = dad;
+			} else if(grid.WorldToCell(enemy.transform.position) + Vector3Int.right == grid.WorldToCell(transform.position)) {
+				Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position), transform.rotation);
+				x.GetComponent<SpriteRenderer>().color = Color.cyan;
+				x.parent = dad;
+			}
+		}
 		abilityButtons.SetActive(false);
 		cancelButton.SetActive(true);
-		//TurnManager.nextState();
 	}
 
 	void stunMovement(){
@@ -382,6 +383,9 @@ public class Player : MonoBehaviour {
 					this.transform.position = newPosition;
 					abilityCharges--;
 					stunActive = false;
+					foreach (Transform child in dad.transform) {
+         				Destroy(child.gameObject);
+        			}	
 					cancelButton.SetActive(false);
 					TurnManager.nextState();
 				}

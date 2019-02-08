@@ -39,6 +39,10 @@ public class testingTileHighlights : MonoBehaviour {
 	}
 
 	public void playerMoveTiles() {
+		coordinate = grid.WorldToCell(transform.position);
+		if(currentTile != coordinate) {		
+			currentTile = coordinate;
+		}		
 		Vector3Int upTile = currentTile + Vector3Int.up;
 		Vector3Int rightTile = currentTile + Vector3Int.right;
 		Vector3Int downTile = currentTile + Vector3Int.down;
