@@ -12,7 +12,6 @@ public class Player : MonoBehaviour {
 	public GameObject abilityButtons;
 	public GameObject cancelButton;
 	public bool moved = false;
-	public RectTransform abilityButtonsTransform;
 	bool stunActive = false;
 	bool distractActive = false;
 	public GameObject UIManager;
@@ -26,6 +25,7 @@ public class Player : MonoBehaviour {
 	bool validTile = false;
 	bool kidDead = false;
 	public Transform dad;
+	public Transform highLight;
 
 	// Use this for initialization
 	void Start () {
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour {
 				//Check to make sure the player doesnt move diagonal.
 				if(validTile){
 					if(kidDead == false) {
-						foreach (Transform child in dad) {
+						foreach (Transform child in dad.transform) {
              				Destroy(child.gameObject);
         				}
 						kidDead = true;
@@ -156,9 +156,7 @@ public class Player : MonoBehaviour {
 						TurnManager.nextState();
 					}
 				}
-			} 
-		
-		abilityButtonsTransform.position = this.transform.position + Vector3.up;
+			}
 	}
 
 	public void distract() {
@@ -167,7 +165,37 @@ public class Player : MonoBehaviour {
 		clicked = false;
 		abilityButtons.SetActive(false);
 		cancelButton.SetActive(true);
+		foreach (Transform child in dad.transform) {
+			if(child.GetComponent<SpriteRenderer>().color != Color.red) {
+				Destroy(child.gameObject);
+			}        	
+        }
+		foreach(GameObject enemy in TurnManager.enemies) {
+			if(enemy.GetComponent<Bezerker>() == null || enemy.GetComponent<Bezerker>().enraged == false) { 
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.up).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.up, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.down).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.down, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.left).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.left, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+				if(tilemap.GetTile(grid.WorldToCell(enemy.transform.position) + Vector3Int.right).name != "NonPath") {
+					Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position) + Vector3Int.right, transform.rotation);
+					x.GetComponent<SpriteRenderer>().color = Color.cyan;
+					x.parent = dad;
+				}
+			} 
+		}
 	}
+	
 
 	void throwDistraction(){
 		if(Input.GetMouseButtonDown(0)) {
@@ -264,6 +292,9 @@ public class Player : MonoBehaviour {
 				distract.y += 0.5f;
 				Instantiate(FlourPoof, distract, Quaternion.identity);
 				abilityCharges--;
+				foreach (Transform child in dad.transform) {
+         			Destroy(child.gameObject);
+        		}				
 				distractActive = false;
 				cancelButton.SetActive(false);
 				TurnManager.nextState();
@@ -275,9 +306,30 @@ public class Player : MonoBehaviour {
 		stunActive = true;
 		moved = true;
 		clicked = false;
+		foreach (Transform child in dad.transform) {
+        	Destroy(child.gameObject);
+        }
+		foreach(GameObject enemy in TurnManager.enemies) {
+			if(grid.WorldToCell(enemy.transform.position) + Vector3Int.up == grid.WorldToCell(transform.position)) {
+				Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position), transform.rotation);
+				x.GetComponent<SpriteRenderer>().color = Color.cyan;
+				x.parent = dad;
+			}else if(grid.WorldToCell(enemy.transform.position) + Vector3Int.down == grid.WorldToCell(transform.position)) {
+				Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position), transform.rotation);
+				x.GetComponent<SpriteRenderer>().color = Color.cyan;
+				x.parent = dad;
+			} else if(grid.WorldToCell(enemy.transform.position) + Vector3Int.left == grid.WorldToCell(transform.position)) {
+				Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position), transform.rotation);
+				x.GetComponent<SpriteRenderer>().color = Color.cyan;
+				x.parent = dad;
+			} else if(grid.WorldToCell(enemy.transform.position) + Vector3Int.right == grid.WorldToCell(transform.position)) {
+				Transform x = Instantiate(highLight, grid.WorldToCell(enemy.transform.position), transform.rotation);
+				x.GetComponent<SpriteRenderer>().color = Color.cyan;
+				x.parent = dad;
+			}
+		}
 		abilityButtons.SetActive(false);
 		cancelButton.SetActive(true);
-		//TurnManager.nextState();
 	}
 
 	void stunMovement(){
@@ -331,6 +383,9 @@ public class Player : MonoBehaviour {
 					this.transform.position = newPosition;
 					abilityCharges--;
 					stunActive = false;
+					foreach (Transform child in dad.transform) {
+         				Destroy(child.gameObject);
+        			}	
 					cancelButton.SetActive(false);
 					TurnManager.nextState();
 				}
@@ -345,6 +400,11 @@ public class Player : MonoBehaviour {
 		moved = false;
 		clicked = false;
 		abilityButtons.SetActive(true);
+		foreach (Transform child in dad.transform) {
+        	Destroy(child.gameObject);
+        }
+		GetComponent<testingTileHighlights>().playerMoveTiles();
+		GetComponent<testingTileHighlights>().colorTiles();
 		cancelButton.SetActive(false);
 	}
 }

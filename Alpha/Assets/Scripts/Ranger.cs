@@ -13,6 +13,7 @@ public class Ranger : MonoBehaviour {
 	public Sprite[] spriteList;
 	Transform instanceArrow;
 	Vector3Int[] hitBoxes = new Vector3Int[4];
+	bool deleteLOS = false;
 
 	public bool gotDistracted = false;
 	public bool isStunned = false;
@@ -66,11 +67,40 @@ public class Ranger : MonoBehaviour {
 			if(gotDistracted){
 				rotate();
 				gotDistracted = false;
+			} else if(deleteLOS == false){
+				foreach (Transform child in transform) {
+             		Destroy(child.gameObject);
+        		}
+				deleteLOS = true;
 			}
 			stunLeft--;
 			if(stunLeft < 1){
 				isStunned = false;
-			}
+				list = new List<Vector3Int>();
+				Vector3 initialPos = this.transform.position;
+				Vector3Int pos = grid.WorldToCell(initialPos);
+				Tile tile = (Tile)tilemap.GetTile(pos);
+				while(tile.name != "NonPath") {			
+					if(facing == 1){
+						initialPos += Vector3.left;
+					} else if(facing == 2){
+						initialPos += Vector3.down;
+					} else if(facing == 3){
+						initialPos += Vector3.right;
+					} else if(facing == 4){
+						initialPos += Vector3.up;
+					}
+					pos = grid.WorldToCell(initialPos);
+					tile = (Tile)tilemap.GetTile(pos);
+					if(tile.name != "NonPath"){
+						list.Add(pos);
+						TurnManager.killTiles.Add(pos);
+						Transform x = Instantiate(cross, pos, transform.rotation);
+						x.parent = transform;
+					}
+				}
+				deleteLOS = false;
+			}			
 			TurnManager.enemyMoves--;
 			this.enabled = false;
 		}
