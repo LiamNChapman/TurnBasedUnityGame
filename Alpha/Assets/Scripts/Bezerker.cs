@@ -20,6 +20,9 @@ public class Bezerker : MonoBehaviour {
 	public float speed = 10.0f;
 	bool deleteLOS = false;
 
+	public GameObject Stun;
+	GameObject StunInstance;
+
 	Vector3 destination;
 	int chargeDelay = 0;
 
@@ -79,6 +82,9 @@ public class Bezerker : MonoBehaviour {
 				this.enabled = false;
 			}
 		} else {
+			if(stunLeft == 3){
+				StunInstance = Instantiate(Stun, transform.position, Quaternion.identity);
+			}
 			if(deleteLOS == false) {
 				foreach (Transform child in transform) {
              		Destroy(child.gameObject);
@@ -86,6 +92,7 @@ public class Bezerker : MonoBehaviour {
 			}
 			stunLeft--;
 			if(stunLeft < 1){
+				Destroy(StunInstance);
 				isStunned = false;
 			}		
 			TurnManager.enemyMoves--;
