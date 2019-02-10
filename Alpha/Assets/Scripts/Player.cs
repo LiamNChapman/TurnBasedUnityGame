@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 	public Transform dad;
 	public Transform highLight;
 	Vector3 keyPos;
+	public GameObject Gate;
 
 	// Use this for initialization
 	void Start () {
@@ -118,6 +119,7 @@ public class Player : MonoBehaviour {
 							if(transform.position == keyPos){
 								Destroy(key);
 								haveKey = true;
+								Gate.GetComponent<SpriteRenderer>().enabled = false;
 							}
 						}
 
