@@ -13,6 +13,8 @@ public class Scout : MonoBehaviour {
 	public bool isStunned = false;
 	public int stunLeft = 0;
 	bool deleteLOS;
+	public GameObject Stun;
+	GameObject StunInstance;
 
 	float speed = 4.0f;
 	
@@ -51,6 +53,9 @@ public class Scout : MonoBehaviour {
 			}
 			move();
 		} else {
+			if(stunLeft == 3){
+				StunInstance = Instantiate(Stun, transform.position, Quaternion.identity);
+			}
 			stunLeft--;
 			if(deleteLOS == false) {
 				foreach (Transform child in transform) {
@@ -59,6 +64,7 @@ public class Scout : MonoBehaviour {
 				deleteLOS = true;
 			}
 			if(stunLeft < 1){
+				Destroy(StunInstance);
 				isStunned = false;
 				Transform x;
 				if(facing == 1){
