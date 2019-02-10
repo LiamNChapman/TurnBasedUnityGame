@@ -20,6 +20,8 @@ public class testingTileHighlights : MonoBehaviour {
 	void Start () {
 		coordinate = grid.WorldToCell(transform.position);
 		currentTile = coordinate;
+		enemies = new Vector3Int[TurnManager.enemies.Length];
+
 	}
 	
 	// Update is called once per frame
@@ -69,7 +71,8 @@ public class testingTileHighlights : MonoBehaviour {
 		Vector3Int rightTile = currentTile + Vector3Int.right;
 		Vector3Int downTile = currentTile + Vector3Int.down;
 		Vector3Int leftTile = currentTile + Vector3Int.left;
-		for(int i = 0; i < TurnManager.enemies.Length; i++) {			
+		for(int i = 0; i < TurnManager.enemies.Length; i++) {
+			Debug.Log(TurnManager.enemies[i].name);			
 			enemies[i] = grid.WorldToCell(TurnManager.enemies[i].transform.position);
 		}
 		foreach(Vector3Int enemy in enemies) {			
