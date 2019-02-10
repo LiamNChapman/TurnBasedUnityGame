@@ -40,7 +40,6 @@ public class Warrior : MonoBehaviour {
 
 			Vector3Int playerPos = grid.WorldToCell(TurnManager.player.transform.position);
 			if(playerPos == hitBoxes[facing-1]) {
-				Debug.Log("ded");
 				TurnManager.killed();
 			}
 			if(!turn) {
