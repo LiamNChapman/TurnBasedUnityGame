@@ -10,6 +10,7 @@ public class tut4mono : MonoBehaviour {
 	public GameObject Bezerker2;
 
 	public void StartGame(){
+		GetComponent<UIManager>().enabled = true;
 		Player.GetComponent<Player>().enabled = true;
 		Player.GetComponent<testingTileHighlights>().enabled = true;
 		TurnManager.GetComponent<TurnManager>().enabled = true;

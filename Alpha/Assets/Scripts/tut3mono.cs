@@ -9,6 +9,7 @@ public class tut3mono : MonoBehaviour {
 	public GameObject Scout;
 
 	public void StartGame(){
+		GetComponent<UIManager>().enabled = true;
 		Player.GetComponent<Player>().enabled = true;
 		Player.GetComponent<testingTileHighlights>().enabled = true;
 		TurnManager.GetComponent<TurnManager>().enabled = true;
