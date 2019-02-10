@@ -14,6 +14,8 @@ public class Ranger : MonoBehaviour {
 	Transform instanceArrow;
 	Vector3Int[] hitBoxes = new Vector3Int[4];
 	bool deleteLOS = false;
+	public GameObject Stun;
+	GameObject StunInstance;
 
 	public bool gotDistracted = false;
 	public bool isStunned = false;
@@ -73,8 +75,12 @@ public class Ranger : MonoBehaviour {
         		}
 				deleteLOS = true;
 			}
+			if(stunLeft == 3){
+				StunInstance = Instantiate(Stun, transform.position, Quaternion.identity);
+			}
 			stunLeft--;
 			if(stunLeft < 1){
+				Destroy(StunInstance);
 				isStunned = false;
 				list = new List<Vector3Int>();
 				Vector3 initialPos = this.transform.position;

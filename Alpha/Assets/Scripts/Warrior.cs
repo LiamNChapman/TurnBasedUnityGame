@@ -15,6 +15,10 @@ public class Warrior : MonoBehaviour {
 	public bool isStunned = false;
 	public int stunLeft = 0;
 	bool deleteLos = false;
+
+	public GameObject Stun;
+	GameObject StunInstance;
+
 	// Use this for initialization
 	void Start () {
 		Vector3 initialPos = this.transform.position;
