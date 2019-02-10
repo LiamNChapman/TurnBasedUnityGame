@@ -15,9 +15,13 @@ public class Bezerker : MonoBehaviour {
 	public int stunLeft = 0;
 
 	public bool enraged = false;
-	int tillCharge = 0;
+	public int tillCharge = 0;
 	bool charging = false;
 	public float speed = 10.0f;
+	bool deleteLOS = false;
+
+	public GameObject Stun;
+	GameObject StunInstance;
 
 	Vector3 destination;
 	int chargeDelay = 0;
@@ -78,8 +82,17 @@ public class Bezerker : MonoBehaviour {
 				this.enabled = false;
 			}
 		} else {
+			if(stunLeft == 3){
+				StunInstance = Instantiate(Stun, transform.position, Quaternion.identity);
+			}
+			if(deleteLOS == false) {
+				foreach (Transform child in transform) {
+             		Destroy(child.gameObject);
+        		}
+			}
 			stunLeft--;
 			if(stunLeft < 1){
+				Destroy(StunInstance);
 				isStunned = false;
 			}		
 			TurnManager.enemyMoves--;
@@ -163,29 +176,29 @@ public class Bezerker : MonoBehaviour {
 	}
 	void endTurn(){
 		list = new List<Vector3Int>();
-			Vector3 initialPos = this.transform.position;
-			Vector3Int pos = grid.WorldToCell(initialPos);
-			Tile tile = (Tile)tilemap.GetTile(pos);
-			while(tile.name != "NonPath"){
-				if(facing == 1){
-					initialPos += Vector3.left;
-				} else if(facing == 2){
-					initialPos += Vector3.down;
-				} else if(facing == 3){
-					initialPos += Vector3.right;
-				} else if(facing == 4){
-					initialPos += Vector3.up;
-				}
-				pos = grid.WorldToCell(initialPos);
-				tile = (Tile)tilemap.GetTile(pos);
-				if(tile.name != "NonPath"){
-					list.Add(pos);
-				}
+		Vector3 initialPos = this.transform.position;
+		Vector3Int pos = grid.WorldToCell(initialPos);
+		Tile tile = (Tile)tilemap.GetTile(pos);
+		while(tile.name != "NonPath"){
+			if(facing == 1){
+				initialPos += Vector3.left;
+			} else if(facing == 2){
+				initialPos += Vector3.down;
+			} else if(facing == 3){
+				initialPos += Vector3.right;
+			} else if(facing == 4){
+				initialPos += Vector3.up;
 			}
-			destination = (list[list.Count-1]);
-			destination.x += 0.5f;
-			destination.y += 0.5f;
-			chargeDelay = 1;
+			pos = grid.WorldToCell(initialPos);
+			tile = (Tile)tilemap.GetTile(pos);
+			if(tile.name != "NonPath"){
+				list.Add(pos);
+			}
+		}
+		destination = (list[list.Count-1]);
+		destination.x += 0.5f;
+		destination.y += 0.5f;
+		chargeDelay = 1;
 		TurnManager.enemyMoves--;
 	}
 }

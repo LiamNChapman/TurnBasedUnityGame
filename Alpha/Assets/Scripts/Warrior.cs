@@ -14,6 +14,11 @@ public class Warrior : MonoBehaviour {
 	public Sprite[] spriteList;
 	public bool isStunned = false;
 	public int stunLeft = 0;
+	bool deleteLos = false;
+
+	public GameObject Stun;
+	GameObject StunInstance;
+
 	// Use this for initialization
 	void Start () {
 		Vector3 initialPos = this.transform.position;
@@ -53,11 +58,24 @@ public class Warrior : MonoBehaviour {
 				initialLOS = facing;
 			}
 		} else {
-			
+			if(stunLeft == 3){
+				StunInstance = Instantiate(Stun, transform.position, Quaternion.identity);
+			}
+			if(deleteLos == false) {
+				foreach (Transform child in transform) {
+    	    		Destroy(child.gameObject);
+    	    	}
+				deleteLos = true;
+			}
 			if(!turn) {
 				stunLeft--;
 				if(stunLeft < 1){
+					Destroy(StunInstance);
 					isStunned = false;
+					Transform x = Instantiate(cross, (Vector3)hitBoxes[facing-1], transform.rotation);
+					x.parent = transform;
+					TurnManager.killTiles.Add(hitBoxes[facing-1]);
+					deleteLos = false;
 				}
 				TurnManager.enemyMoves--;
 				turn = true;

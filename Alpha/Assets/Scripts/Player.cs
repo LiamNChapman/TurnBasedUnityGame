@@ -26,9 +26,14 @@ public class Player : MonoBehaviour {
 	bool kidDead = false;
 	public Transform dad;
 	public Transform highLight;
+	Vector3 keyPos;
 
 	// Use this for initialization
 	void Start () {
+		if(GameObject.Find("Key") != null){
+			keyPos = GameObject.Find("Key").transform.position;
+
+		}
 	}
 	
 	// Update is called once per frame
@@ -110,7 +115,7 @@ public class Player : MonoBehaviour {
 						GameObject key;
 						if(GameObject.Find("Key") != null){
 							key = GameObject.Find("Key");
-							if(transform.position == key.transform.position){
+							if(transform.position == keyPos){
 								Destroy(key);
 								haveKey = true;
 							}
@@ -362,6 +367,8 @@ public class Player : MonoBehaviour {
 					} else if(enemies.GetComponent<Bezerker>() != null) {
 						enemies.GetComponent<Bezerker>().isStunned = true;
 						enemies.GetComponent<Bezerker>().stunLeft = 3;
+						enemies.GetComponent<Bezerker>().tillCharge = 0;
+						enemies.GetComponent<Bezerker>().enraged = false;
 					} else if(enemies.GetComponent<Warrior>() != null) {
 						enemies.GetComponent<Warrior>().isStunned = true;
 						enemies.GetComponent<Warrior>().stunLeft = 3;
