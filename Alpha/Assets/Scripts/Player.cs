@@ -28,13 +28,11 @@ public class Player : MonoBehaviour {
 	public Transform highLight;
 	Vector3 keyPos;
 	public GameObject Gate;
+	public GameObject Key;
 
 	// Use this for initialization
 	void Start () {
-		if(GameObject.Find("Key") != null){
-			keyPos = GameObject.Find("Key").transform.position;
-
-		}
+		keyPos = Key.transform.position;
 	}
 	
 	// Update is called once per frame
