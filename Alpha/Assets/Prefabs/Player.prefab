@@ -58,13 +58,13 @@ MonoBehaviour:
   abilityButtons: {fileID: 0}
   cancelButton: {fileID: 0}
   moved: 0
-  abilityButtonsTransform: {fileID: 0}
   UIManager: {fileID: 0}
   abilityCharges: 1
   haveKey: 0
   FlourPoof: {fileID: 198498497743338388, guid: 9b3745958408d41f394ec08a2f77fef3,
     type: 2}
   dad: {fileID: 0}
+  highLight: {fileID: 4866634529931904, guid: eaddbeda8617f434c9b0e476cf730f24, type: 2}
 --- !u!114 &114491383657589972
 MonoBehaviour:
   m_ObjectHideFlags: 1
