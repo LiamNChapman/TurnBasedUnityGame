@@ -58,6 +58,9 @@ public class Warrior : MonoBehaviour {
 				initialLOS = facing;
 			}
 		} else {
+			if(stunLeft == 3){
+				StunInstance = Instantiate(Stun, transform.position, Quaternion.identity);
+			}
 			if(deleteLos == false) {
 				foreach (Transform child in transform) {
     	    		Destroy(child.gameObject);
@@ -67,6 +70,7 @@ public class Warrior : MonoBehaviour {
 			if(!turn) {
 				stunLeft--;
 				if(stunLeft < 1){
+					Destroy(StunInstance);
 					isStunned = false;
 					Transform x = Instantiate(cross, (Vector3)hitBoxes[facing-1], transform.rotation);
 					x.parent = transform;
