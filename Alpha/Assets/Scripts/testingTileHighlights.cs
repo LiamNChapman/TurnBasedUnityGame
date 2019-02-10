@@ -20,8 +20,6 @@ public class testingTileHighlights : MonoBehaviour {
 	void Start () {
 		coordinate = grid.WorldToCell(transform.position);
 		currentTile = coordinate;
-		enemies = new Vector3Int[TurnManager.enemies.Length];
-
 	}
 	
 	// Update is called once per frame

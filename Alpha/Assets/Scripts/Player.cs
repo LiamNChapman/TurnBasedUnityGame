@@ -367,6 +367,8 @@ public class Player : MonoBehaviour {
 					} else if(enemies.GetComponent<Bezerker>() != null) {
 						enemies.GetComponent<Bezerker>().isStunned = true;
 						enemies.GetComponent<Bezerker>().stunLeft = 3;
+						enemies.GetComponent<Bezerker>().tillCharge = 0;
+						enemies.GetComponent<Bezerker>().enraged = false;
 					} else if(enemies.GetComponent<Warrior>() != null) {
 						enemies.GetComponent<Warrior>().isStunned = true;
 						enemies.GetComponent<Warrior>().stunLeft = 3;
