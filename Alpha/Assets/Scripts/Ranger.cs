@@ -99,7 +99,7 @@ public class Ranger : MonoBehaviour {
 						x.parent = transform;
 					}
 				}
-				deleteLOS = false;
+				deleteLOS = false; 
 			}			
 			TurnManager.enemyMoves--;
 			this.enabled = false;
