@@ -16,7 +16,6 @@ public class Ranger : MonoBehaviour {
 	bool deleteLOS = false;
 	public GameObject Stun;
 	GameObject StunInstance;
-
 	public bool gotDistracted = false;
 	public bool isStunned = false;
 	public int stunLeft = 0;
