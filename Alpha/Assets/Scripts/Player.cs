@@ -27,13 +27,13 @@ public class Player : MonoBehaviour {
 	public Transform dad;
 	public Transform highLight;
 	Vector3 keyPos;
-	public GameObject Gate;
-	public GameObject Key;
+	//public GameObject Gate;
+	//public GameObject Key;
 
 	// Use this for initialization
-	void Start () {
-		keyPos = Key.transform.position;
-	}
+	//void Start () {
+		//keyPos = Key.transform.position;
+	//}
 	
 	// Update is called once per frame
 	void Update () {
@@ -111,15 +111,15 @@ public class Player : MonoBehaviour {
 							}
 						}
 
-						GameObject key;
-						if(GameObject.Find("Key") != null){
-							key = GameObject.Find("Key");
-							if(transform.position == keyPos){
-								Destroy(key);
-								haveKey = true;
-								Gate.GetComponent<SpriteRenderer>().enabled = false;
-							}
-						}
+						//GameObject key;
+						//if(GameObject.Find("Key") != null){
+							//key = GameObject.Find("Key");
+							//if(transform.position == keyPos){
+								//Destroy(key);
+								//haveKey = true;
+								//Gate.GetComponent<SpriteRenderer>().enabled = false;
+							//}
+						//}
 
 						//check if the player is moving onto an enenmy
 						foreach(GameObject enemies in TurnManager.enemies){
