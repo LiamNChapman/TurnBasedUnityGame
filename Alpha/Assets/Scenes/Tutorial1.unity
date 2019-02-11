@@ -1418,8 +1418,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 10}
-  m_SizeDelta: {x: 300, y: 50}
+  m_AnchoredPosition: {x: -150, y: 0}
+  m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &712045839
 MonoBehaviour:
@@ -1453,8 +1453,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You: "*GASP* Goblins! I haven''t seen their kind in years... I''ll need
-    to stay out of sight of this archer if I''m to get through."'
+  m_Text: The enemy you see here is a Ranger. Rangers will rotate to the left each
+    turn, looking to the North, South, East and West.
 --- !u!222 &712045840
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1608,7 +1608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue..
+  m_Text: OK
 --- !u!222 &814067925
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3825,7 +3825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2546031, g: 0.6415094, b: 0.15432537, a: 1}
+  m_Color: {r: 0.51731044, g: 0.66388863, b: 0.8773585, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3980,7 +3980,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7aba76cd4a08641ceac32b8f262b10cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76bb8fcd33a444646a0c6ae8b41fad56, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

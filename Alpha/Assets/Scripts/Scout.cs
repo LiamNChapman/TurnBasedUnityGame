@@ -40,6 +40,9 @@ public class Scout : MonoBehaviour {
 			x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
 		}
 		x.parent = transform;
+		foreach(Transform child in transform){
+			child.GetComponent<SpriteRenderer>().color = Color.green;
+		}
 		TurnManager.killTiles.Add(grid.WorldToCell(destination));
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		this.enabled = false;
@@ -101,6 +104,9 @@ public class Scout : MonoBehaviour {
 					}	
 				}
 				x.parent = transform;
+				foreach(Transform child in transform){
+					child.GetComponent<SpriteRenderer>().color = Color.green;
+				}
 			}
 			TurnManager.enemyMoves--;
 			this.enabled = false;
@@ -220,6 +226,9 @@ public class Scout : MonoBehaviour {
 				}	
 			}
 			x.parent = transform;
+			foreach(Transform child in transform){
+				child.GetComponent<SpriteRenderer>().color = Color.green;
+			}
 
 			moving = false;
 			TurnManager.enemyMoves--;
