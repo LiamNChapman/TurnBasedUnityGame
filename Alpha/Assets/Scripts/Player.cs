@@ -91,14 +91,18 @@ public class Player : MonoBehaviour {
 						kidDead = true;
 					}
 					Vector3 newPosition = (Vector3)coordinate;
-
+					
 					// Shift the players character to the center of the tile.
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
 					float step = speed * Time.deltaTime;
-					this.transform.position = Vector3.MoveTowards(transform.position, newPosition, step);
+					transform.position = Vector3.MoveTowards(transform.position, newPosition, step);
+					float x =  (float)Math.Round(transform.position.x * 100f)/100f;
+					float y = (float)Math.Round(transform.position.y * 100f)/100f;
+					transform.position = new Vector3(x, y, 0);
 
 					if(transform.position == newPosition){
+						
 						GameObject flour;
 						if(GameObject.Find("FlourItem") != null){
 							flour = GameObject.Find("FlourItem");
