@@ -1,9 +1,9 @@
 {
 "companyName": "DefaultCompany",
 "productName": "Alpha",
-"dataUrl": "Beta4.data.unityweb",
-"wasmCodeUrl": "Beta4.wasm.code.unityweb",
-"wasmFrameworkUrl": "Beta4.wasm.framework.unityweb",
+"dataUrl": "1.0.data.unityweb",
+"wasmCodeUrl": "1.0.wasm.code.unityweb",
+"wasmFrameworkUrl": "1.0.wasm.framework.unityweb",
 "TOTAL_MEMORY": 268435456,
 "graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
 "webglContextAttributes": {"preserveDrawingBuffer": false},
