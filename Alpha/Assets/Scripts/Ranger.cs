@@ -54,7 +54,6 @@ public class Ranger : MonoBehaviour {
 				}
 			}
 		}
-		
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		this.enabled = false;
 
@@ -116,18 +115,18 @@ public class Ranger : MonoBehaviour {
 	void rotate() {
 		if(!gotDistracted){
 			if(attacking){
-				if(needArrow){
-						if(facing == 1){
-							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,0));
-						} else if(facing == 2){
-							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,270));
-						} else if(facing == 3){
-							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,180));
-						} else if(facing == 4){
-							instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,90));
-						}
-						needArrow = false;
+				if(needArrow) {
+					if(facing == 1){
+						instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,0));
+					} else if(facing == 2){
+						instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,270));
+					} else if(facing == 3){
+						instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,180));
+					} else if(facing == 4){
+						instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,90));
 					}
+					needArrow = false;
+				}
 				float step = speed * Time.deltaTime;
 				instanceArrow.transform.position = Vector3.MoveTowards(instanceArrow.transform.position, TurnManager.player.transform.position, step);
 				if(instanceArrow.transform.position == TurnManager.player.transform.position){
