@@ -28,6 +28,7 @@ public class Warrior : MonoBehaviour {
 		hitBoxes[3] = grid.WorldToCell(initialPos + Vector3.up);
 		Transform x = Instantiate(cross, (Vector3)hitBoxes[facing-1], transform.rotation);
 		x.parent = transform;
+		x.GetComponent<SpriteRenderer>().color = Color.blue; 
 		TurnManager.killTiles.Add(hitBoxes[facing-1]);
 		initialLOS = facing;
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
@@ -53,6 +54,7 @@ public class Warrior : MonoBehaviour {
     	    	}
 				Transform x = Instantiate(cross, (Vector3)hitBoxes[facing-1], transform.rotation);
 				x.parent = transform;
+				x.GetComponent<SpriteRenderer>().color = Color.blue; 
 				TurnManager.killTiles.Add(hitBoxes[facing-1]);
 				initialLOS = facing;
 			}
@@ -73,6 +75,7 @@ public class Warrior : MonoBehaviour {
 					isStunned = false;
 					Transform x = Instantiate(cross, (Vector3)hitBoxes[facing-1], transform.rotation);
 					x.parent = transform;
+					x.GetComponent<SpriteRenderer>().color = Color.blue; 
 					TurnManager.killTiles.Add(hitBoxes[facing-1]);
 					deleteLos = false;
 				}
