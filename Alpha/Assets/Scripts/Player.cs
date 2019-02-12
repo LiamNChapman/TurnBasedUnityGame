@@ -26,7 +26,6 @@ public class Player : MonoBehaviour {
 	bool kidDead = false;
 	public Transform dad;
 	public Transform highLight;
-	public GameObject Gate;
 
 	// Use this for initialization
 	void Start () {
@@ -55,12 +54,12 @@ public class Player : MonoBehaviour {
 
 			if(GameObject.Find("Gate") != null){
 				gate = GameObject.Find("Gate");
-				blocked = coordinate == gate.transform.position;
-				if(blocked && haveKey){
-					blocked = false;
-					gate.SetActive(false);
-					haveKey = false;
-				}
+					blocked = coordinate == gate.transform.position;
+					if(blocked && haveKey){
+						blocked = false;
+						gate.SetActive(false);
+						haveKey = false;
+					}
 			}
 				// bool values to check if the distance the player has clicked to move to
 			// is only 1 tile either up or down, or left or right.
@@ -75,6 +74,9 @@ public class Player : MonoBehaviour {
 				if(tilemap.GetTile(coordinate).name != "NonPath"){
 					clicked = true;
 					validTile = true;
+					if(blocked){
+						clicked = false;
+					}
 				}
 			}
 			
@@ -118,7 +120,6 @@ public class Player : MonoBehaviour {
 							if(transform.position == key.transform.position){
 								Destroy(key);
 								haveKey = true;
-								Gate.GetComponent<SpriteRenderer>().enabled = false;
 							}
 						}
 

@@ -17,7 +17,7 @@ public class PressurePad : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		checkPad();
 	}
 	public void checkPad(){		
 		Vector3 player = GameObject.Find("Player").transform.position;

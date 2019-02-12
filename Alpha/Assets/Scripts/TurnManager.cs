@@ -8,7 +8,6 @@ public class TurnManager : MonoBehaviour {
 	public static GameObject player;
 	public static GameObject[] enemies;
 	public static int enemyMoves;
-	public static PressurePad pressurePad;
 	public static List<Vector3Int> killTiles = new List<Vector3Int>();
 	bool started = false;
 	
@@ -24,9 +23,6 @@ public class TurnManager : MonoBehaviour {
 		currentState = TurnStates.PLAYERMOVE;
 		player = GameObject.Find("Player");
 		enemies = GameObject.FindGameObjectsWithTag("Enemy");
-		if(GameObject.Find("PressurePad") != null) {
-			pressurePad = GameObject.Find("PressurePad").GetComponent<PressurePad>();
-		}
 		enemyMoves = enemies.Length;
 		started = false;
 	}
@@ -41,9 +37,6 @@ public class TurnManager : MonoBehaviour {
 		if(enemyMoves <= 0) {
 			enemyMoves = enemies.Length;
 			nextState();
-		}
-		if(pressurePad != null){
-			pressurePad.checkPad();
 		}
 	}
 	public static void nextState() {
