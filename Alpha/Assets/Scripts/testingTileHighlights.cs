@@ -69,6 +69,7 @@ public class testingTileHighlights : MonoBehaviour {
 		Vector3Int rightTile = currentTile + Vector3Int.right;
 		Vector3Int downTile = currentTile + Vector3Int.down;
 		Vector3Int leftTile = currentTile + Vector3Int.left;
+		enemies = new Vector3Int[TurnManager.enemies.Length];
 		for(int i = 0; i < TurnManager.enemies.Length; i++) {		
 			enemies[i] = grid.WorldToCell(TurnManager.enemies[i].transform.position);
 		}
