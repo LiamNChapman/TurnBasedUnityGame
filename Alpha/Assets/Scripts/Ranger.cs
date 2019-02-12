@@ -16,7 +16,6 @@ public class Ranger : MonoBehaviour {
 	bool deleteLOS = false;
 	public GameObject Stun;
 	GameObject StunInstance;
-
 	public bool gotDistracted = false;
 	public bool isStunned = false;
 	public int stunLeft = 0;
@@ -50,6 +49,9 @@ public class Ranger : MonoBehaviour {
 				TurnManager.killTiles.Add(pos);
 				Transform x = Instantiate(cross, pos, transform.rotation);
 				x.parent = transform;
+				foreach(Transform child in transform){
+					child.GetComponent<SpriteRenderer>().color = Color.red;
+				}
 			}
 		}
 		
@@ -105,7 +107,7 @@ public class Ranger : MonoBehaviour {
 						x.parent = transform;
 					}
 				}
-				deleteLOS = false;
+				deleteLOS = false; 
 			}			
 			TurnManager.enemyMoves--;
 			this.enabled = false;
@@ -186,6 +188,9 @@ public class Ranger : MonoBehaviour {
 				TurnManager.killTiles.Add(pos);
 				Transform x = Instantiate(cross, pos, transform.rotation);
 				x.parent = transform;
+				foreach(Transform child in transform){
+					child.GetComponent<SpriteRenderer>().color = Color.red;
+				}
 			}
 		}
 	}

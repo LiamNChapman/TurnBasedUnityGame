@@ -12,6 +12,9 @@ public class Scout : MonoBehaviour {
 	public Sprite[] spriteList;
 	public bool isStunned = false;
 	public int stunLeft = 0;
+	bool deleteLOS;
+	public GameObject Stun;
+	GameObject StunInstance;
 
 	float speed = 4.0f;
 	
@@ -37,6 +40,9 @@ public class Scout : MonoBehaviour {
 			x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
 		}
 		x.parent = transform;
+		foreach(Transform child in transform){
+			child.GetComponent<SpriteRenderer>().color = Color.green;
+		}
 		TurnManager.killTiles.Add(grid.WorldToCell(destination));
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		this.enabled = false;
@@ -50,9 +56,57 @@ public class Scout : MonoBehaviour {
 			}
 			move();
 		} else {
+			if(stunLeft == 3){
+				StunInstance = Instantiate(Stun, transform.position, Quaternion.identity);
+			}
 			stunLeft--;
+			if(deleteLOS == false) {
+				foreach (Transform child in transform) {
+             		Destroy(child.gameObject);
+        		}
+				deleteLOS = true;
+			}
 			if(stunLeft < 1){
+				Destroy(StunInstance);
 				isStunned = false;
+				Transform x;
+				if(facing == 1){
+					if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+						x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.right), transform.rotation);
+						TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.right));
+					} else {
+						x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+						TurnManager.killTiles.Add(grid.WorldToCell(destination));
+					}			
+				} else if(facing == 2){
+					if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+						x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.up), transform.rotation);
+						TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.up));
+					} else {
+						x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+						TurnManager.killTiles.Add(grid.WorldToCell(destination));
+					}
+				} else if(facing == 3){
+					if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+						x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.left), transform.rotation);
+						TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.left));
+					} else {
+						x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+						TurnManager.killTiles.Add(grid.WorldToCell(destination));
+					}
+				} else {
+					if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+						x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.down), transform.rotation);
+						TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.down));
+					} else {
+						x = Instantiate(cross, (Vector3)grid.WorldToCell(destination), transform.rotation);
+						TurnManager.killTiles.Add(grid.WorldToCell(destination));
+					}	
+				}
+				x.parent = transform;
+				foreach(Transform child in transform){
+					child.GetComponent<SpriteRenderer>().color = Color.green;
+				}
 			}
 			TurnManager.enemyMoves--;
 			this.enabled = false;
@@ -172,6 +226,9 @@ public class Scout : MonoBehaviour {
 				}	
 			}
 			x.parent = transform;
+			foreach(Transform child in transform){
+				child.GetComponent<SpriteRenderer>().color = Color.green;
+			}
 
 			moving = false;
 			TurnManager.enemyMoves--;

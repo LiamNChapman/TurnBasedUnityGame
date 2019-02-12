@@ -20,8 +20,6 @@ public class testingTileHighlights : MonoBehaviour {
 	void Start () {
 		coordinate = grid.WorldToCell(transform.position);
 		currentTile = coordinate;
-		enemies = new Vector3Int[TurnManager.enemies.Length];
-
 	}
 	
 	// Update is called once per frame
@@ -74,17 +72,17 @@ public class testingTileHighlights : MonoBehaviour {
 		for(int i = 0; i < TurnManager.enemies.Length; i++) {		
 			enemies[i] = grid.WorldToCell(TurnManager.enemies[i].transform.position);
 		}
-		foreach(Vector3Int enemy in enemies) {			
-			if(upHighLight!=null && enemy == upTile) {
+		for(int i = 0; i < enemies.Length; i++) {			
+			if(upHighLight!=null && enemies[i] == upTile) {
 				upHighLight.GetComponent<SpriteRenderer>().color = Color.red;
 			}
-			if(rightHighLight!=null && enemy == rightTile) {
+			if(rightHighLight!=null && enemies[i] == rightTile) {
 				rightHighLight.GetComponent<SpriteRenderer>().color = Color.red;
 			}
-			if(downHighLight!=null && enemy == downTile) {
+			if(downHighLight!=null && enemies[i] == downTile) {
 				downHighLight.GetComponent<SpriteRenderer>().color = Color.red;
 			}
-			if(leftHighLight!=null && enemy == leftTile) {
+			if(leftHighLight!=null && enemies[i] == leftTile) {
 				leftHighLight.GetComponent<SpriteRenderer>().color = Color.red;
 			}
 		}

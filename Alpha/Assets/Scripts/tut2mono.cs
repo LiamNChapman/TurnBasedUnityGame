@@ -9,6 +9,7 @@ public class tut2mono : MonoBehaviour {
 	public GameObject Warrior;
 
 	public void StartGame(){
+		GetComponent<UIManager>().enabled = true;
 		Player.GetComponent<Player>().enabled = true;
 		Player.GetComponent<testingTileHighlights>().enabled = true;
 		TurnManager.GetComponent<TurnManager>().enabled = true;
