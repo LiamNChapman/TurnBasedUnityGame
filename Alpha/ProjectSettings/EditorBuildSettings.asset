@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/EasyLevel2.unity
     guid: 9fb1548fb250240fe95721558ee52c80
   - enabled: 1
+    path: Assets/Scenes/EasyLevel1.unity
+    guid: ecdb99ba79a224a219b046ae9040cad1
+  - enabled: 1
+    path: Assets/Scenes/EasyLevel3.unity
+    guid: 5c4f4a5206e944ba79d22bc0eb8b1aa0
+  - enabled: 1
     path: Assets/Scenes/Alpha1.unity
     guid: 82b1255396acd44c9a1f1e2e659190eb
   - enabled: 1
