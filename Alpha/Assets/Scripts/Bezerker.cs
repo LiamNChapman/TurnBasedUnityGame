@@ -142,7 +142,7 @@ public class Bezerker : MonoBehaviour {
 					Transform x = Instantiate(cross, (Vector3)list[j], transform.rotation);
 					x.parent = transform;
 					foreach(Transform child in transform){
-						child.GetComponent<SpriteRenderer>().color = Color.red;
+						child.GetComponent<SpriteRenderer>().color = Color.grey;
 					}
 				}
 			}
