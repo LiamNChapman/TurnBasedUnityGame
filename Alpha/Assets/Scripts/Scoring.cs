@@ -11,7 +11,7 @@ public class Scoring : MonoBehaviour {
 		scores[1] = 100;
 		scores[2] = 100;
 		scores[3] = 100;
-		scores[4] = 15
+		scores[4] = 15;
 	}
 	
 	// Update is called once per frame
