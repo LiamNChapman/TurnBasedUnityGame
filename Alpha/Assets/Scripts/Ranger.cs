@@ -50,7 +50,7 @@ public class Ranger : MonoBehaviour {
 				Transform x = Instantiate(cross, pos, transform.rotation);
 				x.parent = transform;
 				foreach(Transform child in transform){
-					child.GetComponent<SpriteRenderer>().color = Color.grey;
+					child.GetComponent<SpriteRenderer>().color = Color.yellow;
 				}
 			}
 		}
@@ -188,7 +188,7 @@ public class Ranger : MonoBehaviour {
 				Transform x = Instantiate(cross, pos, transform.rotation);
 				x.parent = transform;
 				foreach(Transform child in transform){
-					child.GetComponent<SpriteRenderer>().color = Color.grey;
+					child.GetComponent<SpriteRenderer>().color = Color.yellow;
 				}
 			}
 		}
