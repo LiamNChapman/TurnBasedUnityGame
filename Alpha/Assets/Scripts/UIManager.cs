@@ -14,7 +14,8 @@ public class UIManager : MonoBehaviour {
 	public Text levelName;
 	public Text turns;
 	public Text chargeNum;
-	
+	public Image TwoStar;
+	public Image ThreeStar;
 	public void reset() {
 		TurnManager.turnCount = 0;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -38,6 +39,13 @@ public class UIManager : MonoBehaviour {
 		TurnManager.player.SetActive(false);
 		turnManager.SetActive(false);
 		winMenu.SetActive(true);
+		int stars = Scoring.score();
+		if(stars == 3) {
+			TwoStar.color = Color.white;
+			ThreeStar.color = Color.white;
+		} else if(stars == 2) {
+			TwoStar.color = Color.white;
+		}
 		levelName.text = SceneManager.GetActiveScene().name;
 		turns.text = "Turns: " + TurnManager.turnCount;
 		if(GameObject.Find("PressurePad") != null) {
