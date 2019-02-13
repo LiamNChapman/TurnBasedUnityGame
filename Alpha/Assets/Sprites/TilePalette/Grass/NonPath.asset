@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Forest300x200
+  m_Name: NonPath
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 9f93f13c5ac9d43cd829ae85f19f9b92, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf65232b3eb7b435eb0e3494c9a51412, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
