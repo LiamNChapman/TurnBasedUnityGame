@@ -122,6 +122,7 @@ public class Player : MonoBehaviour {
 								haveKey = true;
 							}
 						}
+						
 
 						//check if the player is moving onto an enenmy
 						foreach(GameObject enemies in TurnManager.enemies){
