@@ -125,10 +125,7 @@ public class Player : MonoBehaviour {
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
 
-					if(changefacing){
-						GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
-						changefacing = false;
-					}
+					
 
 					float step = speed * Time.deltaTime;
 					transform.position = Vector3.MoveTowards(transform.position, newPosition, step);
@@ -138,6 +135,11 @@ public class Player : MonoBehaviour {
 
 					if(transform.position == newPosition){
 						
+						if(changefacing){
+							GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
+							changefacing = false;
+						}
+
 						GameObject flour;
 						if(GameObject.Find("FlourItem") != null){
 							flour = GameObject.Find("FlourItem");
