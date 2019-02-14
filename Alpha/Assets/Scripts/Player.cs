@@ -26,6 +26,15 @@ public class Player : MonoBehaviour {
 	bool kidDead = false;
 	public Transform dad;
 	public Transform highLight;
+	public int facing;
+	bool changefacing;
+	public Sprite[] spriteList;
+	public Sprite[] spriteListLeft;
+	public Sprite[] spriteListDown;
+	public Sprite[] spriteListUp;
+	public Sprite[] spriteListRight;
+	int spriteCounter = 0;
+	int animationDelay = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -74,6 +83,31 @@ public class Player : MonoBehaviour {
 				if(tilemap.GetTile(coordinate).name != "NonPath"){
 					clicked = true;
 					validTile = true;
+					spriteCounter = 0;
+					Vector3 tempCoord = coordinate;
+					tempCoord.x += 0.5f;
+					tempCoord.y += 0.5f;
+					Vector3 temp = transform.position;
+					temp += Vector3.left;
+					if(tempCoord == temp){
+						facing = 1;
+					} 
+					temp = transform.position;
+					temp += Vector3.down;
+					if (tempCoord == temp){
+						facing = 2;
+					}
+					temp = transform.position;
+					temp += Vector3.right;
+					if (tempCoord == temp){
+						facing = 3;
+					}
+					temp = transform.position;
+					temp += Vector3.up;
+					if(tempCoord == temp){
+						facing = 4;
+					}
+					changefacing = true;
 					if(blocked){
 						clicked = false;
 					}
@@ -97,6 +131,44 @@ public class Player : MonoBehaviour {
 					// Shift the players character to the center of the tile.
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
+
+					if(animationDelay == 15){
+						animationDelay = 0;
+					}
+
+					if(animationDelay == 0){
+						if(facing == 1){
+							GetComponent<SpriteRenderer>().sprite = spriteListLeft[spriteCounter];
+							spriteCounter++;
+							if(spriteCounter > 3){
+								spriteCounter = 0;
+							}
+						}
+						if(facing == 2){
+							GetComponent<SpriteRenderer>().sprite = spriteListDown[spriteCounter];
+							spriteCounter++;
+							if(spriteCounter > 3){
+								spriteCounter = 0;
+							}
+						}
+						if(facing == 3){
+							GetComponent<SpriteRenderer>().sprite = spriteListRight[spriteCounter];
+							spriteCounter++;
+							if(spriteCounter > 3){
+								spriteCounter = 0;
+							}
+						}
+						if(facing == 4){
+							GetComponent<SpriteRenderer>().sprite = spriteListUp[spriteCounter];
+							spriteCounter++;
+							if(spriteCounter > 3){
+								spriteCounter = 0;
+							}
+						}
+					}
+					animationDelay++;
+
+
 					float step = speed * Time.deltaTime;
 					transform.position = Vector3.MoveTowards(transform.position, newPosition, step);
 					float x =  (float)Math.Round(transform.position.x * 100f)/100f;
@@ -104,7 +176,12 @@ public class Player : MonoBehaviour {
 					transform.position = new Vector3(x, y, 0);
 
 					if(transform.position == newPosition){
-						
+						animationDelay = 0;
+						if(changefacing){
+							GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
+							changefacing = false;
+						}
+
 						GameObject flour;
 						if(GameObject.Find("FlourItem") != null){
 							flour = GameObject.Find("FlourItem");

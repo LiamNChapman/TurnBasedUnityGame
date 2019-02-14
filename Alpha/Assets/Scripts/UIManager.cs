@@ -46,6 +46,7 @@ public class UIManager : MonoBehaviour {
 		} else if(stars == 2) {
 			TwoStar.color = Color.white;
 		}
+		
 		levelName.text = SceneManager.GetActiveScene().name;
 		turns.text = "Turns: " + TurnManager.turnCount;
 		if(GameObject.Find("PressurePad") != null) {
@@ -74,9 +75,6 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void nextLevel() {
-		if(SceneManager.GetActiveScene().buildIndex == 7) {
-			SceneManager.LoadScene(0);
-		}
 		TurnManager.turnCount = 0;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
