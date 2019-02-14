@@ -17,8 +17,8 @@ public class Scoring : MonoBehaviour {
 		scores[4] = 15;//easylevel2 - 15
 		scores[5] = 16;//easylevel1 - 16
 		scores[6] = 24;//easylevel3 - 24
-		scores[7] = 100;//alpha1 - tbd
-		scores[8] = 100;//liamstestlevel - tbd
+		scores[7] = 27;//alpha1 - tbd
+		scores[8] = 31;//liamstestlevel - tbd
 		int turns = TurnManager.turnCount;
 		int buildIndex = SceneManager.GetActiveScene().buildIndex - 1;
 		if(turns <= scores[buildIndex]) {
