@@ -7,7 +7,7 @@ public class Scoring : MonoBehaviour {
 
 	static int[] scores = new int[9];
 	public static int[] playerScores = new int[9];
-	static int BestTotalStars = 27;
+	//static int BestTotalStars = 27;
 	public static int score() {
 		//ammount of turns for 3 stars per level
 		scores[0] = 100;//tutorial1
