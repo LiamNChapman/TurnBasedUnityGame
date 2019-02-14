@@ -3229,7 +3229,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Moving onto the grey space in front of the Warrior, or onto the space he
+  m_Text: Moving onto the gold space in front of the Warrior, or onto the space he
     stands on, is fatal.
 --- !u!222 &200108223
 CanvasRenderer:

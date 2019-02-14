@@ -6206,7 +6206,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The grey space next to the scout shows the direction he is moving in. Touching
+  m_Text: The gold space next to the scout shows the direction he is moving in. Touching
     the Scout is fatal.
 --- !u!222 &1494469020
 CanvasRenderer:
