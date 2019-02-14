@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class levelSelect : MonoBehaviour {
 	public GameObject levelSelectPanal;
 	public GameObject playerStars;
+	public GameObject mainMenu;
 
 	void Start() {
 		if(playerStars != null) {
@@ -28,6 +29,7 @@ public class levelSelect : MonoBehaviour {
 	}
 
 	public void levelSelection() {
+		mainMenu.SetActive(false);
 		levelSelectPanal.SetActive(true);
 	}
 
@@ -40,6 +42,7 @@ public class levelSelect : MonoBehaviour {
 	}
 
 	public void backButton() {
+		mainMenu.SetActive(true);
 		levelSelectPanal.SetActive(false);
 	}
 
