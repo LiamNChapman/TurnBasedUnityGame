@@ -18,7 +18,7 @@ public class Player : MonoBehaviour {
 	public int abilityCharges = 1;
 	public bool haveKey = false;
 	public ParticleSystem FlourPoof;
-	float speed = 4.0f;
+	float speed = 2.0f;
 	Vector3Int coordinate;
 	bool clicked = false;
 	bool blocked = false;
