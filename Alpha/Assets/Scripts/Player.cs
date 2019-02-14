@@ -183,18 +183,24 @@ public class Player : MonoBehaviour {
 						}
 
 						GameObject flour;
+						GameObject flourimage;
 						if(GameObject.Find("FlourItem") != null){
 							flour = GameObject.Find("FlourItem");
+							flourimage = GameObject.Find("FlourImage");
 							if(transform.position == flour.transform.position){
 								Destroy(flour);
+								Destroy(flourimage);
 								abilityCharges++;
 							}
 						}
 
 						GameObject key;
+						GameObject keyimage;
 						if(GameObject.Find("Key") != null){
 							key = GameObject.Find("Key");
+							keyimage = GameObject.Find("KeyImage");
 							if(transform.position == key.transform.position){
+								Destroy(keyimage);
 								Destroy(key);
 								haveKey = true;
 							}
