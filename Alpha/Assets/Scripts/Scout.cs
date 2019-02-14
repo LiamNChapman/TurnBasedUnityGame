@@ -21,6 +21,13 @@ public class Scout : MonoBehaviour {
 	Vector3 nextPos;
 	Vector3 destination;
 
+	public Sprite[] spriteListLeft;
+	public Sprite[] spriteListDown;
+	public Sprite[] spriteListUp;
+	public Sprite[] spriteListRight;
+	int spriteCounter = 0;
+	int animationDelay = 0;
+
 	// Use this for initialization
 	void Start () {
 		nextPos = this.transform.position;
@@ -180,6 +187,43 @@ public class Scout : MonoBehaviour {
 	}
 
 	void move() {
+
+	if(animationDelay == 10){
+		animationDelay = 0;
+	}
+
+	if(animationDelay == 0){
+		if(facing == 1){
+			GetComponent<SpriteRenderer>().sprite = spriteListLeft[spriteCounter];
+			spriteCounter++;
+			if(spriteCounter > 3){
+				spriteCounter = 0;
+			}
+		}
+		if(facing == 2){
+			GetComponent<SpriteRenderer>().sprite = spriteListDown[spriteCounter];
+			spriteCounter++;
+			if(spriteCounter > 3){
+				spriteCounter = 0;
+			}
+		}
+		if(facing == 3){
+			GetComponent<SpriteRenderer>().sprite = spriteListRight[spriteCounter];
+			spriteCounter++;
+			if(spriteCounter > 3){
+				spriteCounter = 0;
+			}
+		}
+		if(facing == 4){
+			GetComponent<SpriteRenderer>().sprite = spriteListUp[spriteCounter];
+			spriteCounter++;
+			if(spriteCounter > 3){
+				spriteCounter = 0;
+			}
+		}
+	}
+	animationDelay++;
+
 		float step = speed * Time.deltaTime;
 		this.transform.position = Vector3.MoveTowards(transform.position, nextPos, step);
 		
@@ -187,6 +231,7 @@ public class Scout : MonoBehaviour {
 			if(destination == TurnManager.player.transform.position){
 				TurnManager.killed();
 			}
+			animationDelay = 0;
 			GameObject gate;
 			Vector3 gatePos = new Vector3(0, 0, -1);
 			if(GameObject.Find("Gate") != null){
