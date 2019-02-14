@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 2911625dbda6b48d28f53c5cf27853b2
+guid: 547205df9c50248ff80a1a591ba3ba7a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BakerRightAnimation_0
-    21300002: BakerRightAnimation_1
-    21300004: BakerRightAnimation_2
-    21300006: BakerRightAnimation_3
+    21300000: BakerDownAnimation_0
+    21300002: BakerDownAnimation_1
+    21300004: BakerDownAnimation_2
+    21300006: BakerDownAnimation_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -132,7 +132,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BakerRightAnimation_0
+      name: BakerDownAnimation_0
       rect:
         serializedVersion: 2
         x: 0
@@ -146,13 +146,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 993a7ddf47e19441aab7d4876bd10f43
+      spriteID: f5ca2da1e80aa40f1aab426563c2b653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BakerRightAnimation_1
+      name: BakerDownAnimation_1
       rect:
         serializedVersion: 2
         x: 90
@@ -166,13 +166,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce504f84b71bd4cd9bf46f8107610da0
+      spriteID: 5949cadac43554073a76380201c9a28d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BakerRightAnimation_2
+      name: BakerDownAnimation_2
       rect:
         serializedVersion: 2
         x: 0
@@ -186,13 +186,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76509f074524c48dfb7cd20a62828eef
+      spriteID: 7b2f6ddbd053b464d8bce0686e004edf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BakerRightAnimation_3
+      name: BakerDownAnimation_3
       rect:
         serializedVersion: 2
         x: 90
@@ -206,7 +206,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb96334307b0b4f46ae718022db601c2
+      spriteID: 9e81b3f5d72d14643b3217ec66e25304
       vertices: []
       indices: 
       edges: []
@@ -214,7 +214,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 244b1891391da49d2bc8fff6750520a9
+    spriteID: 63108ef407381486bb3b3b00179bb012
     vertices: []
     indices: 
     edges: []

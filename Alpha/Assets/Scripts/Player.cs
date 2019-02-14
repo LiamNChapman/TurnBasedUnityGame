@@ -29,6 +29,12 @@ public class Player : MonoBehaviour {
 	public int facing;
 	bool changefacing;
 	public Sprite[] spriteList;
+	public Sprite[] spriteListLeft;
+	public Sprite[] spriteListDown;
+	public Sprite[] spriteListUp;
+	public Sprite[] spriteListRight;
+	int spriteCounter = 0;
+	int animationDelay = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -77,6 +83,7 @@ public class Player : MonoBehaviour {
 				if(tilemap.GetTile(coordinate).name != "NonPath"){
 					clicked = true;
 					validTile = true;
+					spriteCounter = 0;
 					Vector3 tempCoord = coordinate;
 					tempCoord.x += 0.5f;
 					tempCoord.y += 0.5f;
@@ -125,7 +132,42 @@ public class Player : MonoBehaviour {
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
 
-					
+					if(animationDelay == 15){
+						animationDelay = 0;
+					}
+
+					if(animationDelay == 0){
+						if(facing == 1){
+							GetComponent<SpriteRenderer>().sprite = spriteListLeft[spriteCounter];
+							spriteCounter++;
+							if(spriteCounter > 3){
+								spriteCounter = 0;
+							}
+						}
+						if(facing == 2){
+							GetComponent<SpriteRenderer>().sprite = spriteListDown[spriteCounter];
+							spriteCounter++;
+							if(spriteCounter > 3){
+								spriteCounter = 0;
+							}
+						}
+						if(facing == 3){
+							GetComponent<SpriteRenderer>().sprite = spriteListRight[spriteCounter];
+							spriteCounter++;
+							if(spriteCounter > 3){
+								spriteCounter = 0;
+							}
+						}
+						if(facing == 4){
+							GetComponent<SpriteRenderer>().sprite = spriteListUp[spriteCounter];
+							spriteCounter++;
+							if(spriteCounter > 3){
+								spriteCounter = 0;
+							}
+						}
+					}
+					animationDelay++;
+
 
 					float step = speed * Time.deltaTime;
 					transform.position = Vector3.MoveTowards(transform.position, newPosition, step);

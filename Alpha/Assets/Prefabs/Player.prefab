@@ -71,6 +71,26 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1d7d00fa6708646f6b765648aa83fecf, type: 3}
   - {fileID: 21300000, guid: b6a24361e0d4747348809252d6c60d3d, type: 3}
   - {fileID: 21300000, guid: d2a3834eb94f2466891e2001eca14615, type: 3}
+  spriteListLeft:
+  - {fileID: 21300000, guid: 599c64f70e5e945279a9edc98a0fb816, type: 3}
+  - {fileID: 21300002, guid: 599c64f70e5e945279a9edc98a0fb816, type: 3}
+  - {fileID: 21300004, guid: 599c64f70e5e945279a9edc98a0fb816, type: 3}
+  - {fileID: 21300006, guid: 599c64f70e5e945279a9edc98a0fb816, type: 3}
+  spriteListDown:
+  - {fileID: 21300000, guid: 547205df9c50248ff80a1a591ba3ba7a, type: 3}
+  - {fileID: 21300004, guid: 547205df9c50248ff80a1a591ba3ba7a, type: 3}
+  - {fileID: 21300002, guid: 547205df9c50248ff80a1a591ba3ba7a, type: 3}
+  - {fileID: 21300006, guid: 547205df9c50248ff80a1a591ba3ba7a, type: 3}
+  spriteListUp:
+  - {fileID: 21300000, guid: 67c00c4d31e6d46319828e428fc9f485, type: 3}
+  - {fileID: 21300004, guid: 67c00c4d31e6d46319828e428fc9f485, type: 3}
+  - {fileID: 21300002, guid: 67c00c4d31e6d46319828e428fc9f485, type: 3}
+  - {fileID: 21300006, guid: 67c00c4d31e6d46319828e428fc9f485, type: 3}
+  spriteListRight:
+  - {fileID: 21300000, guid: 2911625dbda6b48d28f53c5cf27853b2, type: 3}
+  - {fileID: 21300002, guid: 2911625dbda6b48d28f53c5cf27853b2, type: 3}
+  - {fileID: 21300004, guid: 2911625dbda6b48d28f53c5cf27853b2, type: 3}
+  - {fileID: 21300006, guid: 2911625dbda6b48d28f53c5cf27853b2, type: 3}
 --- !u!114 &114491383657589972
 MonoBehaviour:
   m_ObjectHideFlags: 1
