@@ -50,7 +50,7 @@ public class Ranger : MonoBehaviour {
 				Transform x = Instantiate(cross, pos, transform.rotation);
 				x.parent = transform;
 				foreach(Transform child in transform){
-					child.GetComponent<SpriteRenderer>().color = Color.yellow;
+					child.GetComponent<SpriteRenderer>().color = new Color(255, 215, 0, 1);
 				}
 			}
 		}
@@ -104,6 +104,9 @@ public class Ranger : MonoBehaviour {
 						TurnManager.killTiles.Add(pos);
 						Transform x = Instantiate(cross, pos, transform.rotation);
 						x.parent = transform;
+						foreach(Transform child in transform){
+							child.GetComponent<SpriteRenderer>().color = new Color(255, 215, 0, 1);
+						}
 					}
 				}
 				deleteLOS = false; 
@@ -188,7 +191,7 @@ public class Ranger : MonoBehaviour {
 				Transform x = Instantiate(cross, pos, transform.rotation);
 				x.parent = transform;
 				foreach(Transform child in transform){
-					child.GetComponent<SpriteRenderer>().color = Color.yellow;
+					child.GetComponent<SpriteRenderer>().color = new Color(255, 215, 0, 1);
 				}
 			}
 		}
