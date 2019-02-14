@@ -26,6 +26,9 @@ public class Player : MonoBehaviour {
 	bool kidDead = false;
 	public Transform dad;
 	public Transform highLight;
+	public int facing;
+	bool changefacing;
+	public Sprite[] spriteList;
 
 	// Use this for initialization
 	void Start () {
@@ -74,6 +77,30 @@ public class Player : MonoBehaviour {
 				if(tilemap.GetTile(coordinate).name != "NonPath"){
 					clicked = true;
 					validTile = true;
+					Vector3 tempCoord = coordinate;
+					tempCoord.x += 0.5f;
+					tempCoord.y += 0.5f;
+					Vector3 temp = transform.position;
+					temp += Vector3.left;
+					if(tempCoord == temp){
+						facing = 1;
+					} 
+					temp = transform.position;
+					temp += Vector3.down;
+					if (tempCoord == temp){
+						facing = 2;
+					}
+					temp = transform.position;
+					temp += Vector3.right;
+					if (tempCoord == temp){
+						facing = 3;
+					}
+					temp = transform.position;
+					temp += Vector3.up;
+					if(tempCoord == temp){
+						facing = 4;
+					}
+					changefacing = true;
 					if(blocked){
 						clicked = false;
 					}
@@ -97,6 +124,12 @@ public class Player : MonoBehaviour {
 					// Shift the players character to the center of the tile.
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
+
+					if(changefacing){
+						GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
+						changefacing = false;
+					}
+
 					float step = speed * Time.deltaTime;
 					transform.position = Vector3.MoveTowards(transform.position, newPosition, step);
 					float x =  (float)Math.Round(transform.position.x * 100f)/100f;

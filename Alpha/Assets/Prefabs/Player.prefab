@@ -65,6 +65,12 @@ MonoBehaviour:
     type: 2}
   dad: {fileID: 0}
   highLight: {fileID: 4866634529931904, guid: eaddbeda8617f434c9b0e476cf730f24, type: 2}
+  facing: 0
+  spriteList:
+  - {fileID: 21300000, guid: 3fc1e1232447b44d4a6423cefee2fffd, type: 3}
+  - {fileID: 21300000, guid: 1d7d00fa6708646f6b765648aa83fecf, type: 3}
+  - {fileID: 21300000, guid: b6a24361e0d4747348809252d6c60d3d, type: 3}
+  - {fileID: 21300000, guid: d2a3834eb94f2466891e2001eca14615, type: 3}
 --- !u!114 &114491383657589972
 MonoBehaviour:
   m_ObjectHideFlags: 1
