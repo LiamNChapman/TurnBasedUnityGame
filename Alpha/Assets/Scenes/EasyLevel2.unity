@@ -5554,8 +5554,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -93.5, y: -14}
-  m_SizeDelta: {x: 500, y: 80}
+  m_AnchoredPosition: {x: -104.2, y: -9.4}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438305523
 MonoBehaviour:
@@ -5591,7 +5591,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: From now on, it is up to you to decide which abilities to use; where and
     when to use them. You start each level with one bag of flour, you can carry as
-    many as you can find. Good luck on your adventure!
+    many as you can find. Remember, if you distract an enemy, you do not move on that
+    turn. Good luck on your adventure!
 --- !u!222 &1438305524
 CanvasRenderer:
   m_ObjectHideFlags: 0
