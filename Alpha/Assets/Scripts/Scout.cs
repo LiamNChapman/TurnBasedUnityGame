@@ -41,7 +41,7 @@ public class Scout : MonoBehaviour {
 		}
 		x.parent = transform;
 		foreach(Transform child in transform){
-			child.GetComponent<SpriteRenderer>().color = Color.green;
+			child.GetComponent<SpriteRenderer>().color = Color.grey;
 		}
 		TurnManager.killTiles.Add(grid.WorldToCell(destination));
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
@@ -105,7 +105,7 @@ public class Scout : MonoBehaviour {
 				}
 				x.parent = transform;
 				foreach(Transform child in transform){
-					child.GetComponent<SpriteRenderer>().color = Color.green;
+					child.GetComponent<SpriteRenderer>().color = Color.grey;
 				}
 			}
 			TurnManager.enemyMoves--;
@@ -187,10 +187,18 @@ public class Scout : MonoBehaviour {
 			if(destination == TurnManager.player.transform.position){
 				TurnManager.killed();
 			}
+			GameObject gate;
+			Vector3 gatePos = new Vector3(0, 0, -1);
+			if(GameObject.Find("Gate") != null){
+				gate = GameObject.Find("Gate");
+				gatePos = gate.transform.position;
+				gatePos.x += 0.5f;
+				gatePos.y += 0.5f;
+			}
 			Transform x;
 			if(facing == 1){				
 				destination += Vector3.left;
-				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath" || destination == gatePos) {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.right), transform.rotation);
 					TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.right));
 				} else {
@@ -199,7 +207,7 @@ public class Scout : MonoBehaviour {
 				}			
 			} else if(facing == 2){					
 				destination += Vector3.down;
-				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath" || destination == gatePos) {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.up), transform.rotation);
 					TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.up));
 				} else {
@@ -208,7 +216,7 @@ public class Scout : MonoBehaviour {
 				}
 			} else if(facing == 3){
 				destination += Vector3.right;
-				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath" || destination == gatePos) {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.left), transform.rotation);
 					TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.left));
 				} else {
@@ -217,7 +225,7 @@ public class Scout : MonoBehaviour {
 				}
 			} else {
 				destination += Vector3.up;
-				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath") {
+				if(((Tile)tilemap.GetTile(grid.WorldToCell(destination))).name == "NonPath" || destination == gatePos) {
 					x = Instantiate(cross, (Vector3)grid.WorldToCell(this.transform.position + Vector3.down), transform.rotation);
 					TurnManager.killTiles.Add(grid.WorldToCell(this.transform.position + Vector3.down));
 				} else {
@@ -227,7 +235,7 @@ public class Scout : MonoBehaviour {
 			}
 			x.parent = transform;
 			foreach(Transform child in transform){
-				child.GetComponent<SpriteRenderer>().color = Color.green;
+				child.GetComponent<SpriteRenderer>().color = Color.grey;
 			}
 
 			moving = false;
