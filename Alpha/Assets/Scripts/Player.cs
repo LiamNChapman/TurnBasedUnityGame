@@ -176,7 +176,7 @@ public class Player : MonoBehaviour {
 					transform.position = new Vector3(x, y, 0);
 
 					if(transform.position == newPosition){
-						
+						animationDelay = 0;
 						if(changefacing){
 							GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 							changefacing = false;
