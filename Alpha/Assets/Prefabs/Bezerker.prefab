@@ -65,9 +65,29 @@ MonoBehaviour:
   stunLeft: 0
   enraged: 0
   tillCharge: 0
-  speed: 10
+  speed: 3
   Stun: {fileID: 0}
   alert: {fileID: 1012272084958958, guid: d3096dbc1f3ff466290bcd3dfc668d7e, type: 2}
+  spriteListLeft:
+  - {fileID: 21300000, guid: 8fb71f1d375784d7abdb9c441b004f00, type: 3}
+  - {fileID: 21300002, guid: 8fb71f1d375784d7abdb9c441b004f00, type: 3}
+  - {fileID: 21300004, guid: 8fb71f1d375784d7abdb9c441b004f00, type: 3}
+  - {fileID: 21300006, guid: 8fb71f1d375784d7abdb9c441b004f00, type: 3}
+  spriteListDown:
+  - {fileID: 21300000, guid: bd18b4965d3cc415e9c48f7c278c3301, type: 3}
+  - {fileID: 21300002, guid: bd18b4965d3cc415e9c48f7c278c3301, type: 3}
+  - {fileID: 21300004, guid: bd18b4965d3cc415e9c48f7c278c3301, type: 3}
+  - {fileID: 21300006, guid: bd18b4965d3cc415e9c48f7c278c3301, type: 3}
+  spriteListUp:
+  - {fileID: 21300000, guid: f17537ccfbde746249ff18dcae72006b, type: 3}
+  - {fileID: 21300002, guid: f17537ccfbde746249ff18dcae72006b, type: 3}
+  - {fileID: 21300004, guid: f17537ccfbde746249ff18dcae72006b, type: 3}
+  - {fileID: 21300006, guid: f17537ccfbde746249ff18dcae72006b, type: 3}
+  spriteListRight:
+  - {fileID: 21300000, guid: 4b281ade335814d9da79a166d1e0e021, type: 3}
+  - {fileID: 21300002, guid: 4b281ade335814d9da79a166d1e0e021, type: 3}
+  - {fileID: 21300004, guid: 4b281ade335814d9da79a166d1e0e021, type: 3}
+  - {fileID: 21300006, guid: 4b281ade335814d9da79a166d1e0e021, type: 3}
 --- !u!212 &212468232199926960
 SpriteRenderer:
   m_ObjectHideFlags: 1

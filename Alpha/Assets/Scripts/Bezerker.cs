@@ -17,7 +17,7 @@ public class Bezerker : MonoBehaviour {
 	public bool enraged = false;
 	public int tillCharge = 0;
 	bool charging = false;
-	public float speed = 10.0f;
+	public float speed = 4f;
 	bool deleteLOS = false;
 
 	public GameObject Stun;
@@ -31,6 +31,8 @@ public class Bezerker : MonoBehaviour {
     public Sprite[] spriteListDown;
     public Sprite[] spriteListUp;
     public Sprite[] spriteListRight;
+    int spriteCounter = 0;
+    int animationDelay = 0;
 
     // Use this for initialization
     void Start () {
@@ -177,23 +179,74 @@ public class Bezerker : MonoBehaviour {
 			end.x += 0.5f;
 			end.y += 0.5f;
 			
-			
-			float step = speed * Time.deltaTime;
-			this.transform.position = Vector3.MoveTowards(transform.position, end, step);
-			
-			if(transform.position.x <= (TurnManager.player.transform.position.x+0.5f)&& transform.position.x >= (TurnManager.player.transform.position.x-0.5f)){
-				if(transform.position.y <= (TurnManager.player.transform.position.y+0.5f)&& transform.position.y >= (TurnManager.player.transform.position.y-0.5f)){
-					TurnManager.killed();
-				}
+
+            if (animationDelay == 10)
+            {
+                animationDelay = 0;
+            }
+
+            if (animationDelay == 0)
+            {
+                if (facing == 1)
+                {
+                    GetComponent<SpriteRenderer>().sprite = spriteListLeft[spriteCounter];
+                    spriteCounter++;
+                    if (spriteCounter > 3)
+                    {
+                        spriteCounter = 0;
+                    }
+                }
+                if (facing == 2)
+                {
+                    GetComponent<SpriteRenderer>().sprite = spriteListDown[spriteCounter];
+                    spriteCounter++;
+                    if (spriteCounter > 3)
+                    {
+                        spriteCounter = 0;
+                    }
+                }
+                if (facing == 3)
+                {
+                    GetComponent<SpriteRenderer>().sprite = spriteListRight[spriteCounter];
+                    spriteCounter++;
+                    if (spriteCounter > 3)
+                    {
+                        spriteCounter = 0;
+                    }
+                }
+                if (facing == 4)
+                {
+                    GetComponent<SpriteRenderer>().sprite = spriteListUp[spriteCounter];
+                    spriteCounter++;
+                    if (spriteCounter > 3)
+                    {
+                        spriteCounter = 0;
+                    }
+                }
+            }
+        animationDelay++;
+
+        float step = speed * Time.deltaTime;
+        this.transform.position = Vector3.MoveTowards(transform.position, end, step);
+
+        if (transform.position.x <= (TurnManager.player.transform.position.x+0.5f)&& transform.position.x >= (TurnManager.player.transform.position.x-0.5f)){
+			if(transform.position.y <= (TurnManager.player.transform.position.y+0.5f)&& transform.position.y >= (TurnManager.player.transform.position.y-0.5f)){
+				TurnManager.killed();
 			}
-			if(transform.position == destination){
-				facing = (facing + 2)%4;
-				if(facing == 0){
-					facing = 4;
-				}
-				enraged = false;
+		}
+
+        if (transform.position == destination){
+            this.GetComponent<SpriteRenderer>().sprite = spriteList[facing - 1];
+            facing = (facing + 2)%4;
+			if(facing == 0){
+				facing = 4;
 			}
-	}
+			enraged = false;
+
+        }
+        animationDelay = 0;
+
+    }
 	void endTurn(){
 		list = new List<Vector3Int>();
 		Vector3 initialPos = this.transform.position;
