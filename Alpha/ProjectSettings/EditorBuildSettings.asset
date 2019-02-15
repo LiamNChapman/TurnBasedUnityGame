@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LiamsTestLevel.unity
     guid: 509079a36243845e281226184010393b
   - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 35cf0d7764bb24bf8b58c513b13804f6
+  - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: d399e60de4c824e2a818ce026b8bfeb8
   - enabled: 0
