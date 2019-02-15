@@ -35,11 +35,26 @@ public class Player : MonoBehaviour {
 	public Sprite[] spriteListRight;
 	int spriteCounter = 0;
 	int animationDelay = 0;
-	AudioSource keypick;
+	public AudioClip keypick;
+	public AudioClip poof;
+	public AudioClip flourpick;
+	AudioSource Key;
+	AudioSource Flour;
+	AudioSource Stun;
 
 	// Use this for initialization
 	void Start () {
-		keypick = GetComponent<AudioSource>();
+		Key = AddAudio(keypick);
+		Flour = AddAudio(flourpick);
+		Stun = AddAudio(poof);
+	}
+
+	public AudioSource AddAudio(AudioClip clip){
+		AudioSource newAudio = gameObject.AddComponent<AudioSource>();
+		newAudio.loop = false;
+		newAudio.playOnAwake = false;
+		newAudio.clip = clip;
+     	return newAudio; 
 	}
 	
 	// Update is called once per frame
@@ -190,7 +205,7 @@ public class Player : MonoBehaviour {
 							flour = GameObject.Find("FlourItem");
 							flourimage = GameObject.Find("FlourImage");
 							if(transform.position == flour.transform.position){
-								keypick.Play();
+								Flour.Play();
 								Destroy(flour);
 								Destroy(flourimage);
 								abilityCharges++;
@@ -203,7 +218,7 @@ public class Player : MonoBehaviour {
 							key = GameObject.Find("Key");
 							keyimage = GameObject.Find("KeyImage");
 							if(transform.position == key.transform.position){
-								keypick.Play();
+								Key.Play();
 								Destroy(keyimage);
 								Destroy(key);
 								haveKey = true;
@@ -386,6 +401,7 @@ public class Player : MonoBehaviour {
 				distract.x += 0.5f;
 				distract.y += 0.5f;
 				Instantiate(FlourPoof, distract, Quaternion.identity);
+				Stun.Play();
 				abilityCharges--;
 				foreach (Transform child in dad.transform) {
          			Destroy(child.gameObject);
@@ -477,6 +493,7 @@ public class Player : MonoBehaviour {
 					newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
 					Instantiate(FlourPoof, newPosition, Quaternion.identity);
+					Stun.Play();
 					this.transform.position = newPosition;
 					abilityCharges--;
 					stunActive = false;

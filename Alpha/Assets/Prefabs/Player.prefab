@@ -91,6 +91,9 @@ MonoBehaviour:
   - {fileID: 21300002, guid: 2911625dbda6b48d28f53c5cf27853b2, type: 3}
   - {fileID: 21300004, guid: 2911625dbda6b48d28f53c5cf27853b2, type: 3}
   - {fileID: 21300006, guid: 2911625dbda6b48d28f53c5cf27853b2, type: 3}
+  keypick: {fileID: 8300000, guid: fc80374abd2ae46918cb5c3f2a19b186, type: 3}
+  poof: {fileID: 8300000, guid: 26b1ab4ccd62f4dd5bc591040f216f1e, type: 3}
+  flourpick: {fileID: 8300000, guid: a542dedcd5d2346b2b6992020a461bdf, type: 3}
 --- !u!114 &114491383657589972
 MonoBehaviour:
   m_ObjectHideFlags: 1
