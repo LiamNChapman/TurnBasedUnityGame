@@ -11,7 +11,6 @@ public class UIManager : MonoBehaviour {
 	public GameObject flour;
 	public GameObject keyIcon;
 	public GameObject turnManager;
-	public Text levelName;
 	public Text turns;
 	public Text chargeNum;
 	public Image TwoStar;
@@ -52,8 +51,6 @@ public class UIManager : MonoBehaviour {
 		} else if(stars == 2) {
 			TwoStar.color = Color.white;
 		}
-		
-		levelName.text = SceneManager.GetActiveScene().name;
 		turns.text = "Turns: " + TurnManager.turnCount;
 		if(GameObject.Find("PressurePad") != null) {
 			GameObject.Find("PressurePad").SetActive(false);
