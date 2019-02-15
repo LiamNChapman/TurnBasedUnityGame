@@ -7,12 +7,14 @@ public class PressurePad : MonoBehaviour {
 	public Gate gate;
 	Vector3 thisPosistion;
 	public int check = 0;
+	AudioSource onpad;
 
 	// Use this for initialization
 	void Start () {
 		thisPosistion = transform.position;
 		thisPosistion.x += 0.5f;
 		thisPosistion.y += 0.5f;
+		onpad = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -35,6 +37,7 @@ public class PressurePad : MonoBehaviour {
 		} else {
 			gate.open = false;
 			gate.gameObject.SetActive(true);
+			onpad.Play();
 		}
 		check = 0;
 	}

@@ -10,6 +10,7 @@ public class TurnManager : MonoBehaviour {
 	public static int enemyMoves;
 	public static List<Vector3Int> killTiles = new List<Vector3Int>();
 	bool started = false;
+	//static AudioSource death;
 	
 	public enum TurnStates {
 		PLAYERMOVE,
@@ -25,6 +26,7 @@ public class TurnManager : MonoBehaviour {
 		enemies = GameObject.FindGameObjectsWithTag("Enemy");
 		enemyMoves = enemies.Length;
 		started = false;
+		//death = GetComponent<AudioSource>();
 	}
 	
 	//Switch move states if the object in question is in a different space than they were?
@@ -79,7 +81,9 @@ public class TurnManager : MonoBehaviour {
 	public TurnStates getCurrentState() {
 		return currentState;
 	}
+
 	public static void killed() {
+		//death.Play();
 		turnCount = 0;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}

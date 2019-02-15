@@ -20,6 +20,8 @@ public class Ranger : MonoBehaviour {
 	public bool isStunned = false;
 	public int stunLeft = 0;
 
+	AudioSource arrowsound;
+
 	bool needArrow = true;
 	bool attacking = false;
 	float speed = 20.0f;
@@ -56,7 +58,7 @@ public class Ranger : MonoBehaviour {
 		}
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		this.enabled = false;
-
+		arrowsound = GetComponent<AudioSource>();
 	}
 
 	void Update(){
@@ -119,6 +121,7 @@ public class Ranger : MonoBehaviour {
 		if(!gotDistracted){
 			if(attacking){
 				if(needArrow) {
+					arrowsound.Play();
 					if(facing == 1){
 						instanceArrow = Instantiate(arrow, transform.position, Quaternion.Euler(0,0,0));
 					} else if(facing == 2){

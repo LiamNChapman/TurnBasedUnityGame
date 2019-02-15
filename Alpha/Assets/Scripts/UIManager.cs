@@ -16,6 +16,11 @@ public class UIManager : MonoBehaviour {
 	public Text chargeNum;
 	public Image TwoStar;
 	public Image ThreeStar;
+	AudioSource win;
+
+	void Start(){
+		win = GetComponent<AudioSource>();
+	}
 	public void reset() {
 		TurnManager.turnCount = 0;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -33,6 +38,7 @@ public class UIManager : MonoBehaviour {
 		turnManager.SetActive(false);
 	}
 	public void winLevel() {
+		win.Play();
 		foreach(GameObject enemy in TurnManager.enemies) {
 			enemy.SetActive(false);
 		}

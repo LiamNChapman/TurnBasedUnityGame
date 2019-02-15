@@ -35,9 +35,11 @@ public class Player : MonoBehaviour {
 	public Sprite[] spriteListRight;
 	int spriteCounter = 0;
 	int animationDelay = 0;
+	AudioSource keypick;
 
 	// Use this for initialization
 	void Start () {
+		keypick = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -188,6 +190,7 @@ public class Player : MonoBehaviour {
 							flour = GameObject.Find("FlourItem");
 							flourimage = GameObject.Find("FlourImage");
 							if(transform.position == flour.transform.position){
+								keypick.Play();
 								Destroy(flour);
 								Destroy(flourimage);
 								abilityCharges++;
@@ -200,6 +203,7 @@ public class Player : MonoBehaviour {
 							key = GameObject.Find("Key");
 							keyimage = GameObject.Find("KeyImage");
 							if(transform.position == key.transform.position){
+								keypick.Play();
 								Destroy(keyimage);
 								Destroy(key);
 								haveKey = true;
