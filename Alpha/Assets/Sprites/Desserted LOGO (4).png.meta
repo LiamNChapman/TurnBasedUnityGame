@@ -1,11 +1,7 @@
 fileFormatVersion: 2
-guid: bd18b4965d3cc415e9c48f7c278c3301
+guid: c176221e119cc42579c7c1b36779ed94
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: BezerkerDownAnimation_0
-    21300002: BezerkerDownAnimation_1
-    21300004: BezerkerDownAnimation_2
-    21300006: BezerkerDownAnimation_3
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -44,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -130,91 +126,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: BezerkerDownAnimation_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 90
-        width: 90
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28e3ff7fe07094fb6a797656e7ae704a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BezerkerDownAnimation_1
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 90
-        width: 90
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffe0c33d7d15344009aac54c5a504307
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BezerkerDownAnimation_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 90
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d233f97c57c924d169b5d316933df66f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BezerkerDownAnimation_3
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 0
-        width: 90
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99e2a5cb420ea49f99de5a830c0f6a16
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 859245183578b4bf5997a247e13bec25
+    spriteID: 513201f35503e43fe9f64c39136cd4d0
     vertices: []
     indices: 
     edges: []

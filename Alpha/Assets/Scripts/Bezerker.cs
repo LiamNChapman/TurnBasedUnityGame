@@ -17,17 +17,25 @@ public class Bezerker : MonoBehaviour {
 	public bool enraged = false;
 	public int tillCharge = 0;
 	bool charging = false;
-	public float speed = 10.0f;
+	public float speed = 4f;
 	bool deleteLOS = false;
 
 	public GameObject Stun;
 	GameObject StunInstance;
+    public GameObject alert;
 
 	Vector3 destination;
 	int chargeDelay = 0;
 
-	// Use this for initialization
-	void Start () {
+    public Sprite[] spriteListLeft;
+    public Sprite[] spriteListDown;
+    public Sprite[] spriteListUp;
+    public Sprite[] spriteListRight;
+    int spriteCounter = 0;
+    int animationDelay = 0;
+
+    // Use this for initialization
+    void Start () {
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		Vector3 initialPos = this.transform.position;
 		Vector3Int pos = grid.WorldToCell(initialPos);
@@ -73,7 +81,7 @@ public class Bezerker : MonoBehaviour {
 				if(!enraged || tillCharge == 1){
 					tillCharge = 0;
 					TurnManager.enemyMoves--;
-					this.enabled = false;
+                    this.enabled = false;
 				}
 			} else {
 				chargeDelay = 0;
@@ -87,7 +95,10 @@ public class Bezerker : MonoBehaviour {
 			}
 			if(deleteLOS == false) {
 				foreach (Transform child in transform) {
-             		Destroy(child.gameObject);
+                    if (child.name != "Alert")
+                    {
+                        Destroy(child.gameObject);
+                    }
         		}
 			}
 			stunLeft--;
@@ -137,12 +148,16 @@ public class Bezerker : MonoBehaviour {
 					TurnManager.killTiles.Add(grid.WorldToCell(list[i+1]));
 				}
 				enraged = true;
-				tillCharge = 1;
+                alert.GetComponent<SpriteRenderer>().enabled = true;
+                tillCharge = 1;
 				for(int j = 0; j < list.Count; j++) {
 					Transform x = Instantiate(cross, (Vector3)list[j], transform.rotation);
 					x.parent = transform;
 					foreach(Transform child in transform){
-						child.GetComponent<SpriteRenderer>().color = new Color(255, 215, 0, 1);
+                        if (!child.Equals(alert))
+                        {
+                            child.GetComponent<SpriteRenderer>().color = new Color(255, 215, 0, 1);
+                        }
 					}
 				}
 			}
@@ -150,33 +165,88 @@ public class Bezerker : MonoBehaviour {
 	}
 
 	void attack(){
-			if(!charging) {
+        alert.GetComponent<SpriteRenderer>().enabled = false;
+        if (!charging) {
 				charging = true;
 				foreach (Transform child in transform) {
-             		Destroy(child.gameObject);
+                if (child.name != "Alert")
+                    {
+                        Destroy(child.gameObject);
+                    }
         		}			
 			}
 			Vector3 end = list[list.Count-1];
 			end.x += 0.5f;
 			end.y += 0.5f;
 			
-			
-			float step = speed * Time.deltaTime;
-			this.transform.position = Vector3.MoveTowards(transform.position, end, step);
-			
-			if(transform.position.x <= (TurnManager.player.transform.position.x+0.5f)&& transform.position.x >= (TurnManager.player.transform.position.x-0.5f)){
-				if(transform.position.y <= (TurnManager.player.transform.position.y+0.5f)&& transform.position.y >= (TurnManager.player.transform.position.y-0.5f)){
-					TurnManager.killed();
-				}
+
+            if (animationDelay == 10)
+            {
+                animationDelay = 0;
+            }
+
+            if (animationDelay == 0)
+            {
+                if (facing == 1)
+                {
+                    GetComponent<SpriteRenderer>().sprite = spriteListLeft[spriteCounter];
+                    spriteCounter++;
+                    if (spriteCounter > 3)
+                    {
+                        spriteCounter = 0;
+                    }
+                }
+                if (facing == 2)
+                {
+                    GetComponent<SpriteRenderer>().sprite = spriteListDown[spriteCounter];
+                    spriteCounter++;
+                    if (spriteCounter > 3)
+                    {
+                        spriteCounter = 0;
+                    }
+                }
+                if (facing == 3)
+                {
+                    GetComponent<SpriteRenderer>().sprite = spriteListRight[spriteCounter];
+                    spriteCounter++;
+                    if (spriteCounter > 3)
+                    {
+                        spriteCounter = 0;
+                    }
+                }
+                if (facing == 4)
+                {
+                    GetComponent<SpriteRenderer>().sprite = spriteListUp[spriteCounter];
+                    spriteCounter++;
+                    if (spriteCounter > 3)
+                    {
+                        spriteCounter = 0;
+                    }
+                }
+            }
+        animationDelay++;
+
+        float step = speed * Time.deltaTime;
+        this.transform.position = Vector3.MoveTowards(transform.position, end, step);
+
+        if (transform.position.x <= (TurnManager.player.transform.position.x+0.5f)&& transform.position.x >= (TurnManager.player.transform.position.x-0.5f)){
+			if(transform.position.y <= (TurnManager.player.transform.position.y+0.5f)&& transform.position.y >= (TurnManager.player.transform.position.y-0.5f)){
+				TurnManager.killed();
 			}
-			if(transform.position == destination){
-				facing = (facing + 2)%4;
-				if(facing == 0){
-					facing = 4;
-				}
-				enraged = false;
+		}
+
+        if (transform.position == destination){
+            this.GetComponent<SpriteRenderer>().sprite = spriteList[facing - 1];
+            facing = (facing + 2)%4;
+			if(facing == 0){
+				facing = 4;
 			}
-	}
+			enraged = false;
+
+        }
+        animationDelay = 0;
+
+    }
 	void endTurn(){
 		list = new List<Vector3Int>();
 		Vector3 initialPos = this.transform.position;
