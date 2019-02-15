@@ -3636,7 +3636,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 946d0ab1ec3fb45e19c416a27215d5ff, type: 3}
-    m_FontSize: 15
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -3647,7 +3647,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level Name
+  m_Text: 'Warrior Tutorial '
 --- !u!222 &301222050
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5894,7 +5894,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 946d0ab1ec3fb45e19c416a27215d5ff, type: 3}
-    m_FontSize: 15
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -6491,7 +6491,7 @@ RectTransform:
   m_GameObject: {fileID: 1640611641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99987525, y: 0.99987525, z: 0.99987525}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 301222048}
   - {fileID: 1292481348}
@@ -7883,7 +7883,6 @@ MonoBehaviour:
   flour: {fileID: 801470816}
   keyIcon: {fileID: 1157110657}
   turnManager: {fileID: 674714472}
-  levelName: {fileID: 301222049}
   turns: {fileID: 1292481349}
   chargeNum: {fileID: 1776108934}
   TwoStar: {fileID: 878084473}

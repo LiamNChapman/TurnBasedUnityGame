@@ -6151,7 +6151,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 946d0ab1ec3fb45e19c416a27215d5ff, type: 3}
-    m_FontSize: 15
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -7641,7 +7641,7 @@ RectTransform:
   m_GameObject: {fileID: 1960609050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99987525, y: 0.99987525, z: 0.99987525}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1971737988}
   - {fileID: 1249582515}
@@ -7758,7 +7758,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 946d0ab1ec3fb45e19c416a27215d5ff, type: 3}
-    m_FontSize: 15
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -7769,7 +7769,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level Name
+  m_Text: Bezerker Tutorial
 --- !u!1 &1983345068
 GameObject:
   m_ObjectHideFlags: 0
@@ -7897,7 +7897,6 @@ MonoBehaviour:
   flour: {fileID: 1114466869}
   keyIcon: {fileID: 1028585471}
   turnManager: {fileID: 557857467}
-  levelName: {fileID: 1971737990}
   turns: {fileID: 1249582517}
   chargeNum: {fileID: 1603384495}
   TwoStar: {fileID: 716834181}

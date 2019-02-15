@@ -150,7 +150,6 @@ MonoBehaviour:
   flour: {fileID: 1720837343}
   keyIcon: {fileID: 1060712605}
   turnManager: {fileID: 1622070517}
-  levelName: {fileID: 1340460894}
   turns: {fileID: 1270754407}
   chargeNum: {fileID: 1166223505}
   TwoStar: {fileID: 828836683}
@@ -6120,7 +6119,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 946d0ab1ec3fb45e19c416a27215d5ff, type: 3}
-    m_FontSize: 15
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -6472,7 +6471,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 946d0ab1ec3fb45e19c416a27215d5ff, type: 3}
-    m_FontSize: 15
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -6483,7 +6482,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level Name
+  m_Text: Ranger Tutorial
 --- !u!1 &1425023536
 GameObject:
   m_ObjectHideFlags: 0
@@ -7624,7 +7623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 34.700012, y: 80.3}
+  m_AnchoredPosition: {x: 34.69995, y: 80.3}
   m_SizeDelta: {x: -480, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1708464474
