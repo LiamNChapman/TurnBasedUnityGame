@@ -6,6 +6,48 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: d4fca5be52af74bdeaea976a5afe05a1
+  - enabled: 1
+    path: Assets/Scenes/start.unity
+    guid: d47e91c71c58043989127e9153e0c5a7
+  - enabled: 1
+    path: Assets/Scenes/Tutorial1.unity
+    guid: 6d1f4a616c7d3494b8d3d76520ba2ba1
+  - enabled: 1
+    path: Assets/Scenes/Tutorial2.unity
+    guid: 8f3a31e2b43e0454291756c1c0376f4c
+  - enabled: 1
+    path: Assets/Scenes/Tutorial3.unity
+    guid: bafe266f707734d4cbbcc7d6b4287b81
+  - enabled: 1
+    path: Assets/Scenes/Tutorial4.unity
+    guid: c83156dd9363a471f9f94fe7fdcfee00
+  - enabled: 1
+    path: Assets/Scenes/EasyLevel2.unity
+    guid: 9fb1548fb250240fe95721558ee52c80
+  - enabled: 1
+    path: Assets/Scenes/EasyLevel1.unity
+    guid: ecdb99ba79a224a219b046ae9040cad1
+  - enabled: 1
+    path: Assets/Scenes/EasyLevel3.unity
+    guid: 5c4f4a5206e944ba79d22bc0eb8b1aa0
+  - enabled: 1
+    path: Assets/Scenes/Alpha1.unity
+    guid: 82b1255396acd44c9a1f1e2e659190eb
+  - enabled: 1
+    path: Assets/Scenes/LiamsTestLevel.unity
+    guid: 509079a36243845e281226184010393b
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 35cf0d7764bb24bf8b58c513b13804f6
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: d399e60de4c824e2a818ce026b8bfeb8
+  - enabled: 0
     path: Assets/Scenes/Test.unity
     guid: 4ef5035fc680e41c0b8d1fbee9e7badc
+  - enabled: 0
+    path: Assets/Scenes/LiamsTest.unity
+    guid: 6f7cd8ffef93d4a75abab45c29551e90
   m_configObjects: {}

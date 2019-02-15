@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1704069791827602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.5, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,7 +54,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 0}
   grid: {fileID: 0}
-  facing: 0
+  facing: 1
+  cross: {fileID: 4414698077321394, guid: e5e7a2e6fee5647c5ae3310e7bef655a, type: 2}
+  spriteList:
+  - {fileID: 21300000, guid: ccb464a989c004ff187789ef92d04822, type: 3}
+  - {fileID: 21300000, guid: 5a32e27f793894627860ef332948797c, type: 3}
+  - {fileID: 21300000, guid: 1790a7f5652a640c390a6f225b35c57a, type: 3}
+  - {fileID: 21300000, guid: 7aef18557bb3e43278fb7f128d444e37, type: 3}
+  isStunned: 0
+  stunLeft: 0
+  enraged: 0
+  tillCharge: 0
+  speed: 8
+  Stun: {fileID: 1421310449168560, guid: fa5d738713c2b496eb1afe98c06cdd08, type: 2}
+  alert: {fileID: 1012272084958958, guid: d3096dbc1f3ff466290bcd3dfc668d7e, type: 2}
+  spriteListLeft:
+  - {fileID: 21300000, guid: 8fb71f1d375784d7abdb9c441b004f00, type: 3}
+  - {fileID: 21300002, guid: 8fb71f1d375784d7abdb9c441b004f00, type: 3}
+  - {fileID: 21300004, guid: 8fb71f1d375784d7abdb9c441b004f00, type: 3}
+  - {fileID: 21300006, guid: 8fb71f1d375784d7abdb9c441b004f00, type: 3}
+  spriteListDown:
+  - {fileID: 21300000, guid: bd18b4965d3cc415e9c48f7c278c3301, type: 3}
+  - {fileID: 21300002, guid: bd18b4965d3cc415e9c48f7c278c3301, type: 3}
+  - {fileID: 21300004, guid: bd18b4965d3cc415e9c48f7c278c3301, type: 3}
+  - {fileID: 21300006, guid: bd18b4965d3cc415e9c48f7c278c3301, type: 3}
+  spriteListUp:
+  - {fileID: 21300000, guid: f17537ccfbde746249ff18dcae72006b, type: 3}
+  - {fileID: 21300002, guid: f17537ccfbde746249ff18dcae72006b, type: 3}
+  - {fileID: 21300004, guid: f17537ccfbde746249ff18dcae72006b, type: 3}
+  - {fileID: 21300006, guid: f17537ccfbde746249ff18dcae72006b, type: 3}
+  spriteListRight:
+  - {fileID: 21300000, guid: 4b281ade335814d9da79a166d1e0e021, type: 3}
+  - {fileID: 21300002, guid: 4b281ade335814d9da79a166d1e0e021, type: 3}
+  - {fileID: 21300004, guid: 4b281ade335814d9da79a166d1e0e021, type: 3}
+  - {fileID: 21300006, guid: 4b281ade335814d9da79a166d1e0e021, type: 3}
 --- !u!212 &212468232199926960
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -8,13 +8,16 @@ public class TurnManager : MonoBehaviour {
 	public static GameObject player;
 	public static GameObject[] enemies;
 	public static int enemyMoves;
-	//Made this public so the enemy scripts could access
+	public static List<Vector3Int> killTiles = new List<Vector3Int>();
+	bool started = false;
+	//static AudioSource death;
+	
 	public enum TurnStates {
 		PLAYERMOVE,
 		ENEMYMOVE
 
 	}
-	static int turnCount = 0;
+	public static int turnCount = 0;
 	public static TurnStates currentState;
 	// Use this for initialization
 	void Start () {
@@ -22,12 +25,17 @@ public class TurnManager : MonoBehaviour {
 		player = GameObject.Find("Player");
 		enemies = GameObject.FindGameObjectsWithTag("Enemy");
 		enemyMoves = enemies.Length;
+		started = false;
+		//death = GetComponent<AudioSource>();
 	}
 	
 	//Switch move states if the object in question is in a different space than they were?
 	// Update is called once per frame
 	void Update () {
-		//Debug.Log(currentState + " " + turnCount + " " + enemyMoves);
+		if(!started){
+			player.GetComponent<testingTileHighlights>().playerMoveTiles();
+			started=true;
+		}
 		if(enemyMoves <= 0) {
 			enemyMoves = enemies.Length;
 			nextState();
@@ -35,6 +43,8 @@ public class TurnManager : MonoBehaviour {
 	}
 	public static void nextState() {
 		if(currentState == TurnStates.PLAYERMOVE) {
+			enemyMoves = enemies.Length;
+			killTiles = new List<Vector3Int>();
 			currentState = TurnStates.ENEMYMOVE;
 			enemyMoveSetup();
 		} else {
@@ -46,18 +56,11 @@ public class TurnManager : MonoBehaviour {
 	}
 
 	static void playerMoveSetup() {
-		for(int i = 0; i < enemies.Length;i++){
-			if(enemies[i].GetComponent<Scout>() != null) {
-				enemies[i].GetComponent<Scout>().enabled = false;
-			} else if(enemies[i].GetComponent<Ranger>() != null) {
-				enemies[i].GetComponent<Ranger>().enabled = false;
-			} else if(enemies[i].GetComponent<Bezerker>() != null) {
-				enemies[i].GetComponent<Bezerker>().enabled = false;
-			} else if(enemies[i].GetComponent<Warrior>() != null) {
-				enemies[i].GetComponent<Warrior>().enabled = false;
-			}
-		}
+		player.GetComponent<Player>().moved = false;
 		player.GetComponent<Player>().enabled = true;
+		player.GetComponent<testingTileHighlights>().enabled = true;
+		player.GetComponent<testingTileHighlights>().playerMoveTiles();
+		player.GetComponent<testingTileHighlights>().colorTiles();
 	}
 	static void enemyMoveSetup() {
 		for(int i = 0; i < enemies.Length;i++){
@@ -68,16 +71,20 @@ public class TurnManager : MonoBehaviour {
 			} else if(enemies[i].GetComponent<Bezerker>() != null) {
 				enemies[i].GetComponent<Bezerker>().enabled = true;
 			} else if(enemies[i].GetComponent<Warrior>() != null) {
-				enemies[i].GetComponent<Warrior>().enabled = true;
+				enemies[i].GetComponent<Warrior>().turn = false;
 			}
 		}
 		player.GetComponent<Player>().enabled = false;
+		player.GetComponent<testingTileHighlights>().enabled = false;
 	}
 
 	public TurnStates getCurrentState() {
 		return currentState;
 	}
+
 	public static void killed() {
+		//death.Play();
+		turnCount = 0;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }

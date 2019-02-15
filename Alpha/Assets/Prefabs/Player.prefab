@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4118861339262788}
   - component: {fileID: 212348282140991524}
   - component: {fileID: 114215508550982286}
+  - component: {fileID: 114491383657589972}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1599064180205316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: 2.5, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,6 +55,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 0}
   tilemap: {fileID: 0}
+  abilityButtons: {fileID: 0}
+  cancelButton: {fileID: 0}
+  moved: 0
+  UIManager: {fileID: 0}
+  abilityCharges: 1
+  haveKey: 0
+  FlourPoof: {fileID: 198498497743338388, guid: 9b3745958408d41f394ec08a2f77fef3,
+    type: 2}
+  dad: {fileID: 0}
+  highLight: {fileID: 4866634529931904, guid: eaddbeda8617f434c9b0e476cf730f24, type: 2}
+  facing: 0
+  spriteList:
+  - {fileID: 21300000, guid: 3fc1e1232447b44d4a6423cefee2fffd, type: 3}
+  - {fileID: 21300000, guid: 1d7d00fa6708646f6b765648aa83fecf, type: 3}
+  - {fileID: 21300000, guid: b6a24361e0d4747348809252d6c60d3d, type: 3}
+  - {fileID: 21300000, guid: d2a3834eb94f2466891e2001eca14615, type: 3}
+  spriteListLeft:
+  - {fileID: 21300000, guid: 599c64f70e5e945279a9edc98a0fb816, type: 3}
+  - {fileID: 21300002, guid: 599c64f70e5e945279a9edc98a0fb816, type: 3}
+  - {fileID: 21300004, guid: 599c64f70e5e945279a9edc98a0fb816, type: 3}
+  - {fileID: 21300006, guid: 599c64f70e5e945279a9edc98a0fb816, type: 3}
+  spriteListDown:
+  - {fileID: 21300000, guid: 547205df9c50248ff80a1a591ba3ba7a, type: 3}
+  - {fileID: 21300004, guid: 547205df9c50248ff80a1a591ba3ba7a, type: 3}
+  - {fileID: 21300002, guid: 547205df9c50248ff80a1a591ba3ba7a, type: 3}
+  - {fileID: 21300006, guid: 547205df9c50248ff80a1a591ba3ba7a, type: 3}
+  spriteListUp:
+  - {fileID: 21300000, guid: 67c00c4d31e6d46319828e428fc9f485, type: 3}
+  - {fileID: 21300004, guid: 67c00c4d31e6d46319828e428fc9f485, type: 3}
+  - {fileID: 21300002, guid: 67c00c4d31e6d46319828e428fc9f485, type: 3}
+  - {fileID: 21300006, guid: 67c00c4d31e6d46319828e428fc9f485, type: 3}
+  spriteListRight:
+  - {fileID: 21300000, guid: 2911625dbda6b48d28f53c5cf27853b2, type: 3}
+  - {fileID: 21300002, guid: 2911625dbda6b48d28f53c5cf27853b2, type: 3}
+  - {fileID: 21300004, guid: 2911625dbda6b48d28f53c5cf27853b2, type: 3}
+  - {fileID: 21300006, guid: 2911625dbda6b48d28f53c5cf27853b2, type: 3}
+  keypick: {fileID: 8300000, guid: fc80374abd2ae46918cb5c3f2a19b186, type: 3}
+  poof: {fileID: 8300000, guid: 26b1ab4ccd62f4dd5bc591040f216f1e, type: 3}
+  flourpick: {fileID: 8300000, guid: a542dedcd5d2346b2b6992020a461bdf, type: 3}
+--- !u!114 &114491383657589972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1599064180205316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e682f9f2425374c00a8dcd064d84465c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 0}
+  tilemap: {fileID: 0}
+  highlight: {fileID: 4414698077321394, guid: e5e7a2e6fee5647c5ae3310e7bef655a, type: 2}
+  dad: {fileID: 0}
 --- !u!212 &212348282140991524
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -89,7 +144,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: db0d10c949c9d4699b1e78608fe75392, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6a24361e0d4747348809252d6c60d3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

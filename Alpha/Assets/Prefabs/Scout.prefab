@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1988529030282640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.5, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,6 +52,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce37dc71d4c14c4fbdb81a4880ff541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  grid: {fileID: 0}
+  facing: 2
+  cross: {fileID: 4414698077321394, guid: e5e7a2e6fee5647c5ae3310e7bef655a, type: 2}
+  spriteList:
+  - {fileID: 21300000, guid: 6e1a541b0dd11493a9861b116770d471, type: 3}
+  - {fileID: 21300000, guid: 2610ceaa6692749b6afa664f41d21c1b, type: 3}
+  - {fileID: 21300000, guid: 88d7c75c544244f44af5edb63526613c, type: 3}
+  - {fileID: 21300000, guid: fc8c979b7e3894f918772b351330192f, type: 3}
+  isStunned: 0
+  stunLeft: 0
+  Stun: {fileID: 1421310449168560, guid: fa5d738713c2b496eb1afe98c06cdd08, type: 2}
+  spriteListLeft:
+  - {fileID: 21300000, guid: 23d74c8c9455f4f83a8d957f9c4cf942, type: 3}
+  - {fileID: 21300002, guid: 23d74c8c9455f4f83a8d957f9c4cf942, type: 3}
+  - {fileID: 21300004, guid: 23d74c8c9455f4f83a8d957f9c4cf942, type: 3}
+  - {fileID: 21300006, guid: 23d74c8c9455f4f83a8d957f9c4cf942, type: 3}
+  spriteListDown:
+  - {fileID: 21300000, guid: 88b0ea264eb864971a9f6cb6434711da, type: 3}
+  - {fileID: 21300002, guid: 88b0ea264eb864971a9f6cb6434711da, type: 3}
+  - {fileID: 21300004, guid: 88b0ea264eb864971a9f6cb6434711da, type: 3}
+  - {fileID: 21300006, guid: 88b0ea264eb864971a9f6cb6434711da, type: 3}
+  spriteListUp:
+  - {fileID: 21300000, guid: 5d7e957b25d354a9d9dfd9ec8f7c91b0, type: 3}
+  - {fileID: 21300002, guid: 5d7e957b25d354a9d9dfd9ec8f7c91b0, type: 3}
+  - {fileID: 21300004, guid: 5d7e957b25d354a9d9dfd9ec8f7c91b0, type: 3}
+  - {fileID: 21300006, guid: 5d7e957b25d354a9d9dfd9ec8f7c91b0, type: 3}
+  spriteListRight:
+  - {fileID: 21300000, guid: 965aa920648b6483082b88a3f1629316, type: 3}
+  - {fileID: 21300002, guid: 965aa920648b6483082b88a3f1629316, type: 3}
+  - {fileID: 21300004, guid: 965aa920648b6483082b88a3f1629316, type: 3}
+  - {fileID: 21300006, guid: 965aa920648b6483082b88a3f1629316, type: 3}
 --- !u!212 &212452843462805952
 SpriteRenderer:
   m_ObjectHideFlags: 1
