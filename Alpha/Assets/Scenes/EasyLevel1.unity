@@ -1434,7 +1434,6 @@ MonoBehaviour:
   flour: {fileID: 1228652960}
   keyIcon: {fileID: 211479831}
   turnManager: {fileID: 2000054254}
-  levelName: {fileID: 1708507952}
   turns: {fileID: 1296446588}
   chargeNum: {fileID: 1610927064}
   TwoStar: {fileID: 1710833122}
@@ -1766,7 +1765,7 @@ RectTransform:
   m_GameObject: {fileID: 953098314}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99987525, y: 0.99987525, z: 0.99987525}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1708507950}
   - {fileID: 1296446586}
@@ -2446,7 +2445,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 946d0ab1ec3fb45e19c416a27215d5ff, type: 3}
-    m_FontSize: 15
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -63979,7 +63978,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 946d0ab1ec3fb45e19c416a27215d5ff, type: 3}
-    m_FontSize: 15
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -63990,7 +63989,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level Name
+  m_Text: Level 2
 --- !u!1 &1710833119
 GameObject:
   m_ObjectHideFlags: 0

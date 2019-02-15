@@ -180,7 +180,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 946d0ab1ec3fb45e19c416a27215d5ff, type: 3}
-    m_FontSize: 15
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -462,18 +462,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 946d0ab1ec3fb45e19c416a27215d5ff, type: 3}
-    m_FontSize: 15
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 209
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level Name
+  m_Text: Level 3
 --- !u!1 &325319558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2823,7 +2823,6 @@ MonoBehaviour:
   flour: {fileID: 2127612351}
   keyIcon: {fileID: 1938466860}
   turnManager: {fileID: 1413111177}
-  levelName: {fileID: 211525241}
   turns: {fileID: 13266520}
   chargeNum: {fileID: 1597058387}
   TwoStar: {fileID: 1425108599}
@@ -64969,7 +64968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1713072425
 RectTransform:
   m_ObjectHideFlags: 0
@@ -64978,7 +64977,7 @@ RectTransform:
   m_GameObject: {fileID: 1713072424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99987525, y: 0.99987525, z: 0.99987525}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 211525239}
   - {fileID: 13266518}
