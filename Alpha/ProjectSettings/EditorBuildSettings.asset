@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d4fca5be52af74bdeaea976a5afe05a1
   - enabled: 1
+    path: Assets/Scenes/start.unity
+    guid: d47e91c71c58043989127e9153e0c5a7
+  - enabled: 1
     path: Assets/Scenes/Tutorial1.unity
     guid: 6d1f4a616c7d3494b8d3d76520ba2ba1
   - enabled: 1
@@ -35,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LiamsTestLevel.unity
     guid: 509079a36243845e281226184010393b
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 35cf0d7764bb24bf8b58c513b13804f6
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: d399e60de4c824e2a818ce026b8bfeb8
