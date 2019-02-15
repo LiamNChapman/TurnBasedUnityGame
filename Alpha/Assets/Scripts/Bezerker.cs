@@ -22,12 +22,18 @@ public class Bezerker : MonoBehaviour {
 
 	public GameObject Stun;
 	GameObject StunInstance;
+    public GameObject alert;
 
 	Vector3 destination;
 	int chargeDelay = 0;
 
-	// Use this for initialization
-	void Start () {
+    public Sprite[] spriteListLeft;
+    public Sprite[] spriteListDown;
+    public Sprite[] spriteListUp;
+    public Sprite[] spriteListRight;
+
+    // Use this for initialization
+    void Start () {
 		this.GetComponent<SpriteRenderer>().sprite = spriteList[facing-1];
 		Vector3 initialPos = this.transform.position;
 		Vector3Int pos = grid.WorldToCell(initialPos);
@@ -73,7 +79,7 @@ public class Bezerker : MonoBehaviour {
 				if(!enraged || tillCharge == 1){
 					tillCharge = 0;
 					TurnManager.enemyMoves--;
-					this.enabled = false;
+                    this.enabled = false;
 				}
 			} else {
 				chargeDelay = 0;
@@ -87,7 +93,10 @@ public class Bezerker : MonoBehaviour {
 			}
 			if(deleteLOS == false) {
 				foreach (Transform child in transform) {
-             		Destroy(child.gameObject);
+                    if (child.name != "Alert")
+                    {
+                        Destroy(child.gameObject);
+                    }
         		}
 			}
 			stunLeft--;
@@ -137,12 +146,16 @@ public class Bezerker : MonoBehaviour {
 					TurnManager.killTiles.Add(grid.WorldToCell(list[i+1]));
 				}
 				enraged = true;
-				tillCharge = 1;
+                alert.GetComponent<SpriteRenderer>().enabled = true;
+                tillCharge = 1;
 				for(int j = 0; j < list.Count; j++) {
 					Transform x = Instantiate(cross, (Vector3)list[j], transform.rotation);
 					x.parent = transform;
 					foreach(Transform child in transform){
-						child.GetComponent<SpriteRenderer>().color = new Color(255, 215, 0, 1);
+                        if (!child.Equals(alert))
+                        {
+                            child.GetComponent<SpriteRenderer>().color = new Color(255, 215, 0, 1);
+                        }
 					}
 				}
 			}
@@ -150,10 +163,14 @@ public class Bezerker : MonoBehaviour {
 	}
 
 	void attack(){
-			if(!charging) {
+        alert.GetComponent<SpriteRenderer>().enabled = false;
+        if (!charging) {
 				charging = true;
 				foreach (Transform child in transform) {
-             		Destroy(child.gameObject);
+                if (child.name != "Alert")
+                    {
+                        Destroy(child.gameObject);
+                    }
         		}			
 			}
 			Vector3 end = list[list.Count-1];

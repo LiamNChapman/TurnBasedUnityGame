@@ -63,6 +63,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7aef18557bb3e43278fb7f128d444e37, type: 3}
   isStunned: 0
   stunLeft: 0
+  enraged: 0
+  tillCharge: 0
+  speed: 10
+  Stun: {fileID: 0}
+  alert: {fileID: 1012272084958958, guid: d3096dbc1f3ff466290bcd3dfc668d7e, type: 2}
 --- !u!212 &212468232199926960
 SpriteRenderer:
   m_ObjectHideFlags: 1
