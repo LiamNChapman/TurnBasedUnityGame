@@ -17,7 +17,7 @@ public class Bezerker : MonoBehaviour {
 	public bool enraged = false;
 	public int tillCharge = 0;
 	bool charging = false;
-	public float speed = 4f;
+	public float speed = 10f;
 	bool deleteLOS = false;
 
 	public GameObject Stun;

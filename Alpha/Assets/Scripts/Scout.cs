@@ -16,7 +16,7 @@ public class Scout : MonoBehaviour {
 	public GameObject Stun;
 	GameObject StunInstance;
 
-	float speed = 2.0f;
+	float speed = 3.0f;
 	
 	Vector3 nextPos;
 	Vector3 destination;

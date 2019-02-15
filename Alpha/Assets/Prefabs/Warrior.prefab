@@ -64,6 +64,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b0e90d76f79a040abaff5c03096a9a9c, type: 3}
   isStunned: 0
   stunLeft: 0
+  Stun: {fileID: 1421310449168560, guid: fa5d738713c2b496eb1afe98c06cdd08, type: 2}
 --- !u!212 &212326482922056820
 SpriteRenderer:
   m_ObjectHideFlags: 1
