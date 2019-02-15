@@ -12,6 +12,7 @@ public class tut1mono : MonoBehaviour {
 	public GameObject Panel3;
 	public GameObject Panel4;
 	public GameObject Panel5;
+	public GameObject Panel6;
 
 	Vector3 pos1;
 	Vector3 pos2;
@@ -19,6 +20,7 @@ public class tut1mono : MonoBehaviour {
 	Vector3 pos4;
 	Vector3 pos5;
 	Vector3 pos6;
+	Vector3 pos7;
 
 	void Start(){
 		pos1 = Player.transform.position;
@@ -33,6 +35,8 @@ public class tut1mono : MonoBehaviour {
 		pos5.x += 1;
 		pos6 = pos5;
 		pos6.x += 1;
+		pos7 = pos6;
+		pos7.y += 1;
 	}
 
 	public void GameStart(){
@@ -69,6 +73,14 @@ public class tut1mono : MonoBehaviour {
 
 		if(Player.transform.position == pos6){
 			Panel5.SetActive(false);
+		}
+
+		if(Player.transform.position == pos7){
+			Panel6.SetActive(true);
+		}
+
+		if(Player.transform.position.x > pos7.x){
+			Panel6.SetActive(false);
 		}
 	}
 }

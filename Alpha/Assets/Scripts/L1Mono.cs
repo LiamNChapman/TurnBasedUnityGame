@@ -7,10 +7,7 @@ public class L1Mono : MonoBehaviour {
 	public GameObject Player;
 	public GameObject TurnManager;
 	public GameObject Bezerker;
-	public GameObject Ranger;
-	public GameObject Scout;
-	public GameObject Scout1;
-	public GameObject Warrior;
+	public GameObject Bezerker1;
 
 	public void StartGame(){
 		GetComponent<UIManager>().enabled = true;
@@ -18,9 +15,6 @@ public class L1Mono : MonoBehaviour {
 		Player.GetComponent<testingTileHighlights>().enabled = true;
 		TurnManager.GetComponent<TurnManager>().enabled = true;
 		Bezerker.GetComponent<Bezerker>().enabled = true;
-		Ranger.GetComponent<Ranger>().enabled = true;
-		Scout.GetComponent<Scout>().enabled = true;
-		Scout1.GetComponent<Scout>().enabled = true;
-		Warrior.GetComponent<Warrior>().enabled = true;
+		Bezerker1.GetComponent<Bezerker>().enabled = true;
 	}
 }
