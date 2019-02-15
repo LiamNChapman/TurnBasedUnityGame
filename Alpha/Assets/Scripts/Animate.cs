@@ -10,7 +10,7 @@ public class Animate : MonoBehaviour {
     // Update is called once per frame
 
     void Update () {
-        if (delay > 20) {
+        if (delay > 15) {
             this.GetComponent<SpriteRenderer>().sprite = spriteList[count];
             count++;
             if (count == 4)
