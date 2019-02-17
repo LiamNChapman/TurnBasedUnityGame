@@ -456,7 +456,7 @@ public class Player : MonoBehaviour {
 			bool leftAndRight2 = Math.Abs((this.transform.position.x-0.5f) - coordinate.x) == 0;
 			bool upAndDown2 = Math.Abs((this.transform.position.y-0.5f) - coordinate.y) == 0;
 
-			bool enemyThere = false;
+            bool enemyThere = false;
 
 			foreach(GameObject enemies in TurnManager.enemies){
 				Vector3 checkPos = (Vector3)coordinate;
@@ -464,21 +464,7 @@ public class Player : MonoBehaviour {
 				checkPos.y += 0.5f;
 				if(enemies.transform.position == checkPos){
 					enemyThere = true;
-					if(enemies.GetComponent<Scout>() != null) {
-						enemies.GetComponent<Scout>().isStunned = true;
-						enemies.GetComponent<Scout>().stunLeft = 3;
-					} else if(enemies.GetComponent<Ranger>() != null) {
-						enemies.GetComponent<Ranger>().isStunned = true;
-						enemies.GetComponent<Ranger>().stunLeft = 3;
-					} else if(enemies.GetComponent<Bezerker>() != null) {
-						enemies.GetComponent<Bezerker>().isStunned = true;
-						enemies.GetComponent<Bezerker>().stunLeft = 3;
-						enemies.GetComponent<Bezerker>().tillCharge = 0;
-						enemies.GetComponent<Bezerker>().enraged = false;
-					} else if(enemies.GetComponent<Warrior>() != null) {
-						enemies.GetComponent<Warrior>().isStunned = true;
-						enemies.GetComponent<Warrior>().stunLeft = 3;
-					}
+					
 				}
 			}
 
@@ -489,8 +475,41 @@ public class Player : MonoBehaviour {
 				if((upAndDown && leftAndRight2) || (leftAndRight && upAndDown2)){
 					Vector3 newPosition = (Vector3)coordinate;
 
-					// Shift the players character to the center of the tile.
-					newPosition.x += 0.5f;
+                    foreach (GameObject enemies in TurnManager.enemies)
+                    {
+                        Vector3 checkPos = (Vector3)coordinate;
+                        checkPos.x += 0.5f;
+                        checkPos.y += 0.5f;
+                        if (enemies.transform.position == checkPos)
+                        {
+                            enemyThere = true;
+                            if (enemies.GetComponent<Scout>() != null)
+                            {
+                                enemies.GetComponent<Scout>().isStunned = true;
+                                enemies.GetComponent<Scout>().stunLeft = 3;
+                            }
+                            else if (enemies.GetComponent<Ranger>() != null)
+                            {
+                                enemies.GetComponent<Ranger>().isStunned = true;
+                                enemies.GetComponent<Ranger>().stunLeft = 3;
+                            }
+                            else if (enemies.GetComponent<Bezerker>() != null)
+                            {
+                                enemies.GetComponent<Bezerker>().isStunned = true;
+                                enemies.GetComponent<Bezerker>().stunLeft = 3;
+                                enemies.GetComponent<Bezerker>().tillCharge = 0;
+                                enemies.GetComponent<Bezerker>().enraged = false;
+                            }
+                            else if (enemies.GetComponent<Warrior>() != null)
+                            {
+                                enemies.GetComponent<Warrior>().isStunned = true;
+                                enemies.GetComponent<Warrior>().stunLeft = 3;
+                            }
+                        }
+                    }
+
+                    // Shift the players character to the center of the tile.
+                    newPosition.x += 0.5f;
 					newPosition.y += 0.5f;
 					Instantiate(FlourPoof, newPosition, Quaternion.identity);
 					Stun.Play();
