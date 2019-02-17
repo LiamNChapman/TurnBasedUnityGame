@@ -20,7 +20,7 @@ public class Scoring : MonoBehaviour {
 		scores[7] = 27;//alpha1 - tbd
 		scores[8] = 31;//liamstestlevel - tbd
 		int turns = TurnManager.turnCount;
-		int buildIndex = SceneManager.GetActiveScene().buildIndex - 1;
+		int buildIndex = SceneManager.GetActiveScene().buildIndex - 2;
 		if(turns <= scores[buildIndex]) {
 			if(playerScores[buildIndex] < 3) {
 				playerScores[buildIndex] = 3;
